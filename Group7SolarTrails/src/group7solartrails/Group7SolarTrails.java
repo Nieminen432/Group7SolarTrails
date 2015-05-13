@@ -6,6 +6,7 @@
 package group7solartrails;
 
 import byui.cit260.solarTrails.model.Player;
+import byui.cit260.solarTrails.model.Character;
 
 /**
  *
@@ -25,6 +26,12 @@ public class Group7SolarTrails {
        String playerInfo = playerOne.toString();
        System.out.println(playerInfo);
        
+       Character character = new Character();
+       
+       character.setDescription("A super awesome dude!");
+       
+       String characterInfo = character.toString();
+       System.out.println(characterInfo);
     }
     
 }
