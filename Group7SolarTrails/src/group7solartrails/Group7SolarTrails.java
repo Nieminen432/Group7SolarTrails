@@ -7,6 +7,17 @@ package group7solartrails;
 
 import byui.cit260.solarTrails.model.Player;
 import byui.cit260.solarTrails.model.Character;
+import byui.cit260.solarTrails.model.AlienObjects;
+import byui.cit260.solarTrails.model.Engine;
+import byui.cit260.solarTrails.model.Game;
+import byui.cit260.solarTrails.model.HarvestingFuel;
+import byui.cit260.solarTrails.model.Location;
+import byui.cit260.solarTrails.model.Map;
+import byui.cit260.solarTrails.model.RandomEncounterSceneType;
+import byui.cit260.solarTrails.model.RegularSceneType;
+import byui.cit260.solarTrails.model.ResearchEvent;
+import byui.cit260.solarTrails.model.ScientistSpecialization;
+import byui.cit260.solarTrails.model.Ship;
 
 /**
  *
@@ -32,6 +43,72 @@ public class Group7SolarTrails {
        
        String characterInfo = character.toString();
        System.out.println(characterInfo);
+       
+       AlienObjects alienObject = new AlienObjects();
+       Game game = new Game();
+       HarvestingFuel fuelHarvest = new HarvestingFuel();
+       Location location = new Location();
+       Map map = new Map();
+       RandomEncounterSceneType randEncSceneType = new RandomEncounterSceneType();
+       RegularSceneType regSceneType = new RegularSceneType();
+       ResearchEvent resEvent = new ResearchEvent();
+       ScientistSpecialization sciSpec = new ScientistSpecialization();
+       Ship ship = new Ship();
+       Engine engine = new Engine();
+       
+       alienObject.setAmountResearched(40);
+       alienObject.setDescription("Stuff and things");
+       alienObject.setDistanceToUranus(57);
+       alienObject.setResearchScenarios("Things and such?");
+       alienObject.setSpeed(47000);
+       
+       game.setCrewName("AwesomeSauce7");
+       game.setCurrentScore(700000000);
+       game.setGameDate(57);
+       game.setNoPeople(7);
+       game.setTotalTime(17);
+       
+       fuelHarvest.setAmountAvailable(200);
+       fuelHarvest.setDescription("More things and Stuff");
+       fuelHarvest.setFoodUsed(100);
+       fuelHarvest.setFuelUsed(100);
+       fuelHarvest.setIsBlocked(true);
+       fuelHarvest.setResourceType(2);
+       fuelHarvest.setTravelTime(3);
+       
+       location.setAmountRemaining(7);
+       location.setVisited(1, true);
+       
+       engine.setFuelConsumption(34);
+       engine.setMaxSpeed(800);
+       engine.setWeight(74);
+       
+       ship.setEngine(engine);
+       ship.setDescription("Big");
+       ship.setLength(70000000);
+       
+       String objectInfo = alienObject.toString();
+       String gameInfo = game.toString();
+       String fuelHarvestInfo = fuelHarvest.toString();
+       String locInfo = location.toString();
+       String mapInfo = map.toString();
+       String randEncSceneTypeInfo = randEncSceneType.toString();
+       String regSceneTypeInfo = regSceneType.toString();
+       String resEventInfo = resEvent.toString();
+       String sciSpecInfo = sciSpec.toString();
+       String shipInfo = ship.toString();
+       String engineInfo = engine.toString();
+       
+       System.out.println(objectInfo);
+       System.out.println(gameInfo);
+       System.out.println(fuelHarvestInfo);
+       System.out.println(locInfo);
+       System.out.println(mapInfo);
+       System.out.println(randEncSceneTypeInfo);
+       System.out.println(regSceneTypeInfo);
+       System.out.println(resEventInfo);
+       System.out.println(sciSpecInfo);
+       System.out.println(shipInfo);
+       System.out.println(engineInfo);
     }
-    
 }

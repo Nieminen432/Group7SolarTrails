@@ -46,12 +46,12 @@ public class Location implements Serializable{
         }
     }
 
-    public boolean[] getVisited() {
-        return visited;
+    public boolean getVisited(int index) {
+        return visited[index];
     }
 
-    public void setVisited(boolean[] visited) {
-        this.visited = visited;
+    public void setVisited(int index, boolean visited) {
+        this.visited[index] = visited;
     }
 
     public int getAmountRemaining() {
