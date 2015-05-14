@@ -106,7 +106,7 @@ public class Group7SolarTrails {
        
        // Character Class
        
-       Character character = new Character();
+       GameCharacter character = new GameCharacter();
        character.setDescription("A super awesome dude!");
        character.setHealth(200);
        
