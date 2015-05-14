@@ -9,10 +9,13 @@ import byui.cit260.solarTrails.model.Player;
 import byui.cit260.solarTrails.model.Character;
 import byui.cit260.solarTrails.model.AlienObjects;
 import byui.cit260.solarTrails.model.Engine;
+import byui.cit260.solarTrails.model.Fuel;
 import byui.cit260.solarTrails.model.Game;
 import byui.cit260.solarTrails.model.HarvestingFuel;
+import byui.cit260.solarTrails.model.InventoryItem;
 import byui.cit260.solarTrails.model.Location;
 import byui.cit260.solarTrails.model.Map;
+import byui.cit260.solarTrails.model.Minerals;
 import byui.cit260.solarTrails.model.RandomEncounterSceneType;
 import byui.cit260.solarTrails.model.RegularSceneType;
 import byui.cit260.solarTrails.model.ResearchEvent;
@@ -37,8 +40,33 @@ public class Group7SolarTrails {
        String playerInfo = playerOne.toString();
        System.out.println(playerInfo);
        
-       Character character = new Character();
+       InventoryItem inventoryItem = new InventoryItem();
        
+       inventoryItem.setInventoryType("Inventory");
+       inventoryItem.setQuantityInStock(500);
+     
+       String inventoryInfo = inventoryItem.toString();
+       System.out.println(inventoryInfo);
+    
+       Fuel fuel = new Fuel();
+       
+       fuel.setTotal(500);
+       String fuelInfo = fuel.toString();
+       System.out.println(fuelInfo);
+       
+       Minerals minerals = new Minerals();
+       
+       minerals.setName("iron");
+       minerals.setPrice(100);
+       minerals.setDescription("A pile of iron used to make parts for the ship");
+       minerals.setType("metal");
+       minerals.setSize(50);
+       minerals.setWeight(200);
+       
+       String mineralInfo = minerals.toString();
+       System.out.println(mineralInfo);
+       
+       Character character = new Character();
        character.setDescription("A super awesome dude!");
        
        String characterInfo = character.toString();
