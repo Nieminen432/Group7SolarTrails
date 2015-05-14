@@ -5,27 +5,7 @@
  */
 package group7solartrails;
 
-import byui.cit260.solarTrails.model.Player;
-import byui.cit260.solarTrails.model.Character;
-import byui.cit260.solarTrails.model.AlienObjects;
-import byui.cit260.solarTrails.model.Engine;
-import byui.cit260.solarTrails.model.Food;
-import byui.cit260.solarTrails.model.Fuel;
-import byui.cit260.solarTrails.model.Game;
-import byui.cit260.solarTrails.model.HarvestingFuel;
-import byui.cit260.solarTrails.model.InventoryItem;
-import byui.cit260.solarTrails.model.ItemSynthesizer;
-import byui.cit260.solarTrails.model.Location;
-import byui.cit260.solarTrails.model.Map;
-import byui.cit260.solarTrails.model.Medicine;
-import byui.cit260.solarTrails.model.Minerals;
-import byui.cit260.solarTrails.model.Parts;
-import byui.cit260.solarTrails.model.RandomEncounterSceneType;
-import byui.cit260.solarTrails.model.RegularSceneType;
-import byui.cit260.solarTrails.model.ResearchEvent;
-import byui.cit260.solarTrails.model.ScientistSpecialization;
-import byui.cit260.solarTrails.model.Ship;
-import byui.cit260.solarTrails.model.SynthesizedItems;
+import byui.cit260.solarTrails.model.*;
 
 /**
  *
@@ -37,6 +17,8 @@ public class Group7SolarTrails {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        // Player One class
        Player playerOne = new Player();
        
        playerOne.setName("Space Captain");
@@ -45,6 +27,8 @@ public class Group7SolarTrails {
        String playerInfo = playerOne.toString();
        System.out.println(playerInfo);
        
+       // Inventory Item Class
+       
        InventoryItem inventoryItem = new InventoryItem();
        
        inventoryItem.setInventoryType("Inventory");
@@ -52,12 +36,16 @@ public class Group7SolarTrails {
      
        String inventoryInfo = inventoryItem.toString();
        System.out.println(inventoryInfo);
+       
+       // Fuel Class
     
        Fuel fuel = new Fuel();
        
        fuel.setTotal(500);
        String fuelInfo = fuel.toString();
        System.out.println(fuelInfo);
+       
+       // Mineral Class
        
        Minerals minerals = new Minerals();
        
@@ -71,6 +59,8 @@ public class Group7SolarTrails {
        String mineralInfo = minerals.toString();
        System.out.println(mineralInfo);
        
+       // Item Synthesizer Class
+       
        ItemSynthesizer synthesizer = new ItemSynthesizer();
        
        synthesizer.setEfficiency(20);
@@ -80,6 +70,8 @@ public class Group7SolarTrails {
        String synthesizerInfo = synthesizer.toString();
        System.out.println(synthesizerInfo);
        
+       // Parts Class
+       
        Parts parts = new Parts();
        parts.setApplication("Repairs the Ship");
        parts.setPercentRepaired(20);
@@ -87,17 +79,23 @@ public class Group7SolarTrails {
        String partsInfo = parts.toString();
        System.out.println(partsInfo);
        
+       // Synthesized Items Class
+       
        SynthesizedItems synthesized = new SynthesizedItems();
        synthesized.setWeight(200);
        
        String synthesizedInfo = synthesized.toString();
        System.out.println(synthesizedInfo);
        
+       // Food Class
+       
        Food food = new Food();
        food.setTotal(100);
        
        String foodInfo = food.toString();
        System.out.println(foodInfo);
+       
+       // Medicine Class
        
        Medicine medicine = new Medicine();
        medicine.setApplication("Heals the Character a certain percent");
@@ -106,7 +104,7 @@ public class Group7SolarTrails {
        String medicineInfo = medicine.toString();
        System.out.println(medicineInfo);
        
-       
+       // Character Class
        
        Character character = new Character();
        character.setDescription("A super awesome dude!");
@@ -115,17 +113,9 @@ public class Group7SolarTrails {
        String characterInfo = character.toString();
        System.out.println(characterInfo);
        
+       // Alien Objects Class
+       
        AlienObjects alienObject = new AlienObjects();
-       Game game = new Game();
-       HarvestingFuel fuelHarvest = new HarvestingFuel();
-       Location location = new Location();
-       Map map = new Map();
-       RandomEncounterSceneType randEncSceneType = new RandomEncounterSceneType();
-       RegularSceneType regSceneType = new RegularSceneType();
-       ResearchEvent resEvent = new ResearchEvent();
-       ScientistSpecialization sciSpec = new ScientistSpecialization();
-       Ship ship = new Ship();
-       Engine engine = new Engine();
        
        alienObject.setAmountResearched(40);
        alienObject.setDescription("Stuff and things");
@@ -133,11 +123,25 @@ public class Group7SolarTrails {
        alienObject.setResearchScenarios("Things and such?");
        alienObject.setSpeed(47000);
        
+       String objectInfo = alienObject.toString();
+       System.out.println(objectInfo);
+       
+       // Game Class
+       
+       Game game = new Game();
+       
        game.setCrewName("AwesomeSauce7");
        game.setCurrentScore(700000000);
        game.setGameDate(57);
        game.setNoPeople(7);
        game.setTotalTime(17);
+       
+       String gameInfo = game.toString();
+       System.out.println(gameInfo);
+       
+       // Harvesting Fuel class
+       
+       HarvestingFuel fuelHarvest = new HarvestingFuel();
        
        fuelHarvest.setAmountAvailable(200);
        fuelHarvest.setDescription("More things and Stuff");
@@ -147,9 +151,65 @@ public class Group7SolarTrails {
        fuelHarvest.setResourceType(2);
        fuelHarvest.setTravelTime(3);
        
+       String fuelHarvestInfo = fuelHarvest.toString();
+       System.out.println(fuelHarvestInfo);
+       
+       // Location Class
+       
+       Location location = new Location();
+       
        location.setAmountRemaining(7);
        location.setVisited(1, true);
        
+       String locInfo = location.toString();
+       System.out.println(locInfo);
+       
+       // Map Class
+       
+       Map map = new Map();
+       
+       String mapInfo = map.toString();
+       System.out.println(mapInfo);
+       
+       // Random Encounter Scene Type
+       
+       RandomEncounterSceneType randEncSceneType = new RandomEncounterSceneType();
+       
+       String randEncSceneTypeInfo = randEncSceneType.toString();
+       System.out.println(randEncSceneTypeInfo);
+       
+       // Regular Scene Type
+       
+       RegularSceneType regSceneType = new RegularSceneType();
+       
+       String regSceneTypeInfo = regSceneType.toString();
+       System.out.println(regSceneTypeInfo);
+       
+       // Research Event Class
+       
+       ResearchEvent resEvent = new ResearchEvent();
+       
+       String resEventInfo = resEvent.toString();
+       System.out.println(resEventInfo);
+       
+       // Scientist Specialization Class
+       
+       ScientistSpecialization sciSpec = new ScientistSpecialization();
+       
+       String sciSpecInfo = sciSpec.toString();
+       System.out.println(sciSpecInfo);
+       
+       // Ship Class
+       
+       Ship ship = new Ship();
+       
+       String shipInfo = ship.toString();
+       System.out.println(shipInfo);
+       
+       // Engine Class
+       
+       Engine engine = new Engine();
+ 
        engine.setFuelConsumption(34);
        engine.setMaxSpeed(800);
        engine.setWeight(74);
@@ -158,28 +218,9 @@ public class Group7SolarTrails {
        ship.setDescription("Big");
        ship.setLength(70000000);
        
-       String objectInfo = alienObject.toString();
-       String gameInfo = game.toString();
-       String fuelHarvestInfo = fuelHarvest.toString();
-       String locInfo = location.toString();
-       String mapInfo = map.toString();
-       String randEncSceneTypeInfo = randEncSceneType.toString();
-       String regSceneTypeInfo = regSceneType.toString();
-       String resEventInfo = resEvent.toString();
-       String sciSpecInfo = sciSpec.toString();
-       String shipInfo = ship.toString();
        String engineInfo = engine.toString();
-       
-       System.out.println(objectInfo);
-       System.out.println(gameInfo);
-       System.out.println(fuelHarvestInfo);
-       System.out.println(locInfo);
-       System.out.println(mapInfo);
-       System.out.println(randEncSceneTypeInfo);
-       System.out.println(regSceneTypeInfo);
-       System.out.println(resEventInfo);
-       System.out.println(sciSpecInfo);
-       System.out.println(shipInfo);
        System.out.println(engineInfo);
+       
+    
     }
 }

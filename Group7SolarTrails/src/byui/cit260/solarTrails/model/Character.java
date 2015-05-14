@@ -56,7 +56,7 @@ public class Character implements Serializable {
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", description=" + description + ", coordArray=" + coordArray + "health=" + health + '}';
+        return "Character{" + "name=" + name + ", description=" + description + ", coordArray=" + Arrays.toString(coordArray) + "health=" + health + '}';
     }
 
     @Override
