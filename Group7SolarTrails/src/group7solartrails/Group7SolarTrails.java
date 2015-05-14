@@ -154,6 +154,15 @@ public class Group7SolarTrails {
        String fuelHarvestInfo = fuelHarvest.toString();
        System.out.println(fuelHarvestInfo);
        
+       // Illness Class 
+       
+       Illness illness = new Illness();
+       illness.setSeverity(5);
+       illness.setType(5);
+       
+       String illnessInfo = illness.toString();
+       System.out.println(illnessInfo);
+       
        // Location Class
        
        Location location = new Location();
