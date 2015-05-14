@@ -17,6 +17,7 @@ public class Character implements Serializable {
     private String name;
     private String description;
     private int[] coordArray = new int[2];
+    private double health;
 
     public Character() {
     }
@@ -27,6 +28,14 @@ public class Character implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getHealth() {
+        return health;
+    }
+
+    public void setHealth(double health) {
+        this.health = health;
     }
 
     public String getDescription() {
@@ -47,7 +56,7 @@ public class Character implements Serializable {
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", description=" + description + ", coordArray=" + coordArray + '}';
+        return "Character{" + "name=" + name + ", description=" + description + ", coordArray=" + coordArray + "health=" + health + '}';
     }
 
     @Override
@@ -56,6 +65,7 @@ public class Character implements Serializable {
         hash = 67 * hash + Objects.hashCode(this.name);
         hash = 67 * hash + Objects.hashCode(this.description);
         hash = 67 * hash + Arrays.hashCode(this.coordArray);
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
         return hash;
     }
 
@@ -75,6 +85,9 @@ public class Character implements Serializable {
             return false;
         }
         if (!Arrays.equals(this.coordArray, other.coordArray)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.health) != Double.doubleToLongBits(other.health)) {
             return false;
         }
         return true;

@@ -9,18 +9,23 @@ import byui.cit260.solarTrails.model.Player;
 import byui.cit260.solarTrails.model.Character;
 import byui.cit260.solarTrails.model.AlienObjects;
 import byui.cit260.solarTrails.model.Engine;
+import byui.cit260.solarTrails.model.Food;
 import byui.cit260.solarTrails.model.Fuel;
 import byui.cit260.solarTrails.model.Game;
 import byui.cit260.solarTrails.model.HarvestingFuel;
 import byui.cit260.solarTrails.model.InventoryItem;
+import byui.cit260.solarTrails.model.ItemSynthesizer;
 import byui.cit260.solarTrails.model.Location;
 import byui.cit260.solarTrails.model.Map;
+import byui.cit260.solarTrails.model.Medicine;
 import byui.cit260.solarTrails.model.Minerals;
+import byui.cit260.solarTrails.model.Parts;
 import byui.cit260.solarTrails.model.RandomEncounterSceneType;
 import byui.cit260.solarTrails.model.RegularSceneType;
 import byui.cit260.solarTrails.model.ResearchEvent;
 import byui.cit260.solarTrails.model.ScientistSpecialization;
 import byui.cit260.solarTrails.model.Ship;
+import byui.cit260.solarTrails.model.SynthesizedItems;
 
 /**
  *
@@ -66,8 +71,46 @@ public class Group7SolarTrails {
        String mineralInfo = minerals.toString();
        System.out.println(mineralInfo);
        
+       ItemSynthesizer synthesizer = new ItemSynthesizer();
+       
+       synthesizer.setEfficiency(20);
+       synthesizer.setListItems("List of Items");
+       synthesizer.setStateOfRepair("This item has 80% left");
+       
+       String synthesizerInfo = synthesizer.toString();
+       System.out.println(synthesizerInfo);
+       
+       Parts parts = new Parts();
+       parts.setApplication("Repairs the Ship");
+       parts.setPercentRepaired(20);
+       
+       String partsInfo = parts.toString();
+       System.out.println(partsInfo);
+       
+       SynthesizedItems synthesized = new SynthesizedItems();
+       synthesized.setWeight(200);
+       
+       String synthesizedInfo = synthesized.toString();
+       System.out.println(synthesizedInfo);
+       
+       Food food = new Food();
+       food.setTotal(100);
+       
+       String foodInfo = food.toString();
+       System.out.println(foodInfo);
+       
+       Medicine medicine = new Medicine();
+       medicine.setApplication("Heals the Character a certain percent");
+       medicine.setEffectiveness(10);
+       
+       String medicineInfo = medicine.toString();
+       System.out.println(medicineInfo);
+       
+       
+       
        Character character = new Character();
        character.setDescription("A super awesome dude!");
+       character.setHealth(200);
        
        String characterInfo = character.toString();
        System.out.println(characterInfo);
