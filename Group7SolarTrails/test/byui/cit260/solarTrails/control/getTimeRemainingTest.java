@@ -32,7 +32,7 @@ public class getTimeRemainingTest {
         double speed = 100.0;
         double distance = 86.06;
         
-        double expResult = 4380.099157996058; // expected output returned value
+        double expResult = 4380.099; // expected output returned value
         
         // create instance of TimeRemaining class
         getTimeRemaining instance = new getTimeRemaining();
@@ -41,7 +41,7 @@ public class getTimeRemainingTest {
         double result = instance.timeOfObjectRemaining(speed, distance);
         
         // compare expected return value with actual value returned 
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result, 0.01);
         
         System.out.println ("\tTest case #2");
        
