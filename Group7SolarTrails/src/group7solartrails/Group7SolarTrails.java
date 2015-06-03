@@ -6,6 +6,7 @@
 package group7solartrails;
 
 import byui.cit260.solarTrails.model.*;
+import byui.cit260.solarTrails.view.*;
 
 /**
  *
@@ -16,9 +17,52 @@ public class Group7SolarTrails {
     /**
      * @param args the command line arguments
      */
+    
+    private static Game currentGame = null;
+    private static Player player = null;
+            
     public static void main(String[] args) {
+        // create StartProgramView and start the program
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
         
-        // Player One class
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        Group7SolarTrails.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        Group7SolarTrails.player = player;
+    }    
+        
+        
+        
+        
+        
+        
+        
+       /** class info that was previously added
+        * Player One class
        Player playerOne = new Player();
        
        playerOne.setName("Space Captain");
@@ -230,6 +274,8 @@ public class Group7SolarTrails {
        String engineInfo = engine.toString();
        System.out.println(engineInfo);
        
-    
+    */
     }
-}
+
+
+
