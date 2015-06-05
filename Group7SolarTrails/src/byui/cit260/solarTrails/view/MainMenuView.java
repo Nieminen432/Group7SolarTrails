@@ -20,12 +20,12 @@ public class MainMenuView {
             + "\n-----------------------------------"
             + "\n | Main Menu                       "
             + "\n-----------------------------------"
-            + "\nN - Start Game"
+            + "\nN - New Game"
             + "\nH - Get help on how to play the game"
             + "\nL - Load Game"
             + "\nE - Exit"
             + "\n-----------------------------------";
-    private Object gameMenu;
+    
 
     public void displayMenu() {
         
@@ -98,11 +98,13 @@ public class MainMenuView {
     }
 
     private void startExistingGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Load existing game
+        
     }
 
     private void displayHelpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
     }
     
 }
