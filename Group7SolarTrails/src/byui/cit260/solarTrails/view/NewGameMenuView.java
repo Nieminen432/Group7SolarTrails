@@ -13,22 +13,21 @@ import java.util.Scanner;
  */
 public class NewGameMenuView {
     
-        private final String MENU = "\n"
-            + "\n-----------------------------------"
-            + "\n | New Game Menu                       "
-            + "\n | Please select an option from each menu below."
-            + "\n | If you do not select an option, a random option will be assigned to you."
-            + "\n-----------------------------------"
-            + "\nS - Choose your ship"
-            + "\nR - Choose your Research Specialization"
-            + "\nC - Choose crew members and their specializations"
-            + "\nI - Choose your starting inventory (food, medicine, minerals)"
-            + "\nM - Return to the main menu"
-            + "\nP - Select P when you are ready to play!"
-            + "\n-----------------------------------";
+    private final String MENU = "\n"
+        + "\n-----------------------------------"
+        + "\n | New Game Menu                       "
+        + "\n | Please select an option from each menu below."
+        + "\n | If you do not select an option, a random option will be assigned to you."
+        + "\n-----------------------------------"
+        + "\nS - Choose your ship"
+        + "\nR - Choose your Research Specialization"
+        + "\nC - Choose crew members and their specializations"
+        + "\nI - Choose your starting inventory (food, medicine, minerals)"
+        + "\nM - Return to the main menu"
+        + "\nP - Select P when you are ready to play!"
+        + "\n-----------------------------------";
     
     public void displayMenu() {
-        
         char selection = ' ';
         do {
             System.out.println(MENU); // display the new game menu
@@ -65,7 +64,6 @@ public class NewGameMenuView {
     }
 
     public void doAction(char choice) {
-        
         switch (choice) {
             case 'S': // choose the ship
                 this.chooseYourShip();
@@ -87,7 +85,6 @@ public class NewGameMenuView {
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-                
         }
     }
 
@@ -104,13 +101,12 @@ public class NewGameMenuView {
     }
     
     private void chooseMainMenu() {
-    MainMenuView mainMenu = new MainMenuView();
+        MainMenuView mainMenu = new MainMenuView();
         mainMenu.displayMenu(); 
     }
     private void chooseStartingInventory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }
     
 
