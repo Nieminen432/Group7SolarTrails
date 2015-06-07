@@ -22,10 +22,11 @@ public class SynthesizerControl {
             return -1;
         }
         
-        for (int i = 1; i <= quantity && adequateMaterialsRemaining(reqMats, itemType) == true; i++) {
+        /* for (int i = 1; i <= quantity && adequateMaterialsRemaining(reqMats, itemType) == true; i++) {
             Inventory.minerals -= reqMats * (1 + ItemSynthesizer.getStateOfRepair());
             Add to inventory
             ItemSynthesizer.setStateOfRepair();
-        }
+        }*/
+        return 0;
     }
 }

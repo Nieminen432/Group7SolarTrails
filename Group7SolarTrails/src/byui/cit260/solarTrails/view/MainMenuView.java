@@ -55,6 +55,7 @@ public class MainMenuView {
            // get the input from the keyboard and trim off the blanks
            input = keyboard.nextLine();
            input = input.trim();
+           input = input.toUpperCase();
            
            // if the input is invalid (more than 1 character)
            if (input.length() > 1) {
@@ -74,12 +75,12 @@ public class MainMenuView {
                 this.startNewGame();
                 break;
             case 'L': // get and start an existing game
-                this.startExistingGame();
+                this.startExistingGameMenu();
                 break;
             case 'H': // display the help menu
                 this.displayHelpMenu();
                 break;
-            case 'E': // Exist the program
+            case 'E': // Exit the program
                 return;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -97,9 +98,10 @@ public class MainMenuView {
         newGameMenu.displayMenu();        
     }
 
-    private void startExistingGame() {
+    private void startExistingGameMenu() {
         // Load existing game
-        
+      StartExistingGameMenu existingGame  = new StartExistingGameMenu();
+      existingGame.displayMenu();
     }
 
     private void displayHelpMenu() {

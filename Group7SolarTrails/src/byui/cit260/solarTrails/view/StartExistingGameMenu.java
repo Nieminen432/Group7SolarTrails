@@ -9,7 +9,7 @@ package byui.cit260.solarTrails.view;
  *
  * @author Hiatt-Adam
  */
-public class ChooseResearchSpecializationMenuView {
+public class StartExistingGameMenu {
 
     void displayMenu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

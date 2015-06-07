@@ -82,6 +82,7 @@ public class NewGameMenuView {
                 this.chooseMainMenu();
                 break;                
             case 'P': // Begin the game
+                this.choosePlayGame();
                 return;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -90,15 +91,18 @@ public class NewGameMenuView {
     }
 
     private void chooseYourShip() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChooseShipView chooseShip = new ChooseShipView();
+        chooseShip.displayMenu();
     }
 
     private void chooseResearchSpecialization() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChooseResearchSpecializationMenuView chooseResearchSpec = new ChooseResearchSpecializationMenuView();
+        chooseResearchSpec.displayMenu();        
     }
 
     private void chooseCrewAndSpecialty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
+        chooseCrew.displayMenu();
     }
     
     private void chooseMainMenu() {
@@ -106,7 +110,12 @@ public class NewGameMenuView {
         mainMenu.displayMenu(); 
     }
     private void chooseStartingInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SelectStartInventoryView selectStartInv = new SelectStartInventoryView();
+        selectStartInv.displayMenu();
+    }
+
+    private void choosePlayGame() {
+        // starts a new game
     }
 }
     
