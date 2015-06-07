@@ -250,6 +250,7 @@ public class RandomSceneMenuView {
             // get the input from the keyboard and trim off the blanks
             input = keyboard.nextLine();
             input = input.trim();
+            input = input.toUpperCase();
 
             // if the input is invalid (more than 1 character)
             if (input.length() > 1) {
