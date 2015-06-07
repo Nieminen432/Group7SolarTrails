@@ -83,9 +83,7 @@ public class RandomSceneMenuView {
                       + "\nC - Continue on";
                 break;
             case 4:
-                menu += "\nM - Open map"
-                      + "\nC - Continue on";
-                break;
+                menu += "\nM - Open map";
             case 5:
             case 6:
                 menu += "\nC - Continue on";
@@ -124,43 +122,117 @@ public class RandomSceneMenuView {
     }
 
     private void doAction(char selection, int randomSituation) {
-        switch (selection) {
-            case 'H': 
-                this.chooseHarvest();
+        switch (randomSituation) {
+            case 1:
+                switch (selection) {
+                    case 'H': 
+                        this.chooseHarvest();
+                        break;
+                    case 'C': 
+                        this.chooseContinue();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
-            case 'C': 
-                this.chooseContinue();
+            case 2:
+                switch (selection) {
+                    case 'R': 
+                        this.chooseRepair();
+                        break;
+                    case 'S': 
+                        this.chooseSynth();
+                        break;
+                    case 'I': 
+                        this.chooseInventory();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
-            case 'R': 
-                this.chooseRepair();
+            case 3:
+                switch (selection) {
+                    case 'P': 
+                        this.chooseProbe();
+                        break;
+                    case 'G': 
+                        this.chooseSingularity();
+                        break;
+                    case 'C': 
+                        this.chooseContinue();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
-            case 'S': 
-                this.chooseSynth();
+            case 4:
+                switch (selection) {
+                    case 'M': 
+                        this.chooseMap();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
-            case 'I': 
-                this.chooseInventory();
+            case 5:
+            case 6:
+                switch (selection) {
+                    case 'C': 
+                        this.chooseContinue();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
-            case 'P': 
-                this.chooseProbe();
+            case 7:
+                switch (selection) {
+                    case 'F': 
+                        this.chooseSatFix();
+                        break;
+                    case 'C': 
+                        this.chooseContinue();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
-            case 'G': 
-                this.chooseSingularity();
+            case 8:
+                switch (selection) {
+                    case 'Y': 
+                        this.chooseYes();
+                        break;
+                    case 'N': 
+                        this.chooseNo();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
-            case 'F': 
-                this.chooseSatFix();
-                break;
-            case 'M': 
-                this.chooseMap();
-                break;
-            case 'Y': 
-                this.chooseYes();
-                break;
-            case 'N': 
-                this.chooseNo();
-                break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                getInput();
+            case 9:
+            case 10:
+                switch (selection) {
+                    case 'C': 
+                        this.chooseContinue();
+                        break;
+                    default:
+                        System.out.println("\n*** Invalid selection *** Try again");
+                        getInput();
+                        break;
+                }
                 break;
         }
     }
