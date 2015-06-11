@@ -102,8 +102,8 @@ public class ChooseShipView {
     }
 
     private void previousMenu() {
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayMenu(); 
+        NewGameMenuView newGameMenu = new NewGameMenuView();
+        newGameMenu.displayMenu(); 
     }
     
 }

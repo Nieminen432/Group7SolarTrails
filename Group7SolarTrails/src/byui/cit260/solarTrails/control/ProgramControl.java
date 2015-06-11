@@ -6,6 +6,7 @@
 package byui.cit260.solarTrails.control;
 
 import byui.cit260.solarTrails.model.Player;
+import byui.cit260.solarTrails.model.Ship;
 import group7solartrails.Group7SolarTrails;
 
 /**
@@ -25,4 +26,10 @@ public class ProgramControl {
         
         return player;
     }
+    
+    public static Ship createShip(int maxCrew) { // set crew size
+        
+            return null;
+    }
+    
 }

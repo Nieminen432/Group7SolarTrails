@@ -16,13 +16,13 @@ public class ChooseEngineTypeView {
             + "\n-----------------------------------"
             + "\n | Pick your ship type"
             + "\n-----------------------------------"
-            + "\nS - This is the combustion engine. Its max speed is 20AU/hour."
+            + "\nC - This is the combustion engine. Its max speed is 20AU/hour."
             + "\n    This engine burns rocketfuel which can be harvested or synthesized. "
             + "\n    This engine is tried and tested and doesn't have many problems."
-            + "\n\nM - This is the impulse engine. It's max speed is 60AU/hour"
+            + "\nI - This is the impulse engine. It's max speed is 40AU/hour"
             + "\n    This engine burns <SOMETHING?> which can be harvested or synthesized."
             + "\n    This engine has gone through extensive testing but still experiences breakdowns."
-            + "\nL - This is the hyperdrive engine. It's max speed is 107AU/hour."
+            + "\nS - This is the hyperdrive engine. It's max speed is 60AU/hour."
             + "\n    This engine runs on solar power and it is a very new technology that has a tendancy to breakdown."
             + "\nR - Reset currently selected ship options"
             + "\nB - Go Back to the previous menu"
@@ -78,8 +78,8 @@ public class ChooseEngineTypeView {
             case 'I': // get and start an existing game
                 this.chooseImpulseEngine();
                 break;
-            case 'H': // get and start an existing game
-                this.chooseHyperdriveEngine();
+            case 'S': // get and start an existing game
+                this.chooseSolarSail();
                 break;
             case 'R': // display the help menu
                 this.resetShipOptions();
@@ -110,7 +110,7 @@ public class ChooseEngineTypeView {
         chooseShip.displayMenu();
     }
 
-    private void chooseHyperdriveEngine() {
+    private void chooseSolarSail() {
         // Select LargeShipType
         System.out.println("You have selected the Hyperdrive.");
         ChooseShipView chooseShip = new ChooseShipView();

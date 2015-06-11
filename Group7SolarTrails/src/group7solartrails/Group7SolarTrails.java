@@ -54,6 +54,10 @@ public class Group7SolarTrails {
     public static void setPlayer(Player player) {
         Group7SolarTrails.player = player;
     }    
+
+    public static void setCrew(int maxCrew) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
         
         

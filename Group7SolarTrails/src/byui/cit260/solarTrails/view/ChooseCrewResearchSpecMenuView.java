@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Hiatt-Adam
  */
-public class ChooseResearchSpecializationMenuView {
+public class ChooseCrewResearchSpecMenuView {
 
 private final String MENU = "\n"
             + "\n-----------------------------------"
@@ -174,7 +174,7 @@ private final String MENU = "\n"
 
     private void previousMenu() {
         // return to previous menu
-        NewGameMenuView newGameMenu = new NewGameMenuView();
-        newGameMenu.displayMenu(); 
+        ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
+        chooseCrew.displayMenu();
     }
 }
