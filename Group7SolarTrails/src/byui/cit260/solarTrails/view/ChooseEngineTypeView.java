@@ -11,8 +11,9 @@ import java.util.Scanner;
  *
  * @author Hiatt-Adam
  */
-public class ChooseEngineTypeView {
-    private final String MENU = "\n"
+public class ChooseEngineTypeView extends View{
+    public ChooseEngineTypeView() {
+        super("\n"
             + "\n-----------------------------------"
             + "\n | Pick your ship type"
             + "\n-----------------------------------"
@@ -25,51 +26,17 @@ public class ChooseEngineTypeView {
             + "\nS - This is the hyperdrive engine. It's max speed is 60AU/hour."
             + "\n    This engine runs on solar power and it is a very new technology that has a tendancy to breakdown."
             + "\nR - Reset currently selected ship options"
-            + "\nB - Go Back to the previous menu"
-            + "\n-----------------------------------";
-
-    void displayMenu() {
-            
-        char selection = ' ';
-        do {
-            System.out.println(MENU); // display the main menu
-            
-            String input = this.getInput(); // get the user's selection
-            selection = input.charAt(0); // get first character of string
-            
-            this.doAction(selection); // do action based on selection
-            
-        
-        } while (selection != 'B'); // a selection that is not "Back"
+            + "\nD - Go Back to the previous menu"
+            + "\n-----------------------------------");
     }
 
-    public String getInput() {
-       boolean valid = false; // indicates if the input has been retrieved
-       String input = null;
-       Scanner keyboard = new Scanner(System.in); // keyboard input stream
-       
-       while(!valid) { // while a valid input has not been retreved
-           
-           // prompt for a menu item
-           System.out.println("Select a menu item.");
-           
-           // get the input from the keyboard and trim off the blanks
-           input = keyboard.nextLine();
-           input = input.trim();
-           input = input.toUpperCase();
-           
-           // if the input is invalid (more than 1 character)
-           if (input.length() > 1) {
-               System.out.println("Invalid selection - please enter a menu item.");
-               continue; // and repeat again
-           }
-           break; // exit repetition
-       }
-       return input; // return the input
-       
-    }
 
-    public void doAction(char choice) {
+
+        @Override
+        public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         
         switch (choice) {
             case 'C': // create and start a new game
@@ -84,37 +51,35 @@ public class ChooseEngineTypeView {
             case 'R': // display the help menu
                 this.resetShipOptions();
                 break;
-            case 'B': // Exit the program
+            case 'D': // Exit the program
                 this.previousMenu();
-                return;
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
 
-    }
-
-    
+    } return false;
 }
 
     private void chooseCombustionEngine() {
         // Select SmallShipType
         System.out.println("You have selected the Combustion Engine.");
         ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.displayMenu();
+        chooseShip.display();
     }
 
     private void chooseImpulseEngine() {
         // Select MediumShipType
         System.out.println("You have selected the Impulse Engine.");
         ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.displayMenu();
+        chooseShip.display();
     }
 
     private void chooseSolarSail() {
         // Select LargeShipType
         System.out.println("You have selected the Hyperdrive.");
         ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.displayMenu();
+        chooseShip.display();
     }
 
     private void resetShipOptions() {
@@ -123,6 +88,6 @@ public class ChooseEngineTypeView {
 
     private void previousMenu() {
         ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.displayMenu();
+        chooseShip.display();
     }
     }

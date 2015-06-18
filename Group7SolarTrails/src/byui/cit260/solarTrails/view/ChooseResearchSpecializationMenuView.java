@@ -11,9 +11,9 @@ import java.util.Scanner;
  *
  * @author Hiatt-Adam
  */
-public class ChooseResearchSpecializationMenuView {
-
-private final String MENU = "\n"
+public class ChooseResearchSpecializationMenuView extends View{
+    public ChooseResearchSpecializationMenuView () {
+        super("\n"
             + "\n-----------------------------------"
             + "\n | Pick your a research specialization type"
             + "\n-----------------------------------"
@@ -30,50 +30,13 @@ private final String MENU = "\n"
             + "\nI - Computer Information Technology"
             + "\nR - Reset currently selected ship options"
             + "\nD - Go Back to the previous menu"
-            + "\n-----------------------------------";
-
-    void displayMenu() {
-            
-        char selection = ' ';
-        do {
-            System.out.println(MENU); // display the main menu
-            
-            String input = this.getInput(); // get the user's selection
-            selection = input.charAt(0); // get first character of string
-            
-            this.doAction(selection); // do action based on selection
-            
-        
-        } while (selection != 'B'); // a selection that is not "Back"
+            + "\n-----------------------------------");
     }
-
-    public String getInput() {
-       boolean valid = false; // indicates if the input has been retrieved
-       String input = null;
-       Scanner keyboard = new Scanner(System.in); // keyboard input stream
-       
-       while(!valid) { // while a valid input has not been retreved
-           
-           // prompt for a menu item
-           System.out.println("Select a menu item.");
-           
-           // get the input from the keyboard and trim off the blanks
-           input = keyboard.nextLine();
-           input = input.trim();
-           input = input.toUpperCase();
-           
-           // if the input is invalid (more than 1 character)
-           if (input.length() > 1) {
-               System.out.println("Invalid selection - please enter a menu item.");
-               continue; // and repeat again
-           }
-           break; // exit repetition
-       }
-       return input; // return the input
-       
-    }
-
-    public void doAction(char choice) {
+        @Override
+        public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         
         switch (choice) {
             case 'B': // create and start a new game
@@ -114,14 +77,12 @@ private final String MENU = "\n"
                 break;
             case 'D': // Exit the program
                 this.previousMenu();
-                return;
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
 
-    }
-
-    
+    } return false;
 }
 
     private void chooseBiology() {
@@ -175,6 +136,6 @@ private final String MENU = "\n"
     private void previousMenu() {
         // return to previous menu
         NewGameMenuView newGameMenu = new NewGameMenuView();
-        newGameMenu.displayMenu(); 
+        newGameMenu.display(); 
     }
 }

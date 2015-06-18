@@ -24,7 +24,7 @@ public class MainMenuViewTest {
     public void testDisplayMenu() {
         System.out.println("displayMenu");
         MainMenuView instance = new MainMenuView();
-        instance.displayMenu();
+        instance.display();
 
     }
 

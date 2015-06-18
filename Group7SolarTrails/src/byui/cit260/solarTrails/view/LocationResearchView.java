@@ -10,5 +10,5 @@ package byui.cit260.solarTrails.view;
  * @author Hiatt-Adam
  */
 public class LocationResearchView {
-    
+    // Options for researching planets, space objects, and the alien object
 }

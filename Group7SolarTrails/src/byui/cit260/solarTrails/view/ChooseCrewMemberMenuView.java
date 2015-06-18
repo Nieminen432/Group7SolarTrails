@@ -12,9 +12,10 @@ import java.util.Scanner;
  *
  * @author Hiatt-Adam
  */
-public class ChooseCrewMemberMenuView {
+public class ChooseCrewMemberMenuView extends View{
+    public ChooseCrewMemberMenuView(){
     
-   private final String MENU = "\n"
+   super("\n"
             + "\n-----------------------------------"
             + "\n | Pick your crew members."
             + "\n-----------------------------------"
@@ -26,50 +27,14 @@ public class ChooseCrewMemberMenuView {
             + "\nS - Choose the Research Specialization for each crew member."
             + "\nR - Reset your crew and start over."
             + "\nD - When you are Done, go back and continue to prepare for your trip."
-            + "\n------------------------------------";
+            + "\n------------------------------------");
+}
 
-    void displayMenu() {
-            
-        char selection = ' ';
-        do {
-            System.out.println(MENU); // display the main menu
-            
-            String input = this.getInput(); // get the user's selection
-            selection = input.charAt(0); // get first character of string
-            
-            this.doAction(selection); // do action based on selection
-            
-        
-        } while (selection != 'D'); // a selection that is not "Back"
-    }
-
-    public String getInput() {
-       boolean valid = false; // indicates if the input has been retrieved
-       String input = null;
-       Scanner keyboard = new Scanner(System.in); // keyboard input stream
-       
-       while(!valid) { // while a valid input has not been retreved
-           
-           // prompt for a menu item
-           System.out.println("Select a menu item.");
-           
-           // get the input from the keyboard and trim off the blanks
-           input = keyboard.nextLine();
-           input = input.trim();
-           input = input.toUpperCase();
-           
-           // if the input is invalid (more than 1 character)
-           if (input.length() > 1) {
-               System.out.println("Invalid selection - please enter a menu item.");
-               continue; // and repeat again
-           }
-           break; // exit repetition
-       }
-       return input; // return the input
-       
-    }
-
-    public void doAction(char choice) {
+    @Override
+        public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         
         switch (choice) {
             case 'A': // create and start a new game
@@ -86,26 +51,26 @@ public class ChooseCrewMemberMenuView {
                 break;
             case 'D': // Exit the program
                 this.previousMenu();
-                return;
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-    }
+    } return false;
 }
 
     private void chooseCrewSize() {
         ChooseCrewSizeView chooseCrewSize = new ChooseCrewSizeView();
-        chooseCrewSize.displayMenu();
+        chooseCrewSize.display();
     }
 
     private void chooseCrewNames() {
         ChooseCrewNamesView chooseCrewNames = new ChooseCrewNamesView();
-        chooseCrewNames.displayMenu();
+        chooseCrewNames.display();
     }
 
     private void chooseCrewResearchSpec() {
         ChooseCrewResearchSpecMenuView chooseCrewResearchSpec = new ChooseCrewResearchSpecMenuView();
-        chooseCrewResearchSpec.displayMenu();  
+        chooseCrewResearchSpec.display();  
     }
 
     private void resetCrewOptions() {
@@ -114,6 +79,6 @@ public class ChooseCrewMemberMenuView {
 
     private void previousMenu() {
         NewGameMenuView newGame = new NewGameMenuView();
-        newGame.displayMenu();
+        newGame.display();
     }
 }

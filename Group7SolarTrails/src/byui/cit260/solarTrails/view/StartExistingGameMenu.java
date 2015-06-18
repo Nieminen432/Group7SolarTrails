@@ -12,7 +12,7 @@ package byui.cit260.solarTrails.view;
 public class StartExistingGameMenu {
 
     void displayMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Select an existing saved game and load it
     }
     
 }

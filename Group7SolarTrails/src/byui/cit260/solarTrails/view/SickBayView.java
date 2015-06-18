@@ -10,5 +10,5 @@ package byui.cit260.solarTrails.view;
  * @author Hiatt-Adam
  */
 public class SickBayView {
-    
+   // View SickBay and heal anyone that may need it. 
 }

@@ -9,7 +9,9 @@ package byui.cit260.solarTrails.view;
  *
  * @author Hiatt-Adam
  */
-public class MapChooseDestinationView {
-    // choose a map destination
+public interface ViewInterface {
+    public void display();
+    public String getInput();
+    public boolean doAction(Object obj);
     
 }

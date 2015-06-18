@@ -10,5 +10,5 @@ package byui.cit260.solarTrails.view;
  * @author Hiatt-Adam
  */
 public class RandomSceneMedicalView {
-    
+    // scene that ends with someone in sickbay. Enter sickbay and choose an option to heal the person.
 }

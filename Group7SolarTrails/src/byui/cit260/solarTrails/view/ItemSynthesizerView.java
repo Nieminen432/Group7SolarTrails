@@ -10,5 +10,5 @@ package byui.cit260.solarTrails.view;
  * @author Hiatt-Adam
  */
 public class ItemSynthesizerView {
-    
+    // why do we have a secondary synthesizerview?
 }

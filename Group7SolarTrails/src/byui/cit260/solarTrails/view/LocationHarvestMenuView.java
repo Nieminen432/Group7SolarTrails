@@ -10,5 +10,5 @@ package byui.cit260.solarTrails.view;
  * @author Hiatt-Adam
  */
 public class LocationHarvestMenuView {
-    
+    // options to harvest. Will depend on what is available for harvest
 }

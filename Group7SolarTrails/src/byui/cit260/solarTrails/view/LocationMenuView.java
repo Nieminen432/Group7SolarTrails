@@ -11,12 +11,9 @@ import java.util.Scanner;
  *
  * @author Nixon-Joseph
  */
-public class LocationMenuView {
-   void StartLocationMenu() {
-        this.displayMenu();
-    }
-    
-    private final String MENU = "\n"
+public class LocationMenuView extends View{
+    public LocationMenuView() {
+        super("\n"
         + "\n-----------------------------------"
         + "\n | Location menu"
         + "\n | Please select an option."
@@ -27,44 +24,15 @@ public class LocationMenuView {
         + "\nH - Harvest"
         + "\nD - Drop Research Satellite"
         + "\nN - Set Navigation for next target"
-        + "\n-----------------------------------";
-    
-    public void displayMenu() {
-        char selection = ' ';
-        System.out.println(MENU); // display the new game menu
-
-        String input = this.getInput(); // get the user's selection
-        selection = input.charAt(0); // get first character of string
-
-        this.doAction(selection); // do action based on selection
+        + "\n-----------------------------------");
     }
-    
-    public String getInput() {
-       boolean valid = false; // indicates if the input has been retrieved
-       String input = null;
-       Scanner keyboard = new Scanner(System.in); // keyboard input stream
-       
-       while(!valid) { // while a valid input has not been retreved
-           
-           // prompt for a menu item
-           System.out.println("Select a menu item.");
-           
-           // get the input from the keyboard and trim off the blanks
-           input = keyboard.nextLine();
-           input = input.trim();
-           input = input.toUpperCase();
-           
-           // if the input is invalid (more than 1 character)
-           if (input.length() > 1) {
-               System.out.println("Invalid selection - please enter a menu item.");
-               continue; // and repeat again
-           }
-           break; // exit repetition
-       }
-       return input; // return the input
-    }
-    
-    public void doAction(char choice) {
+
+        @Override
+        public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
         switch (choice) {
             case 'R': // Research Object
                 this.chooseRest();
@@ -88,30 +56,33 @@ public class LocationMenuView {
                 System.out.println("\n*** Invalid selection *** Try again");
                 getInput();
                 break;
-        }
+        } return false;
     }
     
     private void chooseResearch() {
-        System.out.println("Chose Research, congrats!");
+        // Selected LocationRestandRec menu
     }
 
     private void chooseRest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Choose amount of time to rest
+        System.out.println("You have chosen to rest X days");
     }
 
     private void chooseMaintenance() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LocationMaintandRepair maintAndRepair = new LocationMaintandRepair(); // Choose Maintenance Menu
+        maintAndRepair.display();
     }
 
     private void chooseHarvest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // LocationHarvestMenuView harvestMenuView = new LocationHarvestMenuView(); // choose harvest menu
+        // harvestMenuView.display();
     }
 
     private void chooseDropSatellite() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Drop Satellite or Probe
     }
 
     private void chooseNextLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // MapChooseDestinationView menu
     }
 }

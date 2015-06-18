@@ -10,5 +10,5 @@ package byui.cit260.solarTrails.view;
  * @author Hiatt-Adam
  */
 public class RandomSceneResearchView {
-    
+    // Random event that gives options for researching planets, space objects, etc
 }
