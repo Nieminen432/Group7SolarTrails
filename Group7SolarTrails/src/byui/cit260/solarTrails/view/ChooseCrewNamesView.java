@@ -11,7 +11,43 @@ import java.util.Scanner;
  *
  * @author Hiatt-Adam
  */
-public class ChooseCrewNamesView extends View {
+
+public class ChooseCrewNamesView extends Name {
+    public ChooseCrewNamesView() {
+        super("\n"
+            + "\n Please enter the name of your crew member:"
+            + "\n Enter DONE when done."
+            + "\n");
+    }    
+        @Override
+        public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
+        // save character name to saved variables
+        
+    
+    return (boolean) obj;
+    } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*public class ChooseCrewNamesView extends View {
     public ChooseCrewNamesView () {
         super("\n"
             + "\n-----------------------------------"
@@ -138,4 +174,4 @@ public class ChooseCrewNamesView extends View {
         ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
         chooseCrew.display();
     }
-}
+}*/
