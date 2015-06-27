@@ -16,7 +16,8 @@ public class Engine implements Serializable {
     private int fuelConsumption;
     private int weight;
 
-    public Engine() {
+    public Engine(int engineNum) {
+        //create 3 types dependent on passed in number
     }
 
     public int getMaxSpeed() {

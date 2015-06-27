@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.model;
 
+import byui.cit260.solarTrails.control.Scene;
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -13,51 +14,51 @@ import java.util.Arrays;
  * @author Joseph
  */
 public class Map implements Serializable{
-    private final String[] planets = new String[9];
+
+    public Location[] getPlanets() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public enum Planets {
+        Mercury,
+        Venus,
+        Earth,
+        Mars,
+        Jupiter,
+        Saturn,
+        Uranus,
+        Neptune,
+        Pluto;
+    }
+    private boolean[] visited = new boolean[9];
+    private int[][] distances = new int[9][9];
 
     public Map() {
-        planets[0] = "Mercury";
-        planets[1] = "Venus";
-        planets[2] = "Earth";
-        planets[3] = "Mars";
-        planets[4] = "Jupiter";
-        planets[5] = "Saturn";
-        planets[6] = "Uranus";
-        planets[7] = "Neptune";
-        //Because I still consider it a planet!
-        planets[8] = "Pluto";
-    }
-
-    public String[] getPlanets() {
-        return planets;
-    }
-
-    @Override
-    public String toString() {
-        return "Map{" + "planets=" + Arrays.toString(planets) + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 61 * hash + Arrays.deepHashCode(this.planets);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
+        int[] distanceFromSun = new int[9];
+        //Distance is in millions of Miles
+        //need to convert to AU
+        distanceFromSun[0] = 35; //Mercery
+        distanceFromSun[1] = 67; //Venus
+        distanceFromSun[2] = 94; //Earth
+        distanceFromSun[3] = 142; //Mars
+        distanceFromSun[4] = 484; //Jupiter
+        distanceFromSun[5] = 889; //Saturn
+        distanceFromSun[6] = 1790; //Uranus
+        distanceFromSun[7] = 2800; //Neptune
+        distanceFromSun[8] = 3670; //Pluto
+        
+        visited[2] = true;
+        //set all distances to own location to 0
+        for(int i = 0; i < 9; i++) {
+            distances[i][i] = 0;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
+        
+        //set all distances from each planet to the next
+        //Luckily they're all perfectly in-line!
+        for(int i = 0; i < 9; i++) {
+            for(int l = 0; l < 9; l++){
+                distances[i][l] = distanceFromSun[l] - distanceFromSun[i];
+            }
         }
-        final Map other = (Map) obj;
-        if (!Arrays.deepEquals(this.planets, other.planets)) {
-            return false;
-        }
-        return true;
     }
-    
-    
 }

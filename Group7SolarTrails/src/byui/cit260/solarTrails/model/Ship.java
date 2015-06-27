@@ -18,11 +18,15 @@ public class Ship implements Serializable {
     private int maxCrew;
     private int noCrew;
     private String description;
-    private int width;
-    private int length;
     private Engine engine;
 
     public Ship() {
+        this.description = "\nThis is your ship!!!";
+        this.maxWeight = 20000;
+        this.amountLoaded = 0;
+        this.maxCrew = 12;
+        engine = new Engine(1);
+        this.noCrew = 0;
     }
 
     public int getMaxWeight() {
@@ -65,22 +69,6 @@ public class Ship implements Serializable {
         this.description = description;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
     public Engine getEngine() {
         return engine;
     }
@@ -91,7 +79,7 @@ public class Ship implements Serializable {
 
     @Override
     public String toString() {
-        return "Ship{" + "maxWeight=" + maxWeight + ", amountLoaded=" + amountLoaded + ", maxCrew=" + maxCrew + ", noCrew=" + noCrew + ", description=" + description + ", width=" + width + ", length=" + length + ", engine=" + engine + '}';
+        return "Ship{" + "maxWeight=" + maxWeight + ", amountLoaded=" + amountLoaded + ", maxCrew=" + maxCrew + ", noCrew=" + noCrew + ", description=" + description + ", width=" + ", engine=" + engine + '}';
     }
 
     @Override
@@ -102,8 +90,6 @@ public class Ship implements Serializable {
         hash = 17 * hash + this.maxCrew;
         hash = 17 * hash + this.noCrew;
         hash = 17 * hash + Objects.hashCode(this.description);
-        hash = 17 * hash + this.width;
-        hash = 17 * hash + this.length;
         hash = 17 * hash + Objects.hashCode(this.engine);
         return hash;
     }
@@ -130,12 +116,6 @@ public class Ship implements Serializable {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (this.width != other.width) {
-            return false;
-        }
-        if (this.length != other.length) {
             return false;
         }
         return Objects.equals(this.engine, other.engine);

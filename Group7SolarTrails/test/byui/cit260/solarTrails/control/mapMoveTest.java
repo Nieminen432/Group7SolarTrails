@@ -37,7 +37,7 @@ public class mapMoveTest {
         double expResult = 60.0; // expected result
         
         // create instance of mapMove class
-        mapMove instance = new mapMove();
+        MapMove instance = new MapMove();
         
         // call function to run test
         double result = instance.moveShip(currentLocation, destinationLocation, fuelRemaining);

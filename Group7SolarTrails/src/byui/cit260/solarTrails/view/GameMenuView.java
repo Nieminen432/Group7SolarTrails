@@ -5,6 +5,12 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.control.GameControl;
+import byui.cit260.solarTrails.model.Game;
+import byui.cit260.solarTrails.model.InventoryItem;
+import byui.cit260.solarTrails.model.Location;
+import group7solartrails.Group7SolarTrails;
+
 /**
  *
  * @author Hiatt-Adam
@@ -72,8 +78,7 @@ public class GameMenuView extends View{
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-
-    } return false;
+        } return false;
     }
 
     private void chooseStatusReport() {
@@ -81,11 +86,23 @@ public class GameMenuView extends View{
     }
 
     private void chooseMap() {
-        // Choose Map
+        Game game = Group7SolarTrails.getCurrentGame();
+        
+        int location = game.getLocation();
+        System.out.println(location);
     }
 
     private void chooseInventory() {
-        // Choose Inventory
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        
+        System.out.println("\nList of Inventory Items");
+        System.out.println("\nDescription" + "\t" +
+                           "In Stock");
+        
+        for (InventoryItem inventoryItem : inventory) {
+            System.out.println(inventoryItem.getInventoryType() + "\t   " 
+                                + inventoryItem.getQuantityInStock());
+        }
     }
 
     private void chooseSynthesizer() {

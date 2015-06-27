@@ -7,6 +7,7 @@ package byui.cit260.solarTrails.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import byui.cit260.solarTrails.model.Location;
 
 /**
  *
@@ -17,10 +18,47 @@ public class Game implements Serializable{
     
     //class instance variables
     private String crewName;
+    private Player player;
     private double totalTime;
     private double currentScore;
     private double noPeople;
     private double gameDate;
+    private InventoryItem[] inventory;
+    private Ship ship;
+    private Map map;
+    private int location = 0;
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
 
     public Game() {
     }
@@ -106,6 +144,14 @@ public class Game implements Serializable{
             return false;
         }
         return true;
+    }
+
+    public void setAlienObjects(Ship ship) {
+        //Set Object
+    }
+
+    public int getLocation() {
+        return location;
     }
     
            

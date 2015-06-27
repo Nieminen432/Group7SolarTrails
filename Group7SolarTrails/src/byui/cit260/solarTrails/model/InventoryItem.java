@@ -17,6 +17,7 @@ public class InventoryItem implements Serializable{
     // class instance variables
     private String inventoryType;
     private double quantityInStock;
+    private String description = "";
 
     public InventoryItem() {
     }
@@ -66,5 +67,13 @@ public class InventoryItem implements Serializable{
             return false;
         }
         return true;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String Item) {
+        System.out.println("Set Desc");
     }
 }

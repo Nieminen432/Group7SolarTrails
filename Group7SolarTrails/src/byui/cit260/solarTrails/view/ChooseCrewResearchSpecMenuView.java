@@ -28,7 +28,7 @@ public class ChooseCrewResearchSpecMenuView extends View{
             + "\nL - Planetary Science"
             + "\nO - Exploration and Observational Systems"
             + "\nI - Computer Information Technology"
-            + "\nR - Reset currently selected ship options"
+            + "\nR - Reset currently selected research options"
             + "\nD - Go Back to the previous menu"
             + "\n-----------------------------------");
     }

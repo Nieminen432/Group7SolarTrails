@@ -22,6 +22,11 @@ public class AlienObjects implements Serializable{
     private double distanceToUranus;
 
     public AlienObjects() {
+        this.description = "\nThis is an unknown alien object";
+        
+        this.amountResearched = 0;
+        this.distanceToUranus = 100;
+        this.speed = 100;
     }
 
     public String getDescription() {
