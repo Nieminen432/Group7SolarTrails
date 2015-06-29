@@ -15,7 +15,7 @@ import group7solartrails.Group7SolarTrails;
 public class GameControl {
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {
-        assignScenesToLocations(map, scenes);
+
     }
     public enum Item {
         food,
@@ -39,11 +39,7 @@ public class GameControl {
         
         AlienObjects alienObject = new AlienObjects();
         game.setAlienObjects(ship);
-        
-        Map map = MapMove.createMap();
-        game.setMap(map);
-        
-        MapMove.moveShipToStartingPoint();
+
     }
 
     private static InventoryItem[] createInventoryList() {
