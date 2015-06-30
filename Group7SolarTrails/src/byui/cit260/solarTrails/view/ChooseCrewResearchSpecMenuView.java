@@ -6,13 +6,39 @@
 package byui.cit260.solarTrails.view;
 
 import java.util.Scanner;
+import static javafx.beans.binding.Bindings.length;
 
 /**
  *
  * @author Hiatt-Adam
  */
-public class ChooseCrewResearchSpecMenuView extends View{
-    public ChooseCrewResearchSpecMenuView() {
+public enum ChooseCrewResearchSpecMenuView {
+       
+    //public enum Specialization {
+            BIOLOGY('b', "Biology"),
+            BIOTECHNOLOGY('t', "BioTechnology"),
+            CHEMISTRY('c', "Chemistry"),
+            ENVIRONMENTALSCIENCE('S', "EnvironmentalScience"),
+            MATHEMATICS('m', "Mathematics"),
+            PHYSICS('p', "Pysics"),
+            ENGINEERING('e', "Engineering"),
+            ASTROPHYSICS('a', "Astrophysics"),
+            PLANETARYSCIENCE('p', "PlanetaryScience"),
+            EXPLORATIONANDOBSERVATION('o', "ExplorationAndObservation"),
+            COMPUTERINFOTECH('i', "ComputerInfoTech");
+            
+            private final char menuLetter;
+            private final String displayName;
+            private ChooseCrewResearchSpecMenuView(char menuLetter, String displayName) {
+                this.menuLetter = menuLetter;
+                this.displayName = displayName;
+            }
+            public char getMenuLetter() { return menuLetter; }
+            public String getDisplayName() {return displayName; }
+    }
+
+    
+    /*public ChooseCrewResearchSpecMenuView() {
         super("\n"
             + "\n-----------------------------------"
             + "\n | Pick your a research specialization type"
@@ -137,5 +163,4 @@ public class ChooseCrewResearchSpecMenuView extends View{
         // return to previous menu
         ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
         chooseCrew.display();
-    }
-}
+    }*/

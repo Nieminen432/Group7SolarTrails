@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author Hiatt-Adam
  */
 public class ChooseCrewSizeView extends View{
+    public static int crewSize;
     public ChooseCrewSizeView () {
         super("\n"
             + "\n-----------------------------------"
@@ -79,46 +80,55 @@ public class ChooseCrewSizeView extends View{
 }
 
     private void crewSizeOne() {
+        crewSize = 1;
         // Going it alone
         System.out.println("You have decided to go alone.");
     }
 
     private void crewSizeTwo() {
+        crewSize = 2;
         // You and one other
         System.out.println("You and one other will take this trip.");
     }
 
     private void crewSizeThree() {
+        crewSize = 3;
         // Going it alone
         System.out.println("You and two others will take this trip.");
     }
 
     private void crewSizeFour() {
+        crewSize = 4;
         // Going it alone
         System.out.println("You and three others will take this trip.");
     }
 
     private void crewSizeFive() {
+        crewSize = 5;
         // Going it alone
         System.out.println("You and four others will take this trip.");
     }
 
     private void crewSizeSix() {
+        crewSize = 6;
         // Going it alone
         System.out.println("You and five others will take this trip.");
     }
 
     private void crewSizeSeven() {
+        crewSize = 7;
         // Going it alone
         System.out.println("You and six others will take this trip.");
     }
 
     private void crewSizeEight() {
+        crewSize = 8;
         // Going it alone
         System.out.println("You and seven others will take this trip.");
     }
 
     private void crewSizeNine() {
+        crewSize = 9;
         // Going it alone
         System.out.println("You and eight others will take this trip.");
     }

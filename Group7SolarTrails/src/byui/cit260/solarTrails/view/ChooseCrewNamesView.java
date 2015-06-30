@@ -6,14 +6,77 @@
 package byui.cit260.solarTrails.view;
 
 import java.util.Scanner;
+import byui.cit260.solarTrails.view.ChooseCrewSizeView.*;
+import byui.cit260.solarTrails.model.Character;
 
 /**
  *
  * @author Hiatt-Adam
  */
 
-public class ChooseCrewNamesView extends Name {
-    public ChooseCrewNamesView() {
+public class ChooseCrewNamesView  {
+  
+    public String getName() {
+        Scanner keyboard = new Scanner(System.in); // keyboard input stream
+        boolean valid = false;
+        String crewName = null;
+        CharSequence DONE = null;
+        
+        while(!valid) { // while a valid name has not been retrieved
+            
+            
+
+            // if DONE is typed, end name selection
+            if (crewName.equals("DONE")) {
+                System.out.println("You are finished naming your crew.");
+                ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
+                chooseCrew.display();
+                break;
+            }
+            
+            // if the name is invalid (less than three characters in length)
+            if (crewName.length() < 3 || crewName.length() > 15) {
+                System.out.println("Invalid name - the name cannot be blank and must be more than three characters and less than 15 characters.");
+                continue; // and repeat again
+            }
+            
+            // name is correct
+            if (crewName.length() >3 || crewName.length() < 15){
+                System.out.println("You have entered the name: " + crewName
+                + "\n Enter another name or type DONE if you are done.");
+                continue;
+            }
+            
+            break;
+            
+        }
+        return crewName; // return the players name
+    }
+    
+    public Character[] doDisplayCharacter(Character[] enterCharacterName) {
+        Character[] Character; 
+        Character[] characters = null;
+        Character = new Character[ChooseCrewSizeView.crewSize];
+        Scanner keyboard = new Scanner(System.in); // keyboard input stream
+        System.out.println("Enter the player's name below:"); 
+            
+        for (Character character : characters) {
+            String crewName = this.getName();
+            ChooseCrewResearchSpecMenuView[] s = ChooseCrewResearchSpecMenuView.values();
+        }Character[] crewName = null;
+            return crewName;
+}
+    
+    public static ChooseCrewResearchSpecMenuView[] doDisplayMenu(ChooseCrewResearchSpecMenuView[] selectResearchSpec) {   
+    ChooseCrewResearchSpecMenuView[] crewResearchSpec = ChooseCrewResearchSpecMenuView.values();
+        for (ChooseCrewResearchSpecMenuView crewResearchSpec1 : crewResearchSpec) {
+            System.out.println(crewResearchSpec1.getMenuLetter() + ": " + crewResearchSpec1.getDisplayName());
+        } 
+        return null;
+    
+  }
+    
+    /* public ChooseCrewNamesView() {
         super("\n"
             + "\n Please enter the name of your crew member:"
             + "\n Enter DONE when done."
@@ -29,23 +92,12 @@ public class ChooseCrewNamesView extends Name {
         
     
     return (boolean) obj;
-    } 
+    } */
+
+   
+
+  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*public class ChooseCrewNamesView extends View {
     public ChooseCrewNamesView () {

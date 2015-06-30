@@ -5,6 +5,8 @@
  */
 package byui.cit260.solarTrails.model;
 
+import byui.cit260.solarTrails.view.ChooseCrewResearchSpecMenuView;
+import byui.cit260.solarTrails.view.ChooseCrewSizeView;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -13,40 +15,28 @@ import java.util.Objects;
  *
  * @author Joseph
  */
-public enum Character implements Serializable {
+public class Character {
     
     /*
     Crew members are not static when game starts. Outside of this object, we will make an arraylist for our characters. 
     However, we have modified this as directions have stated for learning purposes.
     */
-    NPC1("Your first crew member."),
-    NPC2("Second crew member."),
-    NPC3("Third crew member."),
-    NPC4("Fourth crew member.");
 
+    public final String name;
+    public final ChooseCrewResearchSpecMenuView spc;
+    public final String description;
+    public final int[] coordArray = new int[2];
+    public final double health;
     
-    private final String description;
-    private final int[] coordArray = new int[2];
-    private final double health;
-
-    Character(String description) {
+    public Character(String name, ChooseCrewResearchSpecMenuView s, String description, double health) {
+        this.name = name;
+        this.spc = s;
         this.description = description;
-        health = 100; 
+        this.health = health;
     }
 
-    public double getHealth() {
-        return health;
-    }
 
-    public String getDescription() {
-        return description;
     }
-
-    public int[] getCoordArray() {
-        return coordArray;
-    }
-
-}
 
 /*
 /*

@@ -65,12 +65,12 @@ public class ChooseCrewMemberMenuView extends View{
 
     private void chooseCrewNames() {
         ChooseCrewNamesView chooseCrewNames = new ChooseCrewNamesView();
-        chooseCrewNames.display();
+        String name = chooseCrewNames.getName();
     }
 
     private void chooseCrewResearchSpec() {
-        ChooseCrewResearchSpecMenuView chooseCrewResearchSpec = new ChooseCrewResearchSpecMenuView();
-        chooseCrewResearchSpec.display();  
+        //ChooseCrewResearchSpecMenuView chooseCrewResearchSpec = new ChooseCrewResearchSpecMenuView();
+        //chooseCrewResearchSpec.display();  
     }
 
     private void resetCrewOptions() {

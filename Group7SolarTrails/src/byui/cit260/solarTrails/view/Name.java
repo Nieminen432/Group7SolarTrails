@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
