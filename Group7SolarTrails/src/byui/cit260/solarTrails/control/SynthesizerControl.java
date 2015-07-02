@@ -4,22 +4,29 @@
  * and open the template in the editor.
  */
 package byui.cit260.solarTrails.control;
+import byui.cit260.solarTrails.exceptions.SynthesizerControlException;
 import byui.cit260.solarTrails.model.*;
 
 /**
  *
  * @author Joseph
  */
-public class SynthesizerControl {
-    int senthesizeItem(int reqMats, int itemType, int quantity) {
-        if (reqMats < 0 || reqMats > 1000) {
-            return -1;
+public class SynthesizerControl {int senthesizeItem(int reqMats, int itemType, int quantity) 
+            throws SynthesizerControlException {
+        if (reqMats < 0) {
+            throw new SynthesizerControlException("You do not have any of the required materials.");
         }
-        if (itemType < 1 || itemType > 30) {
-            return -1;
+        if (reqMats > 1000) {
+            throw new SynthesizerControlException("Too many materials are in the Synthesizer.");
         }
-        if (quantity < 1 || quantity > 100) {
-            return -1;
+        if (itemType < 1 || itemType > 5) {
+            throw new SynthesizerControlException("No such item.");
+        }
+        if (quantity < 1) {
+            throw new SynthesizerControlException("You must create at least 1 item.");
+        }
+        if (quantity > 100) {
+            throw new SynthesizerControlException("The synthesizer cannot make more than 100 items at a time.");
         }
         
         /* for (int i = 1; i <= quantity && adequateMaterialsRemaining(reqMats, itemType) == true; i++) {
