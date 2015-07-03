@@ -7,6 +7,7 @@ package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.control.Scene;
+import byui.cit260.solarTrails.exceptions.SceneException;
 import byui.cit260.solarTrails.view.NewGameMenuView;
 import group7solartrails.Group7SolarTrails;
 import java.util.Scanner;
@@ -37,14 +38,12 @@ public class MainMenuView extends View {
         char choice = value.charAt(0);
         
         switch (choice) {
-            case 'N': {
-            try {
-                // create and start a new game
-                this.startNewGame();
-            } catch (Scene.MapControlException ex) {
-                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            case 'N':
+                try {
+                    this.startNewGame();
+                } catch (SceneException ex) {
+                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             case 'L': // get and start an existing game
                 this.startExistingGameMenu();
@@ -62,7 +61,7 @@ public class MainMenuView extends View {
         } return false;
     }
 
-    private void startNewGame() throws Scene.MapControlException {
+    private void startNewGame() throws SceneException {
         // create a new game
         GameControl.createNewGame(Group7SolarTrails.getPlayer());
                 

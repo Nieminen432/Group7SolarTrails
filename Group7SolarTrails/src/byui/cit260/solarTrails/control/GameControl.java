@@ -6,6 +6,7 @@
 package byui.cit260.solarTrails.control;
 
 import byui.cit260.solarTrails.model.*;
+import byui.cit260.solarTrails.exceptions.*;
 import group7solartrails.Group7SolarTrails;
 
 /**
@@ -25,7 +26,7 @@ public class GameControl {
         fuel;
     }
     
-    public static void createNewGame(Player player) throws Scene.MapControlException {
+    public static void createNewGame(Player player) throws SceneException {
         Game game = new Game();
         Group7SolarTrails.setCurrentGame(game);
         
