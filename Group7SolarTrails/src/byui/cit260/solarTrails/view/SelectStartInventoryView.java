@@ -5,6 +5,10 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Hiatt-Adam
@@ -25,31 +29,36 @@ public class SelectStartInventoryView extends View{
     }
     @Override
     public boolean doAction(Object obj) {
-        String value = (String) obj;
-        value = value.toUpperCase();
-        char choice = value.charAt(0);
-        
-        switch (choice) {
-            case 'F': // create and start a new game
-                this.chooseStartingFood();
-                break;
-            case 'M': // get and start an existing game
-                this.chooseStartingMinerals();
-                break;
-            case 'H': // display the help menu
-                this.chooseStartingMedicine();
-                break;
-            case 'P': // create and start a new game
-                this.chooseStartingParts();
-                break;
-            case 'D': // Done
-                this.previousMenu();
-                break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
-                
-        } return false;
+        try {
+            String value = (String) obj;
+            value = value.toUpperCase();
+            char choice = value.charAt(0);
+            
+            switch (choice) {
+                case 'F': // create and start a new game
+                    this.chooseStartingFood();
+                    break;
+                case 'M': // get and start an existing game
+                    this.chooseStartingMinerals();
+                    break;
+                case 'H': // display the help menu
+                    this.chooseStartingMedicine();
+                    break;
+                case 'P': // create and start a new game
+                    this.chooseStartingParts();
+                    break;
+                case 'D': // Done
+                    this.previousMenu();
+                    break;
+                default:
+                    System.out.println("\n*** Invalid selection *** Try again");
+                    break;
+                    
+            } throw new GeneralViewExceptions ("You must make a selection");
+        } catch (GeneralViewExceptions ex) {
+            Logger.getLogger(SelectStartInventoryView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
         private void chooseStartingFood() {

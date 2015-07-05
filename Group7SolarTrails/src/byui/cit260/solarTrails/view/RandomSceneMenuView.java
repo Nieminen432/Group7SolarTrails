@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import java.util.Scanner;
 public class RandomSceneMenuView {
     private String menu = "";
     
-    public void createMenu(int situationNumber) {
+    public void createMenu(int situationNumber) throws GeneralViewExceptions {
         menu = "\n\n-----------------------------------";
         switch (situationNumber) {
             case 1:
@@ -103,7 +104,7 @@ public class RandomSceneMenuView {
         menu += "\n-----------------------------------";
     }
     
-    void startRandomEventMenu() {
+    void startRandomEventMenu() throws GeneralViewExceptions {
         Random rand = new Random();
         int randomSituation = rand.nextInt((10 - 1) + 1) + 1;
         
@@ -111,7 +112,7 @@ public class RandomSceneMenuView {
         this.displayMenu(randomSituation);
     }
     
-    public void displayMenu(int randomSituation) {
+    public void displayMenu(int randomSituation) throws GeneralViewExceptions {
         char selection = ' ';
         System.out.println(menu); // display the new game menu
 
@@ -119,9 +120,10 @@ public class RandomSceneMenuView {
         selection = input.charAt(0); // get first character of string
 
         this.doAction(selection, randomSituation); // do action based on selection
+        
     }
 
-    private void doAction(char selection, int randomSituation) {
+    private void doAction(char selection, int randomSituation) throws GeneralViewExceptions {
         switch (randomSituation) {
             case 1:
                 switch (selection) {
@@ -262,47 +264,47 @@ public class RandomSceneMenuView {
         return input; // return the input
     }
 
-    private void chooseHarvest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseHarvest() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseContinue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseContinue() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseRepair() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseRepair() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseSynth() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseSynth() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseInventory() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseProbe() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseProbe() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseSingularity() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseSingularity() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseSatFix() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseSatFix() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseMap() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseYes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseYes() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void chooseNo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void chooseNo() throws GeneralViewExceptions {
+        throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
     }
 }

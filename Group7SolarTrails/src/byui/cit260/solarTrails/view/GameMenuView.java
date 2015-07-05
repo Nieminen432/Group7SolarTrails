@@ -6,6 +6,7 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
+import byui.cit260.solarTrails.exceptions.GameControlException;
 import byui.cit260.solarTrails.model.Game;
 import byui.cit260.solarTrails.model.InventoryItem;
 import byui.cit260.solarTrails.model.Location;
@@ -94,17 +95,14 @@ public class GameMenuView extends View{
 
     private void chooseInventory() {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
-        
         System.out.println("\nList of Inventory Items");
         System.out.println("\nDescription" + "\t" +
-                           "In Stock");
-        
+                "In Stock");
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getInventoryType() + "\t   " 
-                                + inventoryItem.getQuantityInStock());
+            System.out.println(inventoryItem.getInventoryType() + "\t   "
+                    + inventoryItem.getQuantityInStock());
         }
     }
-
     private void chooseSynthesizer() {
         // Choose Synthesizer
     }

@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
 import java.util.Scanner;
 import byui.cit260.solarTrails.view.ChooseCrewSizeView.*;
 import byui.cit260.solarTrails.model.Character;
@@ -16,7 +17,7 @@ import byui.cit260.solarTrails.model.Character;
 
 public class ChooseCrewNamesView  {
   
-    public String getName() {
+    public String getName() throws GeneralViewExceptions {
         Scanner keyboard = new Scanner(System.in); // keyboard input stream
         boolean valid = false;
         String crewName = null;
@@ -36,8 +37,8 @@ public class ChooseCrewNamesView  {
             
             // if the name is invalid (less than three characters in length)
             if (crewName.length() < 3 || crewName.length() > 15) {
-                System.out.println("Invalid name - the name cannot be blank and must be more than three characters and less than 15 characters.");
-                continue; // and repeat again
+                throw new GeneralViewExceptions("Invalid name - the name cannot be blank and must be more than three characters and less than 15 characters.");
+                // continue; // and repeat again
             }
             
             // name is correct
@@ -53,7 +54,7 @@ public class ChooseCrewNamesView  {
         return crewName; // return the players name
     }
     
-    public Character[] doDisplayCharacter(Character[] enterCharacterName) {
+    public Character[] doDisplayCharacter(Character[] enterCharacterName) throws GeneralViewExceptions {
         Character[] Character; 
         Character[] characters = null;
         Character = new Character[ChooseCrewSizeView.crewSize];
@@ -67,12 +68,12 @@ public class ChooseCrewNamesView  {
             return crewName;
 }
     
-    public static ChooseCrewResearchSpecMenuView[] doDisplayMenu(ChooseCrewResearchSpecMenuView[] selectResearchSpec) {   
+    public static ChooseCrewResearchSpecMenuView[] doDisplayMenu(ChooseCrewResearchSpecMenuView[] selectResearchSpec) throws GeneralViewExceptions {   
     ChooseCrewResearchSpecMenuView[] crewResearchSpec = ChooseCrewResearchSpecMenuView.values();
         for (ChooseCrewResearchSpecMenuView crewResearchSpec1 : crewResearchSpec) {
             System.out.println(crewResearchSpec1.getMenuLetter() + ": " + crewResearchSpec1.getDisplayName());
         } 
-        return null;
+        throw new GeneralViewExceptions("You must create a character profile.");
     
   }
     

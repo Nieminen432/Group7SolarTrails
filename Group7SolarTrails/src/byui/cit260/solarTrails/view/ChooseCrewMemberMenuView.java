@@ -6,7 +6,10 @@
 package byui.cit260.solarTrails.view;
 
 
+import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,30 +35,35 @@ public class ChooseCrewMemberMenuView extends View{
 
     @Override
         public boolean doAction(Object obj) {
-        String value = (String) obj;
-        value = value.toUpperCase();
-        char choice = value.charAt(0);
-        
-        switch (choice) {
-            case 'A': // create and start a new game
-                this.chooseCrewSize();
-                break;
-            case 'N': // get and start an existing game
-                this.chooseCrewNames();
-                break;
-            case 'S': // get and start an existing game
-                this.chooseCrewResearchSpec();
-                break;
-            case 'R': // display the help menu
-                this.resetCrewOptions();
-                break;
-            case 'D': // Exit the program
-                this.previousMenu();
-                break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
-    } return false;
+        try {
+            String value = (String) obj;
+            value = value.toUpperCase();
+            char choice = value.charAt(0);
+            
+            switch (choice) {
+                case 'A': // create and start a new game
+                    this.chooseCrewSize();
+                    break;
+                case 'N': // get and start an existing game
+                    this.chooseCrewNames();
+                    break;
+                case 'S': // get and start an existing game
+                    this.chooseCrewResearchSpec();
+                    break;
+                case 'R': // display the help menu
+                    this.resetCrewOptions();
+                    break;
+                case 'D': // Exit the program
+                    this.previousMenu();
+                    break;
+                default:
+                    System.out.println("\n*** Invalid selection *** Try again");
+                    break;
+            } return false;
+        } catch (GeneralViewExceptions ex) {
+            Logger.getLogger(ChooseCrewMemberMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
 }
 
     private void chooseCrewSize() {
@@ -63,7 +71,7 @@ public class ChooseCrewMemberMenuView extends View{
         chooseCrewSize.display();
     }
 
-    private void chooseCrewNames() {
+    private void chooseCrewNames() throws GeneralViewExceptions {
         ChooseCrewNamesView chooseCrewNames = new ChooseCrewNamesView();
         String name = chooseCrewNames.getName();
     }

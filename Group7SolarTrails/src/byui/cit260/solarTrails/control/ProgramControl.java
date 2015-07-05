@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.control;
 
+import byui.cit260.solarTrails.exceptions.ProgramControlException;
 import byui.cit260.solarTrails.model.Player;
 import byui.cit260.solarTrails.model.Ship;
 import group7solartrails.Group7SolarTrails;
@@ -15,9 +16,10 @@ import group7solartrails.Group7SolarTrails;
  */
 public class ProgramControl {
 
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name) 
+            throws ProgramControlException {
         if (name == null) {
-            return null;
+            throw new ProgramControlException("A name must be entered.");
         }
         Player player = new Player();
         player.setName(name);
@@ -27,9 +29,10 @@ public class ProgramControl {
         return player;
     }
     
-    public static Ship createShip(int maxCrew) { // set crew size
+    public static Ship createShip(int maxCrew) 
+            throws ProgramControlException { // set crew size
         
-            return null;
+            throw new ProgramControlException("A ship must be used foro this trip.");
     }
     
 }

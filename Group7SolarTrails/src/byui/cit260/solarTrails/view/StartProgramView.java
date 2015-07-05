@@ -6,8 +6,11 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.ProgramControl;
+import byui.cit260.solarTrails.exceptions.ProgramControlException;
 import byui.cit260.solarTrails.model.*;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,21 +22,25 @@ public class StartProgramView {
     }
     public void startProgram() {
 
-        // Display the banner screen
-        this.displayBanner();
-        
-        // prompt the player to enter their name, Retrieve the name of the player
-        String playersName = this.getPlayersName();
-        
-        // Create and save the player object
-        Player player = ProgramControl.createPlayer(playersName);
-
-        // Display a personalized welcome message
-        this.displayWelcomeMessage(player);
-
-        // Display the main menu
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.display();
+        try {
+            // Display the banner screen
+            this.displayBanner();
+            
+            // prompt the player to enter their name, Retrieve the name of the player
+            String playersName = this.getPlayersName();
+            
+            // Create and save the player object
+            Player player = ProgramControl.createPlayer(playersName);
+            
+            // Display a personalized welcome message
+            this.displayWelcomeMessage(player);
+            
+            // Display the main menu
+            MainMenuView mainMenu = new MainMenuView();
+            mainMenu.display();
+        } catch (ProgramControlException ex) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void displayBanner() {

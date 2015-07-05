@@ -5,6 +5,10 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Hiatt-Adam
@@ -30,49 +34,54 @@ public class SelectStartMedicineView extends View{
     }
     @Override
     public boolean doAction(Object obj) {
-        String value = (String) obj;
-        value = value.toUpperCase();
-        char choice = value.charAt(0);
-        
-        switch (choice) {
-            case '1': // create and start a new game
-                this.choose10Percent();
-                break;
-            case '2': // get and start an existing game
-                this.choose20Percent();
-                break;
-            case '3': // display the help menu
-                this.choose30Percent();
-                break;
-            case '4': // create and start a new game
-                this.choose40Percent();
-                break;
-            case '5': // get and start an existing game
-                this.choose50Percent();
-                break;
-            case '6': // display the help menu
-                this.choose60Percent();
-                break;
-            case '7': // create and start a new game
-                this.choose70Percent();
-                break;
-            case '8': // get and start an existing game
-                this.choose80Percent();
-                break;
-            case '9': // display the help menu
-                this.choose90Percent();
-                break;
-            case 'R': // Reset Options
-                this.chooseReset();
-                break;
-            case 'D': // Done
-                this.previousMenu();
-                break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
-                
-        } return false;
+      try {
+          String value = (String) obj;
+          value = value.toUpperCase();
+          char choice = value.charAt(0);
+          
+          switch (choice) {
+              case '1': // create and start a new game
+                  this.choose10Percent();
+                  break;
+              case '2': // get and start an existing game
+                  this.choose20Percent();
+                  break;
+              case '3': // display the help menu
+                  this.choose30Percent();
+                  break;
+              case '4': // create and start a new game
+                  this.choose40Percent();
+                  break;
+              case '5': // get and start an existing game
+                  this.choose50Percent();
+                  break;
+              case '6': // display the help menu
+                  this.choose60Percent();
+                  break;
+              case '7': // create and start a new game
+                  this.choose70Percent();
+                  break;
+              case '8': // get and start an existing game
+                  this.choose80Percent();
+                  break;
+              case '9': // display the help menu
+                  this.choose90Percent();
+                  break;
+              case 'R': // Reset Options
+                  this.chooseReset();
+                  break;
+              case 'D': // Done
+                  this.previousMenu();
+                  break;
+              default:
+                  System.out.println("\n*** Invalid selection *** Try again");
+                  break;
+                  
+          } throw new GeneralViewExceptions("You must make a valid selection.");
+                  } catch (GeneralViewExceptions ex) {
+          Logger.getLogger(SelectStartMedicineView.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      return false;
     }
 
     private void choose10Percent() {

@@ -5,7 +5,10 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,28 +29,33 @@ public class ChooseShipView extends View{
 
         @Override
         public boolean doAction(Object obj) {
-        String value = (String) obj;
-        value = value.toUpperCase();
-        char choice = value.charAt(0);
-        
-        switch (choice) {
-            case 'S': // create and start a new game
-                this.chooseShipType();
-                break;
-            case 'E': // get and start an existing game
-                this.chooseEngineType();
-                break;
-            case 'R': // display the help menu
-                this.resetShipOptions();
-                break;
-            case 'D': // Exit the program
-                this.previousMenu();
-                break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
-
-    } return false;
+        try {
+            String value = (String) obj;
+            value = value.toUpperCase();
+            char choice = value.charAt(0);
+            
+            switch (choice) {
+                case 'S': // create and start a new game
+                    this.chooseShipType();
+                    break;
+                case 'E': // get and start an existing game
+                    this.chooseEngineType();
+                    break;
+                case 'R': // display the help menu
+                    this.resetShipOptions();
+                    break;
+                case 'D': // Exit the program
+                    this.previousMenu();
+                    break;
+                default:
+                    System.out.println("\n*** Invalid selection *** Try again");
+                    break;
+                    
+            } throw new GeneralViewExceptions("Please make a valid selection.");
+        } catch (GeneralViewExceptions e) {
+            System.out.println(e.getMessage ());
+        }
+        return false;
     }
 
     private void chooseShipType() {
