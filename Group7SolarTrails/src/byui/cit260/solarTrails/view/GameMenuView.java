@@ -121,6 +121,16 @@ public class GameMenuView extends View{
 
     private void chooseSave() {
         // Choose Save
+        System.out.println("\n\nEnter the file path for file where the game "
+                            + "is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            // save the game to the specified file
+            GameControl.saveGame(Group7SolarTrails.getCurrentGame(), filePath);
+        }catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void chooseLoad() {

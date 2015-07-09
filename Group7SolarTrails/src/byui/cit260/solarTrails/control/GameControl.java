@@ -8,6 +8,9 @@ package byui.cit260.solarTrails.control;
 import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.exceptions.*;
 import group7solartrails.Group7SolarTrails;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -18,6 +21,20 @@ public class GameControl {
     static void assignScenesToLocations(Map map, Scene[] scenes) {
 
     }
+
+    public static void saveGame(Game currentGame, String filePath)
+        throws GameControlException {
+        
+        try( FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame); // write the game object out to the file
+        }
+        catch(IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    
     public enum Item {
         food,
         mineral,

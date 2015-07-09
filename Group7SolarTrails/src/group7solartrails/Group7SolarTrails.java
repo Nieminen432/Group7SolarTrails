@@ -7,6 +7,12 @@ package group7solartrails;
 
 import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.view.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,33 +26,35 @@ public class Group7SolarTrails {
     
     private static Game currentGame = null;
     private static Player player = null;
-            
-    public static void main(String[] args) {
-        
-        // create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
-        try {
-        startProgramView.startProgram();
-        } catch(Throwable te) {
-        System.out.println(te.getMessage());
-        te.printStackTrace();
-        startProgramView.startProgram();
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
     }
-        
-        
+
+    public static void setLogFile(PrintWriter logFile) {
+        Group7SolarTrails.logFile = logFile;
     }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        Group7SolarTrails.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        Group7SolarTrails.inFile = inFile;
+    }
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -66,6 +74,51 @@ public class Group7SolarTrails {
     public static void setCrew(int maxCrew) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+            
+    public static void main(String[] args) {
+        
+        try {
+            // open character stream files for end user input and output
+            Group7SolarTrails.inFile =
+                    new BufferedReader(new InputStreamReader(System.in));
+            Group7SolarTrails.outFile = new PrintWriter(System.out, true);
+            
+            // open log file
+            String filePath = "log.txt";
+            Group7SolarTrails.logFile = new PrintWriter(filePath);
+
+        // create StartProgramView and start the program
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
+        return;
+        
+        } catch (Throwable e) {
+        System.err.println("Exception: " + e.toString() +
+                            "\nCause: " + e.getCause() + 
+                            "\nMessage: " + e.getMessage());
+        e.printStackTrace();;
+    }
+    finally {
+            try {
+                if (Group7SolarTrails.inFile != null)
+                    Group7SolarTrails.inFile.close();
+                
+                if (Group7SolarTrails.outFile != null)
+                    Group7SolarTrails.outFile.close();
+                
+                if (Group7SolarTrails.logFile != null)
+                    Group7SolarTrails.logFile.close();
+                
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
+        }
+    }
+}
+
+    
         
         
         
@@ -287,7 +340,7 @@ public class Group7SolarTrails {
        System.out.println(engineInfo);
        
     */
-    }
+    
 
 
 
