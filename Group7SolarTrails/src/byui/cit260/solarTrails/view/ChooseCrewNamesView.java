@@ -18,15 +18,11 @@ import byui.cit260.solarTrails.model.Character;
 public class ChooseCrewNamesView  {
   
     public String getName() throws GeneralViewExceptions {
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
         boolean valid = false;
         String crewName = null;
         CharSequence DONE = null;
         
         while(!valid) { // while a valid name has not been retrieved
-            
-            
-
             // if DONE is typed, end name selection
             if (crewName.equals("DONE")) {
                 System.out.println("You are finished naming your crew.");
@@ -58,7 +54,6 @@ public class ChooseCrewNamesView  {
         Character[] Character; 
         Character[] characters = null;
         Character = new Character[ChooseCrewSizeView.crewSize];
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
         System.out.println("Enter the player's name below:"); 
             
         for (Character character : characters) {

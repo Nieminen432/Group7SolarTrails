@@ -32,12 +32,12 @@ public class ChooseEngineTypeView extends View{
 
 
 
-        @Override
-        public boolean doAction(Object obj) {
+    @Override
+    public boolean doAction(Object obj) {
         String value = (String) obj;
         value = value.toUpperCase();
         char choice = value.charAt(0);
-        
+
         switch (choice) {
             case 'C': // create and start a new game
                 this.chooseCombustionEngine();
@@ -55,29 +55,28 @@ public class ChooseEngineTypeView extends View{
                 this.previousMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
-
-    } return false;
-}
+        } return false;
+    }
 
     private void chooseCombustionEngine() {
         // Select SmallShipType
-        System.out.println("You have selected the Combustion Engine.");
+        this.console.println("You have selected the Combustion Engine.");
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
     private void chooseImpulseEngine() {
         // Select MediumShipType
-        System.out.println("You have selected the Impulse Engine.");
+        this.console.println("You have selected the Impulse Engine.");
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
     private void chooseSolarSail() {
         // Select LargeShipType
-        System.out.println("You have selected the Hyperdrive.");
+        this.console.println("You have selected the Hyperdrive.");
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
@@ -90,4 +89,4 @@ public class ChooseEngineTypeView extends View{
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
-    }
+}

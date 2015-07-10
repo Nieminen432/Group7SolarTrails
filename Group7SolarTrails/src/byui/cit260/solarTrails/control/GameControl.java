@@ -8,8 +8,11 @@ package byui.cit260.solarTrails.control;
 import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.exceptions.*;
 import group7solartrails.Group7SolarTrails;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
@@ -33,6 +36,26 @@ public class GameControl {
         catch(IOException e) {
             throw new GameControlException(e.getMessage());
         }
+    }
+
+    public static void loadGame(String filePath)
+        throws GameControlException {
+        
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject();
+        }
+        catch(FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+        } 
+        catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        Group7SolarTrails.setCurrentGame(game);
     }
     
     public enum Item {

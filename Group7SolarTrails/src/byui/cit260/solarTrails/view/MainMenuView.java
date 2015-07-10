@@ -71,9 +71,16 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGameMenu() {
-        // Load existing game
-        // StartExistingGameMenu existingGame  = new StartExistingGameMenu();
-        // existingGame.display();
+        this.console.println("\n\nEnter the file path for the file where the game "
+                            + "is to be loaded from.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.loadGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void displayHelpMenu() {

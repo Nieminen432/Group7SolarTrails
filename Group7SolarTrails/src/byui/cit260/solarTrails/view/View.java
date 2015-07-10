@@ -32,8 +32,8 @@ public abstract class View implements ViewInterface{
         this.promptMessage = promptMessage;
     }
     
-@Override
-  public void display() {
+    @Override
+    public void display() {
         String value = "";
         boolean done = false;
         

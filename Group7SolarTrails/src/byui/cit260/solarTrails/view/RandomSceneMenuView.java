@@ -6,15 +6,22 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Nixon-Joseph
  */
-public class RandomSceneMenuView {
+public class RandomSceneMenuView extends View{
     private String menu = "";
+
+    public RandomSceneMenuView(String promptMessage) {
+        super(promptMessage);
+    }
     
     public void createMenu(int situationNumber) throws GeneralViewExceptions {
         menu = "\n\n-----------------------------------";
@@ -114,7 +121,7 @@ public class RandomSceneMenuView {
     
     public void displayMenu(int randomSituation) throws GeneralViewExceptions {
         char selection = ' ';
-        System.out.println(menu); // display the new game menu
+        this.console.println(menu); // display the new game menu
 
         String input = this.getInput(); // get the user's selection
         selection = input.charAt(0); // get first character of string
@@ -134,7 +141,7 @@ public class RandomSceneMenuView {
                         this.chooseContinue();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -151,7 +158,7 @@ public class RandomSceneMenuView {
                         this.chooseInventory();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -168,7 +175,7 @@ public class RandomSceneMenuView {
                         this.chooseContinue();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -179,7 +186,7 @@ public class RandomSceneMenuView {
                         this.chooseMap();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -191,7 +198,7 @@ public class RandomSceneMenuView {
                         this.chooseContinue();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -205,7 +212,7 @@ public class RandomSceneMenuView {
                         this.chooseContinue();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -219,7 +226,7 @@ public class RandomSceneMenuView {
                         this.chooseNo();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -231,7 +238,7 @@ public class RandomSceneMenuView {
                         this.chooseContinue();
                         break;
                     default:
-                        System.out.println("\n*** Invalid selection *** Try again");
+                        this.console.println("\n*** Invalid selection *** Try again");
                         getInput();
                         break;
                 }
@@ -239,24 +246,27 @@ public class RandomSceneMenuView {
         }
     }
 
-    private String getInput() {
+    public String getInput() {
         boolean valid = false; // indicates if the input has been retrieved
         String input = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
 
         while(!valid) { // while a valid input has not been retreved
            
             // prompt for a menu item
-            System.out.println("Select a menu item.");
+            this.console.println("Select a menu item.");
 
-            // get the input from the keyboard and trim off the blanks
-            input = keyboard.nextLine();
+            try {
+                // get the input from the keyboard and trim off the blanks
+                input = this.keyboard.readLine();
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error");
+            }
             input = input.trim();
             input = input.toUpperCase();
 
             // if the input is invalid (more than 1 character)
             if (input.length() > 1) {
-                System.out.println("Invalid selection - please enter a menu item.");
+                this.console.println("Invalid selection - please enter a menu item.");
                 continue; // and repeat again
             }
             break; // exit repetition
@@ -306,5 +316,10 @@ public class RandomSceneMenuView {
 
     private void chooseNo() throws GeneralViewExceptions {
         throw new GeneralViewExceptions("Not a valid option. Try again."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

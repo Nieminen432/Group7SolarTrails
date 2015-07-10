@@ -37,17 +37,17 @@ public class AlienObjectMenuView extends View{
                 this.chooseLeaveObject();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 getInput();
                 break;
         } return false;
     }
     
     private void chooseResearch() {
-        System.out.println("Chose Research, congrats!");
+        this.console.println("Chose Research, congrats!");
     }
     
     private void chooseLeaveObject() {
-        System.out.println("Chose leaving, congrats! hope you have enough food and fuel");
+        this.console.println("Chose leaving, congrats! hope you have enough food and fuel");
     }
 }
