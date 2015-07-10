@@ -242,7 +242,6 @@ public class RandomSceneMenuView {
     private String getInput() {
         boolean valid = false; // indicates if the input has been retrieved
         String input = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
 
         while(!valid) { // while a valid input has not been retreved
            
@@ -250,7 +249,7 @@ public class RandomSceneMenuView {
             System.out.println("Select a menu item.");
 
             // get the input from the keyboard and trim off the blanks
-            input = keyboard.nextLine();
+            input = this.keyboard.readline();
             input = input.trim();
             input = input.toUpperCase();
 
