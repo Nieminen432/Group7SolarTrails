@@ -74,7 +74,7 @@ public class SelectStartMedicineView extends View{
                   this.previousMenu();
                   break;
               default:
-                  System.out.println("\n*** Invalid selection *** Try again");
+                  this.console.println("\n*** Invalid selection *** Try again");
                   break;
                   
           } throw new GeneralViewExceptions("You must make a valid selection.");
