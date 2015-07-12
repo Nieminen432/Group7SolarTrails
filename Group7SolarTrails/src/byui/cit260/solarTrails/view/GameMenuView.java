@@ -92,14 +92,7 @@ public class GameMenuView extends View{
     }
 
     private void chooseInventory() {
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
-        this.console.println("\nList of Inventory Items");
-        this.console.println("\nDescription" + "\t" +
-                "In Stock");
-        for (InventoryItem inventoryItem : inventory) {
-            this.console.println(inventoryItem.getInventoryType() + "\t   "
-                    + inventoryItem.getQuantityInStock());
-        }
+        
     }
     private void chooseSynthesizer() {
         // Choose Synthesizer
@@ -127,7 +120,7 @@ public class GameMenuView extends View{
             // save the game to the specified file
             GameControl.saveGame(Group7SolarTrails.getCurrentGame(), filePath);
         }catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
+            ErrorView.display("GameMenuView", ex.getMessage());
         }
     }
 

@@ -24,7 +24,8 @@ public class Group7SolarTrails {
     
     private static Game currentGame = null;
     private static Player player = null;
-    
+    private static InventoryItem inventory = null;
+
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
     
@@ -69,6 +70,14 @@ public class Group7SolarTrails {
         Group7SolarTrails.player = player;
     }    
 
+    public static InventoryItem getInventory() {
+        return inventory;
+    }
+
+    public static void setInventory(InventoryItem inventory) {
+        Group7SolarTrails.inventory = inventory;
+    }
+    
     public static void setCrew(int maxCrew) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
