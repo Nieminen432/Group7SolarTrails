@@ -50,7 +50,7 @@ public class ChooseShipSizeView extends View{
                 this.previousMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
 
     } return false;
@@ -58,21 +58,21 @@ public class ChooseShipSizeView extends View{
 
     private void chooseSmallShipType() {
         // Select SmallShipType
-        System.out.println("You have selected the small ship type.");
+        this.console.println("You have selected the small ship type.");
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
     private void chooseMediumShipType() {
         // Select MediumShipType
-        System.out.println("You have selected the medium ship type.");
+        this.console.println("You have selected the medium ship type.");
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
     private void chooseLargeShipType() {
         // Select LargeShipType
-        System.out.println("You have selected the large ship type.");
+        this.console.println("You have selected the large ship type.");
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }

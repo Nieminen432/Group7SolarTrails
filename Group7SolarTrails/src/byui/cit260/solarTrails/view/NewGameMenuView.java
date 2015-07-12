@@ -5,8 +5,6 @@
  */
 package byui.cit260.solarTrails.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Hiatt-Adam
@@ -54,7 +52,7 @@ public class NewGameMenuView extends View{
                 this.choosePlayGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         } return false;
     }

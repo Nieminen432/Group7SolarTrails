@@ -6,10 +6,8 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
-import byui.cit260.solarTrails.exceptions.GameControlException;
 import byui.cit260.solarTrails.model.Game;
 import byui.cit260.solarTrails.model.InventoryItem;
-import byui.cit260.solarTrails.model.Location;
 import group7solartrails.Group7SolarTrails;
 
 /**
@@ -77,7 +75,7 @@ public class GameMenuView extends View{
                 this.exitProgram();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         } return false;
     }
@@ -90,16 +88,16 @@ public class GameMenuView extends View{
         Game game = Group7SolarTrails.getCurrentGame();
         
         int location = game.getLocation();
-        System.out.println(location);
+        this.console.println(location);
     }
 
     private void chooseInventory() {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
-        System.out.println("\nList of Inventory Items");
-        System.out.println("\nDescription" + "\t" +
+        this.console.println("\nList of Inventory Items");
+        this.console.println("\nDescription" + "\t" +
                 "In Stock");
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getInventoryType() + "\t   "
+            this.console.println(inventoryItem.getInventoryType() + "\t   "
                     + inventoryItem.getQuantityInStock());
         }
     }
@@ -121,7 +119,7 @@ public class GameMenuView extends View{
 
     private void chooseSave() {
         // Choose Save
-        System.out.println("\n\nEnter the file path for file where the game "
+        this.console.println("\n\nEnter the file path for file where the game "
                             + "is to be saved.");
         String filePath = this.getInput();
         

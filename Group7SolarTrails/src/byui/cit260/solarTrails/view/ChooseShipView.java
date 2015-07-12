@@ -6,9 +6,6 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -48,12 +45,12 @@ public class ChooseShipView extends View{
                     this.previousMenu();
                     break;
                 default:
-                    System.out.println("\n*** Invalid selection *** Try again");
+                    this.console.println("\n*** Invalid selection *** Try again");
                     break;
                     
             } throw new GeneralViewExceptions("Please make a valid selection.");
         } catch (GeneralViewExceptions e) {
-            System.out.println(e.getMessage ());
+            this.console.println(e.getMessage ());
         }
         return false;
     }

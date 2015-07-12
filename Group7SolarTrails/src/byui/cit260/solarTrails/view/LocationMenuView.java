@@ -5,8 +5,6 @@
  */
 package byui.cit260.solarTrails.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Nixon-Joseph
@@ -53,7 +51,7 @@ public class LocationMenuView extends View{
                 this.chooseNextLocation();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 getInput();
                 break;
         } return false;
@@ -65,7 +63,7 @@ public class LocationMenuView extends View{
 
     private void chooseRest() {
         // Choose amount of time to rest
-        System.out.println("You have chosen to rest X days");
+        this.console.println("You have chosen to rest X days");
     }
 
     private void chooseMaintenance() {

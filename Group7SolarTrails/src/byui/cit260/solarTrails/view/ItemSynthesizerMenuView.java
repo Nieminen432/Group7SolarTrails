@@ -6,8 +6,6 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.exceptions.SynthesizerControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -49,7 +47,7 @@ public class ItemSynthesizerMenuView extends View{ // menu to synthesize items. 
                 this.previousMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
 
     } return false;
@@ -65,7 +63,7 @@ public class ItemSynthesizerMenuView extends View{ // menu to synthesize items. 
             */
             throw new SynthesizerControlException("Not supported yet."); //Replace with try/catch when the formula needed and test it.
         } catch (SynthesizerControlException ex) {
-            Logger.getLogger(ItemSynthesizerMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
 
@@ -77,7 +75,7 @@ public class ItemSynthesizerMenuView extends View{ // menu to synthesize items. 
             */
             throw new SynthesizerControlException("Not supported yet."); //Replace with try/catch when the formula needed and test it.
         } catch (SynthesizerControlException ex) {
-            Logger.getLogger(ItemSynthesizerMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
 
@@ -89,7 +87,7 @@ public class ItemSynthesizerMenuView extends View{ // menu to synthesize items. 
             */
             throw new SynthesizerControlException("Not supported yet."); //Replace with try/catch when the formula needed and test it.
         } catch (SynthesizerControlException ex) {
-            Logger.getLogger(ItemSynthesizerMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
 
@@ -101,7 +99,7 @@ public class ItemSynthesizerMenuView extends View{ // menu to synthesize items. 
             */
             throw new SynthesizerControlException("Not supported yet."); //Replace with try/catch when the formula needed and test it.
         } catch (SynthesizerControlException ex) {
-            Logger.getLogger(ItemSynthesizerMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
 
@@ -113,7 +111,7 @@ public class ItemSynthesizerMenuView extends View{ // menu to synthesize items. 
             */
             throw new SynthesizerControlException("Not supported yet."); //Replace with try/catch when the formula needed and test it.
         } catch (SynthesizerControlException ex) {
-            Logger.getLogger(ItemSynthesizerMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
 }

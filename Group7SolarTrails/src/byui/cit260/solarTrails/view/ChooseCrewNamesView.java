@@ -9,6 +9,9 @@ import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
 import java.util.Scanner;
 import byui.cit260.solarTrails.view.ChooseCrewSizeView.*;
 import byui.cit260.solarTrails.model.Character;
+import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -16,20 +19,39 @@ import byui.cit260.solarTrails.model.Character;
  */
 
 public class ChooseCrewNamesView  {
-  
+    private String promptMessage;
+    
+    protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
+    protected final PrintWriter console = Group7SolarTrails.getOutFile();
+
+    ChooseCrewNamesView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
+
+    public ChooseCrewNamesView(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
     public String getName() throws GeneralViewExceptions {
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
+        
         boolean valid = false;
         String crewName = null;
         CharSequence DONE = null;
         
         while(!valid) { // while a valid name has not been retrieved
             
-            
+            try{
 
             // if DONE is typed, end name selection
             if (crewName.equals("DONE")) {
-                System.out.println("You are finished naming your crew.");
+                this.console.println("You are finished naming your crew.");
                 ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
                 chooseCrew.display();
                 break;
@@ -43,23 +65,29 @@ public class ChooseCrewNamesView  {
             
             // name is correct
             if (crewName.length() >3 || crewName.length() < 15){
-                System.out.println("You have entered the name: " + crewName
+                this.console.println("You have entered the name: " + crewName
                 + "\n Enter another name or type DONE if you are done.");
                 continue;
             }
             
             break;
             
-        }
-        return crewName; // return the players name
+            }catch (GeneralViewExceptions ex) {
+            ErrorView.display(this.getClass().getName(),
+                    "Please choose a valid option");
+            }finally{
+                return crewName; // return the players name
+            }
+        
+        }return crewName; // return the players name
     }
     
     public Character[] doDisplayCharacter(Character[] enterCharacterName) throws GeneralViewExceptions {
         Character[] Character; 
         Character[] characters = null;
         Character = new Character[ChooseCrewSizeView.crewSize];
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
-        System.out.println("Enter the player's name below:"); 
+
+        this.console.println("Enter the player's name below:"); 
             
         for (Character character : characters) {
             String crewName = this.getName();
@@ -170,7 +198,7 @@ public class ChooseCrewNamesView  {
                 this.previousMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
     } return false;
 }

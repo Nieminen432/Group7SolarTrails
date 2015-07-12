@@ -5,6 +5,9 @@
  */
 package byui.cit260.solarTrails.model;
 
+import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,11 +16,27 @@ import java.util.Objects;
  * @author Hiatt-Adam
  */
 public class InventoryItem implements Serializable{
+    private String promptMessage;
+    
+    protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
+    protected final PrintWriter console = Group7SolarTrails.getOutFile();
+
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
+
+    public InventoryItem(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
  
     // class instance variables
     private String inventoryType;
     private double quantityInStock;
-    private String description = "";
+    private final String description = "";
 
     public InventoryItem() {
     }
@@ -74,6 +93,6 @@ public class InventoryItem implements Serializable{
     }
 
     public void setDescription(String Item) {
-        System.out.println("Set Desc");
+        this.console.println("Set Desc");
     }
 }

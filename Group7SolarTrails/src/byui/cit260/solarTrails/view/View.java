@@ -8,7 +8,6 @@ package byui.cit260.solarTrails.view;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 /**
  *

@@ -8,7 +8,10 @@ package byui.cit260.solarTrails.view;
 import byui.cit260.solarTrails.control.ProgramControl;
 import byui.cit260.solarTrails.exceptions.ProgramControlException;
 import byui.cit260.solarTrails.model.*;
-import java.util.Scanner;
+import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +20,22 @@ import java.util.logging.Logger;
  * @author Hiatt-Adam
  */
 public class StartProgramView {
+    private String promptMessage;
+    
+    protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
+    protected final PrintWriter console = Group7SolarTrails.getOutFile();
+
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
+
+    public StartProgramView(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
 
     public StartProgramView() {
     }
@@ -89,14 +108,15 @@ public class StartProgramView {
     private String getPlayersName() {
         boolean valid = false; // indicates if the name has been retrieved
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
         
-        while(!valid) { // while a valid name has not been retrieved
+        
+        while(!valid) { try {
+            // while a valid name has not been retrieved
             
             //prompt for the player's name
             System.out.println("Enter the player's name below:");
             // get the name from the keyboard and trim off the blanks
-            playersName = keyboard.nextLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
             
             // if the name is invalid (less than three characters in length)
@@ -105,6 +125,11 @@ public class StartProgramView {
                 continue; // and repeat again
             }
             break; // exit the repetition
+        }catch (Exception e) {
+               ErrorView.display(this.getClass().getName(),
+                       "Error reading input: " + e.getMessage());
+               return null;
+               }
         }
         return playersName; // return the players name
     }
@@ -114,7 +139,5 @@ public class StartProgramView {
         System.out.println("\tWelcome to the game " + player.getName());
         System.out.println("\tWe hope you have a lot of fun!!");
         System.out.println("\n\n=============================================");
-    }
-    
-    
+    }  
 }

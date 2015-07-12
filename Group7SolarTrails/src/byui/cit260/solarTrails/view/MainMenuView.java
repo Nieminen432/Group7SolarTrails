@@ -6,11 +6,8 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
-import byui.cit260.solarTrails.control.Scene;
 import byui.cit260.solarTrails.exceptions.SceneException;
-import byui.cit260.solarTrails.view.NewGameMenuView;
 import group7solartrails.Group7SolarTrails;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,7 +39,7 @@ public class MainMenuView extends View {
                 try {
                     this.startNewGame();
                 } catch (SceneException ex) {
-                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                    ErrorView.display("MainMenuView", ex.getMessage());
                 }
                 break;
             case 'L': // get and start an existing game
@@ -55,7 +52,7 @@ public class MainMenuView extends View {
                 this.exitProgram();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
                 
         } return false;

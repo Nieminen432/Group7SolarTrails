@@ -57,11 +57,12 @@ public class ChooseCrewMemberMenuView extends View{
                     this.previousMenu();
                     break;
                 default:
-                    System.out.println("\n*** Invalid selection *** Try again");
+                    this.console.println("\n*** Invalid selection *** Try again");
                     break;
             } return false;
         } catch (GeneralViewExceptions ex) {
-            Logger.getLogger(ChooseCrewMemberMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display(this.getClass().getName(),
+                    "Please choose a valid option");
         }
         return false;
 }
