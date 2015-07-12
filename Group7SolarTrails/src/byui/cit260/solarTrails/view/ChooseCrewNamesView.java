@@ -6,8 +6,6 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
-import java.util.Scanner;
-import byui.cit260.solarTrails.view.ChooseCrewSizeView.*;
 import byui.cit260.solarTrails.model.Character;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
@@ -40,14 +38,16 @@ public class ChooseCrewNamesView  {
         this.promptMessage = promptMessage;
     }
     public String getName() throws GeneralViewExceptions {
-        
+
         boolean valid = false;
         String crewName = null;
         CharSequence DONE = null;
         
         while(!valid) { // while a valid name has not been retrieved
+
             
             try{
+
 
             // if DONE is typed, end name selection
             if (crewName.equals("DONE")) {
@@ -87,7 +87,11 @@ public class ChooseCrewNamesView  {
         Character[] characters = null;
         Character = new Character[ChooseCrewSizeView.crewSize];
 
+
         this.console.println("Enter the player's name below:"); 
+
+        System.out.println("Enter the player's name below:"); 
+
             
         for (Character character : characters) {
             String crewName = this.getName();

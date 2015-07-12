@@ -32,12 +32,12 @@ public class ChooseEngineTypeView extends View{
 
 
 
-        @Override
-        public boolean doAction(Object obj) {
+    @Override
+    public boolean doAction(Object obj) {
         String value = (String) obj;
         value = value.toUpperCase();
         char choice = value.charAt(0);
-        
+
         switch (choice) {
             case 'C': // create and start a new game
                 this.chooseCombustionEngine();
@@ -57,9 +57,8 @@ public class ChooseEngineTypeView extends View{
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
-
-    } return false;
-}
+        } return false;
+    }
 
     private void chooseCombustionEngine() {
         // Select SmallShipType
@@ -90,4 +89,4 @@ public class ChooseEngineTypeView extends View{
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
-    }
+}

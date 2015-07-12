@@ -267,6 +267,7 @@ public class RandomSceneMenuView extends View{
             } catch (IOException ex) {
                 Logger.getLogger(RandomSceneMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
+            input = input.trim();
             input = input.toUpperCase();
 
             // if the input is invalid (more than 1 character)

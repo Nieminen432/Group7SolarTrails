@@ -5,9 +5,6 @@
  */
 package byui.cit260.solarTrails.view;
 
-import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
-import java.util.Scanner;
-
 /**
  *
  * @author Hiatt-Adam
@@ -35,7 +32,8 @@ public class ChooseCrewSizeView extends View{
 
 @Override
         public boolean doAction(Object obj) {
-            String value = (String) obj;
+ 
+           String value = (String) obj;
             value = value.toUpperCase();
             char choice = value.charAt(0);
             switch (choice) {
@@ -77,7 +75,8 @@ public class ChooseCrewSizeView extends View{
                     break;
         }
         return false;
-}
+
+        }
 
     private void crewSizeOne() {
         crewSize = 1;
