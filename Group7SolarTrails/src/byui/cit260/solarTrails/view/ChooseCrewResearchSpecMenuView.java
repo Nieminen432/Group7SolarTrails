@@ -5,6 +5,8 @@
  */
 package byui.cit260.solarTrails.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import static javafx.beans.binding.Bindings.length;
 
@@ -12,104 +14,125 @@ import static javafx.beans.binding.Bindings.length;
  *
  * @author Hiatt-Adam
  */
-public enum ChooseCrewResearchSpecMenuView {
-       
-    //public enum Specialization {
-            BIOLOGY('b', "Biology"),
-            BIOTECHNOLOGY('t', "BioTechnology"),
-            CHEMISTRY('c', "Chemistry"),
-            ENVIRONMENTALSCIENCE('S', "EnvironmentalScience"),
-            MATHEMATICS('m', "Mathematics"),
-            PHYSICS('p', "Pysics"),
-            ENGINEERING('e', "Engineering"),
-            ASTROPHYSICS('a', "Astrophysics"),
-            PLANETARYSCIENCE('p', "PlanetaryScience"),
-            EXPLORATIONANDOBSERVATION('o', "ExplorationAndObservation"),
-            COMPUTERINFOTECH('i', "ComputerInfoTech");
-            
-            private final char menuLetter;
-            private final String displayName;
-            private ChooseCrewResearchSpecMenuView(char menuLetter, String displayName) {
-                this.menuLetter = menuLetter;
-                this.displayName = displayName;
+public class ChooseCrewResearchSpecMenuView {
+    String[][] crewSpecs = new String[3][13];
+    private String setList() {
+        String string = "";
+        for (int i = 0; i < 13; i++) {
+            if (true) {
+                
             }
-            public char getMenuLetter() { return menuLetter; }
-            public String getDisplayName() {return displayName; }
+            crewSpecs[0][i] = "show";
+            switch (i) { 
+                case 0:
+                    crewSpecs[1][i] = "B";
+                    crewSpecs[2][i] = "Biology";
+                    break;
+                case 1:
+                    crewSpecs[1][i] = "T";
+                    crewSpecs[2][i] = "BioTechnology";
+                    break;
+                case 2:
+                    crewSpecs[1][i] = "C";
+                    crewSpecs[2][i] = "Chemistry";
+                    break;
+                case 3:
+                    crewSpecs[1][i] = "S";
+                    crewSpecs[2][i] = "Environmental Science";
+                    break;
+                case 4:
+                    crewSpecs[1][i] = "M";
+                    crewSpecs[2][i] = "Mathematics";
+                    break;
+                case 5:
+                    crewSpecs[1][i] = "P";
+                    crewSpecs[2][i] = "Physics";
+                    break;
+                case 6:
+                    crewSpecs[1][i] = "E";
+                    crewSpecs[2][i] = "Engineering";
+                    break;
+                case 7:
+                    crewSpecs[1][i] = "A";
+                    crewSpecs[2][i] = "Astrophysics";
+                    break;
+                case 8:
+                    crewSpecs[1][i] = "L";
+                    crewSpecs[2][i] = "Planetary Science";
+                    break;
+                case 9:
+                    crewSpecs[1][i] = "O";
+                    crewSpecs[2][i] = "Exploration and Observational Systems";
+                    break;
+                case 10:
+                    crewSpecs[1][i] = "I";
+                    crewSpecs[2][i] = "Computer Information Technology";
+                    break;
+            }
+        }
+        return string;
     }
-
     
-    /*public ChooseCrewResearchSpecMenuView() {
-        super("\n"
-            + "\n-----------------------------------"
-            + "\n | Pick your a research specialization type"
-            + "\n-----------------------------------"
-            + "\nB - Biology"
-            + "\nT - BioTechnology"
-            + "\nC - Chemistry"
-            + "\nS - Environmental Science"
-            + "\nM - Mathematics"
-            + "\nP - Physics"
-            + "\nE - Engineering"
-            + "\nA - Astrophysics"
-            + "\nL - Planetary Science"
-            + "\nO - Exploration and Observational Systems"
-            + "\nI - Computer Information Technology"
-            + "\nR - Reset currently selected research options"
-            + "\nD - Go Back to the previous menu"
-            + "\n-----------------------------------");
+    public void begin() {
+        
     }
-    @Override
-        public boolean doAction(Object obj) {
+    
+    public boolean doAction(Object obj) {
         String value = (String) obj;
         value = value.toUpperCase();
         char choice = value.charAt(0);
-        
         switch (choice) {
-            case 'B': // create and start a new game
-                this.chooseBiology();
+            case 'S': // choose the ship
+                this.chooseYourShip();
                 break;
-            case 'T': // get and start an existing game
-                this.chooseBioTechnology();
+            case 'R': // get and start an existing game
+                this.chooseResearchSpecialization();
                 break;
-            case 'C': // get and start an existing game
-                this.chooseChemistry();
+            case 'C': // choose number of crew members and specializations
+                this.chooseCrewAndSpecialty();
                 break;
-            case 'S': // create and start a new game
-                this.chooseEnvironmentalScience();
+            case 'I': // choose how much food you will start with
+                this.chooseStartingInventory();
                 break;
-            case 'M': // get and start an existing game
-                this.chooseMathematics();
-                break;
-            case 'P': // get and start an existing game
-                this.choosePysics();
-                break;
-            case 'E': // create and start a new game
-                this.chooseEngineering();
-                break;
-            case 'A': // get and start an existing game
-                this.chooseAstrophysics();
-                break;
-            case 'L': // get and start an existing game
-                this.choosePlanetaryScience();
-                break;
-            case 'O': // create and start a new game
-                this.chooseExplorationAndObservation();
-                break;
-            case 'I': // get and start an existing game
-                this.chooseComputerInfoTech();
-                break;
-            case 'R': // display the help menu
-                this.resetResearchOptions();
-                break;
-            case 'D': // Exit the program
-                this.previousMenu();
+            case 'M': // back to the main menu
+                this.chooseMainMenu();
+                break;                
+            case 'P': // Begin the game
+                this.choosePlayGame();
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                System.out.println("\n*** Invalid selection *** Try again");
                 break;
+        } return false;
+    }
 
-    } return false;
-}
+    private void chooseYourShip() {
+        ChooseShipView chooseShip = new ChooseShipView();
+        chooseShip.display();
+    }
+
+    private void chooseResearchSpecialization() {
+        ChooseResearchSpecializationMenuView chooseResearchSpec = new ChooseResearchSpecializationMenuView();
+        chooseResearchSpec.display();        
+    }
+
+    private void chooseCrewAndSpecialty() {
+        ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
+        chooseCrew.display();
+    }
+    
+    private void chooseMainMenu() {
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display(); 
+    }
+    private void chooseStartingInventory() {
+        SelectStartInventoryView selectStartInv = new SelectStartInventoryView();
+        selectStartInv.display();
+    }
+
+    private void choosePlayGame() {
+        // starts a new game
+    }
 
     private void chooseBiology() {
         // select Biology
@@ -163,4 +186,5 @@ public enum ChooseCrewResearchSpecMenuView {
         // return to previous menu
         ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
         chooseCrew.display();
-    }*/
+    }
+}

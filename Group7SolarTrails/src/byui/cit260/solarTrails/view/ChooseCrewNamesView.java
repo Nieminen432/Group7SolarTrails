@@ -25,6 +25,10 @@ public class ChooseCrewNamesView  {
     ChooseCrewNamesView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public void begin() {
+        
+    }
 
     public String getPromptMessage() {
         return promptMessage;
@@ -95,16 +99,16 @@ public class ChooseCrewNamesView  {
             
         for (Character character : characters) {
             String crewName = this.getName();
-            ChooseCrewResearchSpecMenuView[] s = ChooseCrewResearchSpecMenuView.values();
+            //ChooseCrewResearchSpecMenuView[] s = ChooseCrewResearchSpecMenuView.values();
         }Character[] crewName = null;
             return crewName;
 }
     
     public static ChooseCrewResearchSpecMenuView[] doDisplayMenu(ChooseCrewResearchSpecMenuView[] selectResearchSpec) throws GeneralViewExceptions {   
-    ChooseCrewResearchSpecMenuView[] crewResearchSpec = ChooseCrewResearchSpecMenuView.values();
-        for (ChooseCrewResearchSpecMenuView crewResearchSpec1 : crewResearchSpec) {
+    //ChooseCrewResearchSpecMenuView[] crewResearchSpec = ChooseCrewResearchSpecMenuView.values();
+        /*for (ChooseCrewResearchSpecMenuView crewResearchSpec1 : crewResearchSpec) {
             System.out.println(crewResearchSpec1.getMenuLetter() + ": " + crewResearchSpec1.getDisplayName());
-        } 
+        } */
         throw new GeneralViewExceptions("You must create a character profile.");
     
   }

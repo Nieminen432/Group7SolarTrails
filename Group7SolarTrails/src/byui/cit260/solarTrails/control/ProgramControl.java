@@ -32,7 +32,7 @@ public class ProgramControl {
     public static Ship createShip(int maxCrew) 
             throws ProgramControlException { // set crew size
         
-            throw new ProgramControlException("A ship must be used foro this trip.");
+            throw new ProgramControlException("A ship must be used for this trip.");
     }
     
 }

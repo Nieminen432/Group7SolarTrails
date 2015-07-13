@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -26,6 +28,7 @@ public class Group7SolarTrails {
     
     private static Game currentGame = null;
     private static Player player = null;
+    List charList = new ArrayList<>();
     private static Ship ship = null;
     private static InventoryItem inventory = null;
 
@@ -52,6 +55,14 @@ public class Group7SolarTrails {
 
     public static BufferedReader getInFile() {
         return inFile;
+    }
+
+    public List getCharList() {
+        return charList;
+    }
+
+    public void setCharList(List charList) {
+        this.charList = charList;
     }
 
     public static void setInFile(BufferedReader inFile) {
@@ -95,7 +106,6 @@ public class Group7SolarTrails {
     
             
     public static void main(String[] args) {
-        
         try {
             // open character stream files for end user input and output
             Group7SolarTrails.inFile =
@@ -109,13 +119,12 @@ public class Group7SolarTrails {
         // create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.startProgram();
-        return;
         
         } catch (Throwable e) {
         System.err.println("Exception: " + e.toString() +
                             "\nCause: " + e.getCause() + 
                             "\nMessage: " + e.getMessage());
-        e.printStackTrace();;
+        e.printStackTrace();
     }
     finally {
             try {
