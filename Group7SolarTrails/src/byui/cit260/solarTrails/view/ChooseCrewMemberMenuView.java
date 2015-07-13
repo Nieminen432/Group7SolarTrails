@@ -7,9 +7,6 @@ package byui.cit260.solarTrails.view;
 
 
 import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

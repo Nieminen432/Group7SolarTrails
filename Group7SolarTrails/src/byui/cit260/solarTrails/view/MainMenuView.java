@@ -8,8 +8,6 @@ package byui.cit260.solarTrails.view;
 import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.exceptions.SceneException;
 import group7solartrails.Group7SolarTrails;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

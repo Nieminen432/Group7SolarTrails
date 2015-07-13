@@ -7,8 +7,6 @@ package group7solartrails;
 
 import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.view.*;
-import byui.cit260.solarTrails.exceptions.*;
-import byui.cit260.solarTrails.control.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

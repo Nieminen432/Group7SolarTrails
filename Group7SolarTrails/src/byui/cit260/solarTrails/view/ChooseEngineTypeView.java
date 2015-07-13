@@ -7,7 +7,6 @@ package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.model.Engine;
 import group7solartrails.Group7SolarTrails;
-import java.util.Scanner;
 
 /**
  *
