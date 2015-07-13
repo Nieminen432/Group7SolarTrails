@@ -6,7 +6,7 @@
 package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.exceptions.GeneralViewExceptions;
-import byui.cit260.solarTrails.model.Character;
+import byui.cit260.solarTrails.model.Crew;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
@@ -86,10 +86,10 @@ public class ChooseCrewNamesView  {
         }return crewName; // return the players name
     }
     
-    public Character[] doDisplayCharacter(Character[] enterCharacterName) throws GeneralViewExceptions {
-        Character[] Character; 
-        Character[] characters = null;
-        Character = new Character[ChooseCrewSizeView.crewSize];
+    public Crew[] doDisplayCharacter(Crew[] enterCharacterName) throws GeneralViewExceptions {
+        Crew[] Character; 
+        Crew[] characters = null;
+        Character = new Crew[ChooseCrewSizeView.crewSize];
 
 
         this.console.println("Enter the player's name below:"); 
@@ -97,10 +97,10 @@ public class ChooseCrewNamesView  {
         System.out.println("Enter the player's name below:"); 
 
             
-        for (Character character : characters) {
+        for (Crew character : characters) {
             String crewName = this.getName();
             //ChooseCrewResearchSpecMenuView[] s = ChooseCrewResearchSpecMenuView.values();
-        }Character[] crewName = null;
+        }Crew[] crewName = null;
             return crewName;
 }
     

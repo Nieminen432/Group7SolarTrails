@@ -15,6 +15,9 @@ public class Engine implements Serializable {
     private int maxSpeed;
     private int fuelConsumption;
 
+    public Engine() {
+    }
+
     public Engine(int engineNum) {
         this.maxSpeed = engineNum*20;
         switch (engineNum) {

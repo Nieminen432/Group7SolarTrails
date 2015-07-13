@@ -5,8 +5,6 @@
  */
 package byui.cit260.solarTrails.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Hiatt-Adam

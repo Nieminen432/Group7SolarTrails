@@ -11,10 +11,10 @@ import java.util.Objects;
  *
  * @author Joseph
  */
-public class Character {
+public class Crew {
         
     /*
-    Crew members are not static when game starts. Outside of this object, we will make an arraylist for our characters. 
+    Crew members are not static when game starts. Outside of this object, we will make an arraylist for our crew members. 
     However, we have modified this as directions have stated for learning purposes.
     */
 
@@ -22,14 +22,31 @@ public class Character {
     public int spec;
     public String description;
     public double health;
+    public String researchSpec;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getResearchSpec() {
+        return researchSpec;
+    }
+
+    public void setResearchSpec(String researchSpec) {
+        this.researchSpec = researchSpec;
+    }
     
-    public Character() {
+    public Crew() {
         this.name = "aaa";
         this.spec = 999;
         this.health = health;
     }
     
-    public Character(String name, int s, String description, double health) {
+    public Crew(String name, int s, String description, double health) {
         this.name = name;
         this.spec = s;
         this.health = health;
@@ -61,7 +78,7 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", description=" + description + "health=" + health + '}';
+        return "Crew{" + "name=" + name + ", description=" + description + "health=" + health + '}';
     }
 
     @Override
@@ -81,7 +98,7 @@ public class Character {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Character other = (Character) obj;
+        final Crew other = (Crew) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }

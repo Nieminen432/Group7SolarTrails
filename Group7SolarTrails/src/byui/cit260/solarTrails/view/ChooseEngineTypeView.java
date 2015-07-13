@@ -65,27 +65,43 @@ public class ChooseEngineTypeView extends View{
     private void chooseCombustionEngine() {
         // Select SmallShipType
         this.console.println("You have selected the Combustion Engine.");
-        Group7SolarTrails.getShip().setEngine(new Engine(1));
+        Engine engine = new Engine();
+        engine.setFuelConsumption(100);
+        engine.setMaxSpeed(30);
+        Group7SolarTrails.setEngine(engine);
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
     private void chooseImpulseEngine() {
         // Select MediumShipType
-        this.console.println("You have selected the Impulse Engine.");
-        Group7SolarTrails.getShip().setEngine(new Engine(2));
+        this.console.println("You have selected the Impulse Engine.");Engine engine = new Engine();
+        engine.setFuelConsumption(200);
+        engine.setMaxSpeed(40);
+        Group7SolarTrails.setEngine(engine);
+        ChooseShipView chooseShip = new ChooseShipView();
+        chooseShip.display();
+    }
+    
+    private void chooseSolarSail() {
+        // Select Solar Sail
+        this.console.println("You have selected the Impulse Engine.");Engine engine = new Engine();
+        engine.setFuelConsumption(300);
+        engine.setMaxSpeed(50);
+        Group7SolarTrails.setEngine(engine);
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
+    /*
     private void chooseSolarSail() {
-        // Select LargeShipType
+        // Select Solar Sail
         this.console.println("You have selected the Hyperdrive.");
         Group7SolarTrails.getShip().setEngine(new Engine(3));
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
-
+*/
     private void resetShipOptions() {
         // reset ship type
         Group7SolarTrails.getShip().setEngine(new Engine(1));

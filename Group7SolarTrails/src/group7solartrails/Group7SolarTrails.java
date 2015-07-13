@@ -28,6 +28,24 @@ public class Group7SolarTrails {
     private static Player player = null;
     List charList = new ArrayList<>();
     private static Ship ship = null;
+    private static Engine engine = null;
+    private static Crew crew = null;
+
+    public static Crew getCrew() {
+        return crew;
+    }
+
+    public static void setCrew(Crew crew) {
+        Group7SolarTrails.crew = crew;
+    }
+
+    public static Engine getEngine() {
+        return engine;
+    }
+
+    public static void setEngine(Engine engine) {
+        Group7SolarTrails.engine = engine;
+    }
     private static InventoryItem inventory = null;
 
     private static PrintWriter outFile = null;
