@@ -13,28 +13,30 @@ import java.util.Objects;
  * @author Joseph
  */
 public class Ship implements Serializable {
-    private int maxWeight;
+    private int maxInventory;
     private int amountLoaded;
+    private int size;
     private int maxCrew;
     private int noCrew;
     private String description;
     private Engine engine;
 
     public Ship() {
-        this.description = "\nThis is your ship!!!";
-        this.maxWeight = 20000;
+        this.description = "";
+        this.maxInventory = 10000;
+        this.size = 1;
         this.amountLoaded = 0;
-        this.maxCrew = 12;
+        this.maxCrew = 3;
         engine = new Engine(1);
         this.noCrew = 0;
     }
 
     public int getMaxWeight() {
-        return maxWeight;
+        return maxInventory;
     }
 
     public void setMaxWeight(int maxWeight) {
-        this.maxWeight = maxWeight;
+        this.maxInventory = maxWeight;
     }
 
     public int getAmountLoaded() {
@@ -51,6 +53,22 @@ public class Ship implements Serializable {
 
     public void setMaxCrew(int maxCrew) {
         this.maxCrew = maxCrew;
+    }
+
+    public int getMaxInventory() {
+        return maxInventory;
+    }
+
+    public void setMaxInventory(int maxInventory) {
+        this.maxInventory = maxInventory;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public int getNoCrew() {
@@ -79,13 +97,13 @@ public class Ship implements Serializable {
 
     @Override
     public String toString() {
-        return "Ship{" + "maxWeight=" + maxWeight + ", amountLoaded=" + amountLoaded + ", maxCrew=" + maxCrew + ", noCrew=" + noCrew + ", description=" + description + ", width=" + ", engine=" + engine + '}';
+        return "Ship{" + "maxWeight=" + maxInventory + ", amountLoaded=" + amountLoaded + ", maxCrew=" + maxCrew + ", noCrew=" + noCrew + ", description=" + description + ", width=" + ", engine=" + engine + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 17 * hash + this.maxWeight;
+        hash = 17 * hash + this.maxInventory;
         hash = 17 * hash + this.amountLoaded;
         hash = 17 * hash + this.maxCrew;
         hash = 17 * hash + this.noCrew;
@@ -103,7 +121,7 @@ public class Ship implements Serializable {
             return false;
         }
         final Ship other = (Ship) obj;
-        if (this.maxWeight != other.maxWeight) {
+        if (this.maxInventory != other.maxInventory) {
             return false;
         }
         if (this.amountLoaded != other.amountLoaded) {

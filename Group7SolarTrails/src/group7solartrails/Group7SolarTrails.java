@@ -7,6 +7,8 @@ package group7solartrails;
 
 import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.view.*;
+import byui.cit260.solarTrails.exceptions.*;
+import byui.cit260.solarTrails.control.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,6 +26,7 @@ public class Group7SolarTrails {
     
     private static Game currentGame = null;
     private static Player player = null;
+    private static Ship ship = null;
     private static InventoryItem inventory = null;
 
     private static PrintWriter outFile = null;
@@ -60,6 +63,14 @@ public class Group7SolarTrails {
 
     public static void setCurrentGame(Game currentGame) {
         Group7SolarTrails.currentGame = currentGame;
+    }
+
+    public static Ship getShip() {
+        return ship;
+    }
+
+    public static void setShip(Ship ship) {
+        Group7SolarTrails.ship = ship;
     }
 
     public static Player getPlayer() {

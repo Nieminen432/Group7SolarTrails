@@ -5,6 +5,8 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.model.Engine;
+import group7solartrails.Group7SolarTrails;
 import java.util.Scanner;
 
 /**
@@ -21,7 +23,8 @@ public class ChooseEngineTypeView extends View{
             + "\n    This engine burns rocketfuel which can be harvested or synthesized. "
             + "\n    This engine is tried and tested and doesn't have many problems."
             + "\nI - This is the impulse engine. It's max speed is 40AU/hour"
-            + "\n    This engine burns <SOMETHING?> which can be harvested or synthesized."
+            + "\n    This engine runs on nuclear power."
+            + "\n    the nuclear module is powered by materials which can be harvested."
             + "\n    This engine has gone through extensive testing but still experiences breakdowns."
             + "\nS - This is the hyperdrive engine. It's max speed is 60AU/hour."
             + "\n    This engine runs on solar power and it is a very new technology that has a tendancy to breakdown."
@@ -63,6 +66,7 @@ public class ChooseEngineTypeView extends View{
     private void chooseCombustionEngine() {
         // Select SmallShipType
         this.console.println("You have selected the Combustion Engine.");
+        Group7SolarTrails.getShip().setEngine(new Engine(1));
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
@@ -70,6 +74,7 @@ public class ChooseEngineTypeView extends View{
     private void chooseImpulseEngine() {
         // Select MediumShipType
         this.console.println("You have selected the Impulse Engine.");
+        Group7SolarTrails.getShip().setEngine(new Engine(2));
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
@@ -77,12 +82,14 @@ public class ChooseEngineTypeView extends View{
     private void chooseSolarSail() {
         // Select LargeShipType
         this.console.println("You have selected the Hyperdrive.");
+        Group7SolarTrails.getShip().setEngine(new Engine(3));
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
     private void resetShipOptions() {
         // reset ship type
+        Group7SolarTrails.getShip().setEngine(new Engine(1));
     }
 
     private void previousMenu() {

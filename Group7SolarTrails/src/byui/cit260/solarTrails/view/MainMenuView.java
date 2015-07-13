@@ -49,13 +49,14 @@ public class MainMenuView extends View {
                 this.displayHelpMenu();
                 break;
             case 'E': // Exit the program
-                this.exitProgram();
+                System.exit(0);
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
                 
-        } return false;
+        } 
+        return false;
     }
 
     private void startNewGame() throws SceneException {

@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.view;
 
+import group7solartrails.Group7SolarTrails;
 import java.util.Scanner;
 
 /**
@@ -59,6 +60,8 @@ public class ChooseShipSizeView extends View{
     private void chooseSmallShipType() {
         // Select SmallShipType
         this.console.println("You have selected the small ship type.");
+        Group7SolarTrails.getShip().setSize(1);
+        Group7SolarTrails.getShip().setMaxInventory(10000);
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
@@ -66,6 +69,8 @@ public class ChooseShipSizeView extends View{
     private void chooseMediumShipType() {
         // Select MediumShipType
         this.console.println("You have selected the medium ship type.");
+        Group7SolarTrails.getShip().setSize(2);
+        Group7SolarTrails.getShip().setMaxInventory(20000);
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
@@ -73,12 +78,16 @@ public class ChooseShipSizeView extends View{
     private void chooseLargeShipType() {
         // Select LargeShipType
         this.console.println("You have selected the large ship type.");
+        Group7SolarTrails.getShip().setSize(3);
+        Group7SolarTrails.getShip().setMaxInventory(30000);
         ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
     }
 
     private void resetShipOptions() {
         // reset ship type
+        Group7SolarTrails.getShip().setSize(1);
+        Group7SolarTrails.getShip().setMaxInventory(10000);
     }
 
     private void previousMenu() {

@@ -14,10 +14,20 @@ import java.io.Serializable;
 public class Engine implements Serializable {
     private int maxSpeed;
     private int fuelConsumption;
-    private int weight;
 
     public Engine(int engineNum) {
-        //create 3 types dependent on passed in number
+        this.maxSpeed = engineNum*20;
+        switch (engineNum) {
+            case 1:
+                this.fuelConsumption = 12;
+                break;
+            case 2:
+                this.fuelConsumption = 6;
+                break;
+            case 3:
+                this.fuelConsumption = 0;
+                break;
+        }
     }
 
     public int getMaxSpeed() {
@@ -36,17 +46,9 @@ public class Engine implements Serializable {
         this.fuelConsumption = fuelConsumption;
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
     @Override
     public String toString() {
-        return "Engine{" + "maxSpeed=" + maxSpeed + ", fuelConsumption=" + fuelConsumption + ", weight=" + weight + '}';
+        return "Engine{" + "maxSpeed=" + maxSpeed + ", fuelConsumption=" + fuelConsumption + '}';
     }
 
     @Override
@@ -54,7 +56,6 @@ public class Engine implements Serializable {
         int hash = 7;
         hash = 97 * hash + this.maxSpeed;
         hash = 97 * hash + this.fuelConsumption;
-        hash = 97 * hash + this.weight;
         return hash;
     }
 
@@ -73,6 +74,6 @@ public class Engine implements Serializable {
         if (this.fuelConsumption != other.fuelConsumption) {
             return false;
         }
-        return this.weight == other.weight;
+        return true;
     }
 }

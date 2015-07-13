@@ -92,8 +92,8 @@ public class HelpMenuView extends View{
     }
 
     private void previousMenu() {
-        NewGameMenuView newGameMenu = new NewGameMenuView();
-        newGameMenu.display();
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display();
         // Previous Menu. This will need to be adjusted to go to whatever menu the player was at previously.
     }
 

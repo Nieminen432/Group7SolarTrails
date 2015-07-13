@@ -138,6 +138,6 @@ public class StartProgramView {
         this.console.println("\n\n=============================================");
         this.console.println("\tWelcome to the game " + player.getName());
         this.console.println("\tWe hope you have a lot of fun!!");
-        this.console.println("\n\n=============================================");
+        this.console.println("=============================================");
     }  
 }
