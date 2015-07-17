@@ -31,6 +31,12 @@ public class AlienObjectMenuView extends View{
         char choice = value.charAt(0);
         switch (choice) {
             case 'R': // Research Object
+                /* check amount researched. If less than 100%, allow attempt. Amount researchable cannot exceed 100%
+                check research specializations
+                come up with some random formula that somehow incorporates specializations and decreases crew supplies and health.
+                display amount researched and ask if they want to research again.
+                
+                */
                 this.chooseResearch();
                 break;
             case 'L': // Leave Object

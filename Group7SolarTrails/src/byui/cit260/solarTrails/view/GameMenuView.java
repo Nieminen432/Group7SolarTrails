@@ -92,7 +92,8 @@ public class GameMenuView extends View{
     }
 
     private void chooseInventory() {
-        
+        InventoryMenuView inventoryMenu = new InventoryMenuView();
+                inventoryMenu.display();
     }
     private void chooseSynthesizer() {
         // Choose Synthesizer
