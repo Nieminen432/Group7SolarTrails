@@ -13,7 +13,7 @@ import byui.cit260.solarTrails.exceptions.GetTimeRemainingException;
  */
 public class GetTimeRemaining {
     
-    public double timeOfObjectRemaining(double speed, double distance) 
+    public double timeToUranus(double speed, double distance) 
             throws GetTimeRemainingException {
     
         if (speed > 107) { // speed faster than speed of light
@@ -22,7 +22,7 @@ public class GetTimeRemaining {
         if (speed < 0) { // speed negative
             throw new GetTimeRemainingException("Ships cannot go a negative speed.");
         }
-        if (distance > 107) { // greater than total distance
+        if (distance > 18.21) { // greater than total distance
             throw new GetTimeRemainingException("The distance is greater than that of the total distance to Uranus.");
         }
         if (distance < 0) { //distance negative
