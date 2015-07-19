@@ -5,6 +5,9 @@
  */
 package byui.cit260.solarTrails.control;
 
+import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import static java.lang.Double.NaN;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,6 +17,22 @@ import static org.junit.Assert.*;
  * @author Hiatt-Adam
  */
 public class GetTimeRemainingTest {
+    private String promptMessage;
+    
+    protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
+    protected final PrintWriter console = Group7SolarTrails.getOutFile();
+
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
+
+    public GetTimeRemainingTest(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
     
     public GetTimeRemainingTest() {
     }
@@ -24,12 +43,12 @@ public class GetTimeRemainingTest {
      */
     @Test
     public void testTimeToUranus() throws Exception {
-        System.out.println("timeToUranus");
+        this.console.println("timeToUranus");
         
         /*******************
          * test case 1
          *******************/
-        System.out.println("Test Case 1");
+        this.console.println("Test Case 1");
         // inputs
         double speed = 0.0;
         double distance = 0.0;
@@ -50,7 +69,7 @@ public class GetTimeRemainingTest {
         /*******************
          * test case 2
          *******************/
-        System.out.println("Test Case 2");
+        this.console.println("Test Case 2");
         // inputs
         speed = 21.0;
         distance = 0.0;
@@ -68,7 +87,7 @@ public class GetTimeRemainingTest {
         /*******************
          * test case 3
          *******************/
-        System.out.println("Test Case 3");
+        this.console.println("Test Case 3");
         // inputs
         speed = 0.0;
         distance = 136178.1;
@@ -86,7 +105,7 @@ public class GetTimeRemainingTest {
         /*******************
          * test case 4
          *******************/
-        System.out.println("Test Case 4");
+        this.console.println("Test Case 4");
         // inputs
         speed = 5.0;
         distance = 136137.0;

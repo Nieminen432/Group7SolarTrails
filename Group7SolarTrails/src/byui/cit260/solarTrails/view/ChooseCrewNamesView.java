@@ -94,8 +94,6 @@ public class ChooseCrewNamesView  {
 
         this.console.println("Enter the player's name below:"); 
 
-        System.out.println("Enter the player's name below:"); 
-
             
         for (Crew character : characters) {
             String crewName = this.getName();
