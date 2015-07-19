@@ -5,9 +5,7 @@
  */
 package byui.cit260.solarTrails.view;
 
-import byui.cit260.solarTrails.model.Ship;
 import group7solartrails.Group7SolarTrails;
-import static group7solartrails.Group7SolarTrails.getShip;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,10 +37,17 @@ public class ChooseCrewSizeView extends View{
 
     @Override
     public boolean doAction(Object obj) {
-
-       String value = (String) obj;
+        String value = (String) obj;
         value = value.toUpperCase();
         char choice = value.charAt(0);
+        boolean isTooHigh = false;
+        if (Integer.parseInt(value) > Group7SolarTrails.getShip().getMaxCrew()) {
+            isTooHigh = true;
+            this.console.println("\n*** Crew Selection too high *** "
+                    + "\n*** Your max crew size is " + Group7SolarTrails.getShip().getMaxCrew() + " ***"
+                    + "\nPress enter to try again");
+            choice = 'p';
+        }
         switch (choice) {
             case '1': // create and start a new game
                 this.crewSizeOne();
@@ -79,16 +84,18 @@ public class ChooseCrewSizeView extends View{
                 break;
             default:
                 try {
-                    this.console.println("\n*** Invalid selection *** "
-                                        + "\nPrease enter to try again");
+                    if (!isTooHigh) {
+                        this.console.println("\n*** Invalid selection *** "
+                                            + "\nPrease enter to try again");
+                    }
                     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                String s = br.readLine();
+                    String s = br.readLine();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
         }
-    return false;
+        return false;
     }
 
     private void crewSizeOne() {

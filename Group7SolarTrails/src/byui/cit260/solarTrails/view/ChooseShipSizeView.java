@@ -38,64 +38,63 @@ public class ChooseShipSizeView extends View{
         value = value.toUpperCase();
         char choice = value.charAt(0);
         try {
-        switch (choice) {
-            case 'S': // create and start a new game
-                this.chooseSmallShipType();
-                break;
-            case 'M': // get and start an existing game
-                this.chooseMediumShipType();
-                break;
-            case 'L': // get and start an existing game
-                this.chooseLargeShipType();
-                break;
-            case 'R': // display the help menu
-                this.resetShipOptions();
-                break;
-            case 'D': // Exit the program
-                this.previousMenu();
-                break;
-            default:
-                try {
-                this.console.println("\n*** Invalid selection *** "
-                                   + "\nPrease enter to try again");
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
-                break;
-
-    }
-} catch (Exception ex) {
-            ErrorView.display(this.getClass().getName(),
-            "Something went wrong selecting a ship type");
-} return false;
+            switch (choice) {
+                case 'S': // create and start a new game
+                    this.chooseSmallShipType();
+                    break;
+                case 'M': // get and start an existing game
+                    this.chooseMediumShipType();
+                    break;
+                case 'L': // get and start an existing game
+                    this.chooseLargeShipType();
+                    break;
+                case 'R': // display the help menu
+                    this.resetShipOptions();
+                    break;
+                case 'D': // Exit the program
+                    this.previousMenu();
+                    break;
+                default:
+                    try {
+                        this.console.println("\n*** Invalid selection *** "
+                                           + "\nPrease enter to try again");
+                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                        String s = br.readLine();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+    } catch (Exception ex) {
+        ErrorView.display(this.getClass().getName(),
+        "Something went wrong selecting a ship type");
+    } return false;
 }
 
     private void chooseSmallShipType() {
         try {
-        // Select SmallShipType
-        Ship ship = new Ship();
-        ship.setDescription("Small Ship");
-        ship.setSize(1);
-        ship.setMaxInventory(10000);
-        ship.setAmountLoaded(0);
-        ship.setMaxCrew(3);
-        Group7SolarTrails.setShip(ship);
+            // Select SmallShipType
+            Ship ship = new Ship();
+            ship.setDescription("Small Ship");
+            ship.setSize(1);
+            ship.setMaxInventory(10000);
+            ship.setAmountLoaded(0);
+            ship.setMaxCrew(3);
+            Group7SolarTrails.setShip(ship);
         } catch (Exception ex) {
             ErrorView.display(this.getClass().getName(),
             "Something went wrong selecting a ship type");
-    } finally {  
+        } finally {  
             try {
-        this.console.println("You have selected the " + getShip().getDescription());
-        this.console.println("Press Enter to continue.");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
-        chooseEngine.display();
-        } catch (IOException e) {
-        e.printStackTrace();
-                }
+                this.console.println("You have selected the " + getShip().getDescription());
+                this.console.println("Press Enter to continue.");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
+                ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
+                chooseEngine.display();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
    }
 

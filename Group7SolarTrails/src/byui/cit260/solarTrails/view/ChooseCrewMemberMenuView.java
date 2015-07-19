@@ -26,7 +26,7 @@ public class ChooseCrewMemberMenuView extends View{
             + "\n    Up to 3 for small ship, 6 for medium ship, 9 for large ship."
             + "\n    More team members means a higher percentage of research done each attempt"
             + "\n    but fewer members means a higher score for the research done."
-            + "\n\nN - Choose the names of your crew members."
+            + "\n\nN - Choose the names of your crew members and their research specializations."
             + "\nS - Choose the Research Specialization for each crew member."
             + "\nR - Reset your crew and start over."
             + "\nD - When you are Done, go back and continue to prepare for your trip."

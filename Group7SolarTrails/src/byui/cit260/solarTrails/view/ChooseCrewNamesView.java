@@ -48,37 +48,32 @@ public class ChooseCrewNamesView  {
         CharSequence DONE = null;
         
         while(!valid) { // while a valid name has not been retrieved
-
-            
             try{
+                // if DONE is typed, end name selection
+                /*if (crewName.equals("DONE")) {
+                    this.console.println("You are finished naming your crew.");
+                    ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
+                    chooseCrew.display();
+                    break;
+                }*/
 
+                // if the name is invalid (less than three characters in length)
+                if (crewName.length() < 3 || crewName.length() > 15) {
+                    throw new GeneralViewExceptions("Invalid name - the name cannot be blank and must be more than three characters and less than 15 characters.");
+                    // continue; // and repeat again
+                }
 
-            // if DONE is typed, end name selection
-            if (crewName.equals("DONE")) {
-                this.console.println("You are finished naming your crew.");
-                ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-                chooseCrew.display();
+                // name is correct
+                if (crewName.length() >3 || crewName.length() < 15){
+                    this.console.println("You have entered the name: " + crewName
+                    + "\n Enter another name or type DONE if you are done.");
+                    continue;
+                }
+
                 break;
-            }
-            
-            // if the name is invalid (less than three characters in length)
-            if (crewName.length() < 3 || crewName.length() > 15) {
-                throw new GeneralViewExceptions("Invalid name - the name cannot be blank and must be more than three characters and less than 15 characters.");
-                // continue; // and repeat again
-            }
-            
-            // name is correct
-            if (crewName.length() >3 || crewName.length() < 15){
-                this.console.println("You have entered the name: " + crewName
-                + "\n Enter another name or type DONE if you are done.");
-                continue;
-            }
-            
-            break;
-            
             }catch (GeneralViewExceptions ex) {
-            ErrorView.display(this.getClass().getName(),
-                    "Please choose a valid option");
+                ErrorView.display(this.getClass().getName(),
+                        "Please choose a valid option");
             }finally{
                 return crewName; // return the players name
             }
