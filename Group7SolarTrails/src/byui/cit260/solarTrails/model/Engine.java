@@ -22,13 +22,13 @@ public class Engine implements Serializable {
         this.maxSpeed = engineNum*20;
         switch (engineNum) {
             case 1:
-                this.fuelConsumption = 12;
+                this.fuelConsumption = 1;
                 break;
             case 2:
-                this.fuelConsumption = 6;
+                this.fuelConsumption = 2;
                 break;
             case 3:
-                this.fuelConsumption = 0;
+                this.fuelConsumption = 3;
                 break;
         }
     }

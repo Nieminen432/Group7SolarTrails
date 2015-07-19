@@ -28,7 +28,7 @@ public class Group7SolarTrails {
     private static Player player = null;
     List charList = new ArrayList<>();
     private static Ship ship = null;
-    private static Engine engine = null;
+    public static Engine engine = null;
     private static Crew crew = null;
 
     public static Crew getCrew() {

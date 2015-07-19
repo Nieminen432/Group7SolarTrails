@@ -8,6 +8,9 @@ package byui.cit260.solarTrails.view;
 import byui.cit260.solarTrails.model.Ship;
 import group7solartrails.Group7SolarTrails;
 import static group7solartrails.Group7SolarTrails.getShip;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -65,24 +68,28 @@ public class ChooseShipSizeView extends View{
     private void chooseSmallShipType() {
         try {
         // Select SmallShipType
-        this.console.println("You have selected the small ship type.");
         Ship ship = new Ship();
+        ship.setDescription("Small Ship");
         ship.setSize(1);
         ship.setMaxInventory(10000);
         ship.setAmountLoaded(0);
         ship.setMaxCrew(3);
         Group7SolarTrails.setShip(ship);
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
         } catch (Exception ex) {
             ErrorView.display(this.getClass().getName(),
             "Something went wrong selecting a ship type");
-    } 
-        finally {
+    } finally {  
+            try {
         this.console.println("You have selected the " + getShip());
-        ChooseShipSizeView chooseShip = new ChooseShipSizeView();
+        this.console.println("Press Enter to continue.");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
+        ChooseShipView chooseShip = new ChooseShipView();
         chooseShip.display();
-        }    
+        }
+        }
    }
 
     private void chooseMediumShipType() {
@@ -90,21 +97,30 @@ public class ChooseShipSizeView extends View{
         // Select MediumShipType
         this.console.println("You have selected the medium ship type.");
         Ship ship = new Ship();
+        ship.setDescription("Medium Ship");
         ship.setSize(2);
         ship.setMaxInventory(20000);
         ship.setAmountLoaded(0);
         ship.setMaxCrew(6);
         Group7SolarTrails.setShip(ship);
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
         } catch (Exception ex) {
+        ex.printStackTrace();
             ErrorView.display(this.getClass().getName(),
             "Something went wrong selecting a ship type");
     } 
         finally {
+            try {
         this.console.println("You have selected the " + getShip());
+        this.console.println("Press Enter to continue.");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
         ChooseShipSizeView chooseShip = new ChooseShipSizeView();
         chooseShip.display();
+        }
         }
     }
     
@@ -113,21 +129,30 @@ public class ChooseShipSizeView extends View{
         // Select MediumShipType
         this.console.println("You have selected the medium ship type.");
         Ship ship = new Ship();
+        ship.setDescription("Large Ship");
         ship.setSize(3);
         ship.setMaxInventory(30000);
         ship.setAmountLoaded(0);
         ship.setMaxCrew(9);
         Group7SolarTrails.setShip(ship);
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
         } catch (Exception ex) {
+        ex.printStackTrace();
             ErrorView.display(this.getClass().getName(),
             "Something went wrong selecting a ship type");
     } 
         finally {
-        this.console.println("You have selected the " + getShip());
+            try {
+        this.console.println("You have selected the " + Group7SolarTrails.getShip());
+        this.console.println("Press Enter to continue.");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
         ChooseShipSizeView chooseShip = new ChooseShipSizeView();
         chooseShip.display();
+        }
         }
     }
     

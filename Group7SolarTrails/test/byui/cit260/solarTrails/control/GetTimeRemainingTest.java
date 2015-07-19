@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.control;
 
+import static java.lang.Double.NaN;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -28,18 +29,76 @@ public class GetTimeRemainingTest {
         /*******************
          * test case 1
          *******************/
+        System.out.println("Test Case 1");
+        // inputs
         double speed = 0.0;
         double distance = 0.0;
         
+        // expected output
+        double expResult = NaN;
         
-        double expResult = 0.0;
-        
+        // Create instance
         GetTimeRemaining instance = new GetTimeRemaining();
         
+        // run test
         double result = instance.timeToUranus(speed, distance);
         
+        // compare results
         assertEquals(expResult, result, 0.0);
         
+        
+        /*******************
+         * test case 2
+         *******************/
+        System.out.println("Test Case 2");
+        // inputs
+        speed = 21.0;
+        distance = 0.0;
+        
+        // expected output
+        expResult = 0.0;
+        
+        // run test
+        result = instance.timeToUranus(speed, distance);
+        
+        // compare results
+        assertEquals(expResult, result, 0.0);
+        
+        
+        /*******************
+         * test case 3
+         *******************/
+        System.out.println("Test Case 3");
+        // inputs
+        speed = 0.0;
+        distance = 136178.1;
+        
+        // expected output
+        expResult = 0.0;
+        
+        // run test
+        result = instance.timeToUranus(speed, distance);
+        
+        // compare results
+        assertEquals(expResult, result, 0.0);
+        
+        
+        /*******************
+         * test case 4
+         *******************/
+        System.out.println("Test Case 4");
+        // inputs
+        speed = 5.0;
+        distance = 136137.0;
+        
+        // expected output
+        expResult = 1134.475;
+        
+        // run test
+        result = instance.timeToUranus(speed, distance);
+        
+        // compare results
+        assertEquals(expResult, result, 0.01);
     }
     
 }
