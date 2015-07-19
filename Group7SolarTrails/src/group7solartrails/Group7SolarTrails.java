@@ -30,6 +30,15 @@ public class Group7SolarTrails {
     private static Ship ship = null;
     public static Engine engine = null;
     private static Crew crew = null;
+    public static ScientistSpecialization scienceSpec = null;
+
+    public static ScientistSpecialization getScienceSpec() {
+        return scienceSpec;
+    }
+
+    public static void setScienceSpec(ScientistSpecialization scienceSpec) {
+        Group7SolarTrails.scienceSpec = scienceSpec;
+    }
 
     public static Crew getCrew() {
         return crew;

@@ -60,7 +60,14 @@ public class ChooseEngineTypeView extends View{
                 this.previousMenu();
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                try {
+                this.console.println("\n*** Invalid selection *** "
+                                   + "\nPrease enter to try again");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
                 break;
         } return false;
     }
@@ -75,10 +82,10 @@ public class ChooseEngineTypeView extends View{
         Group7SolarTrails.setEngine(engine);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
+        NewGameMenuView newGameMenu = new NewGameMenuView();
+        newGameMenu.display(); 
         } catch (IOException e) {
         e.printStackTrace();
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
     }
     }
     private void chooseImpulseEngine() {
@@ -91,10 +98,10 @@ public class ChooseEngineTypeView extends View{
         Group7SolarTrails.setEngine(engine);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
+        NewGameMenuView newGameMenu = new NewGameMenuView();
+        newGameMenu.display(); 
         } catch (IOException e) {
         e.printStackTrace();
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
     }
     }
     
@@ -109,21 +116,12 @@ public class ChooseEngineTypeView extends View{
         Group7SolarTrails.setEngine(engine);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
+        NewGameMenuView newGameMenu = new NewGameMenuView();
+        newGameMenu.display(); 
         } catch (IOException e) {
         e.printStackTrace();
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
     }
     }
-    /*
-    private void chooseSolarSail() {
-        // Select Solar Sail
-        this.console.println("You have selected the Hyperdrive.");
-        Group7SolarTrails.getShip().setEngine(new Engine(3));
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
-    }
-*/
     private void resetShipOptions() {
         // reset ship type
         try {
@@ -133,14 +131,15 @@ public class ChooseEngineTypeView extends View{
         Group7SolarTrails.engine.setMaxSpeed(0);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
-        } catch (IOException e) {
-        e.printStackTrace();
         ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
         chooseEngine.display();
+        } catch (IOException e) {
+        e.printStackTrace();
+        
     }
     }
     private void previousMenu() {
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
+        NewGameMenuView newGameMenu = new NewGameMenuView();
+        newGameMenu.display(); 
     }
 }

@@ -97,7 +97,12 @@ public class Ship implements Serializable {
 
     @Override
     public String toString() {
-        return "Ship{" + "maxWeight=" + maxInventory + ", amountLoaded=" + amountLoaded + ", maxCrew=" + maxCrew + ", noCrew=" + noCrew + ", description=" + description + ", width=" + ", engine=" + engine + '}';
+        return "Ship{" + "Max Inventory Allowed =" + maxInventory
+                    +"\nAmountLoaded =" + amountLoaded
+                    + "\nMax Crew Allowed =" + maxCrew 
+                    + "\nCurrent Number in Crew=" + noCrew
+                    + "\nDescription=" + description
+                    + "\nEngine=" + engine + '}';
     }
 
     @Override

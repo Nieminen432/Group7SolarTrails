@@ -102,8 +102,8 @@ public class ChooseCrewResearchSpecMenuView {
     }
 
     private void chooseYourShip() {
-        ChooseShipView chooseShip = new ChooseShipView();
-        chooseShip.display();
+        ChooseShipSizeView chooseShipSize = new ChooseShipSizeView();
+        chooseShipSize.display();
     }
 
     private void chooseResearchSpecialization() {

@@ -5,6 +5,9 @@
  */
 package byui.cit260.solarTrails.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -43,8 +46,14 @@ public class AlienObjectMenuView extends View{
                 this.chooseLeaveObject();
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
-                getInput();
+                try {
+                this.console.println("\n*** Invalid selection *** "
+                                   + "\nPrease enter to try again");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
                 break;
         } return false;
     }

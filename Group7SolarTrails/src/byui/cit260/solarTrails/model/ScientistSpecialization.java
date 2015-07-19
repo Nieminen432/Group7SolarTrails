@@ -14,7 +14,6 @@ import java.util.Objects;
  */
 public class ScientistSpecialization implements Serializable{
     private String name;
-    private String description;
     private int type;
 
     public ScientistSpecialization() {
@@ -28,14 +27,6 @@ public class ScientistSpecialization implements Serializable{
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getType() {
         return type;
     }
@@ -46,14 +37,13 @@ public class ScientistSpecialization implements Serializable{
 
     @Override
     public String toString() {
-        return "ScientistSpecialization{" + "name=" + name + ", description=" + description + ", type=" + type + '}';
+        return "ScientistSpecialization{" + "name=" + name +", type=" + type + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 47 * hash + Objects.hashCode(this.name);
-        hash = 47 * hash + Objects.hashCode(this.description);
         hash = 47 * hash + this.type;
         return hash;
     }
@@ -68,9 +58,6 @@ public class ScientistSpecialization implements Serializable{
         }
         final ScientistSpecialization other = (ScientistSpecialization) obj;
         if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (this.type != other.type) {

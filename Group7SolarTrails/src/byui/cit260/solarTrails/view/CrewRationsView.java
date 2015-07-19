@@ -5,6 +5,10 @@
  */
 package byui.cit260.solarTrails.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author Hiatt-Adam
@@ -47,7 +51,14 @@ public class CrewRationsView extends View{
                 this.previousMenu();
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                try {
+                this.console.println("\n*** Invalid selection *** "
+                                   + "\nPrease enter to try again");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
                 break;
 
     } return false;

@@ -9,6 +9,9 @@ import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.model.Game;
 import byui.cit260.solarTrails.model.InventoryItem;
 import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -75,7 +78,14 @@ public class GameMenuView extends View{
                 this.exitProgram();
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                try {
+                this.console.println("\n*** Invalid selection *** "
+                                   + "\nPrease enter to try again");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
                 break;
         } return false;
     }

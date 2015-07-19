@@ -61,7 +61,14 @@ public class HelpMenuView extends View{
                 this.previousMenu();
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                try {
+                this.console.println("\n*** Invalid selection *** "
+                                   + "\nPrease enter to try again");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
                 break;
 
     } return false;
