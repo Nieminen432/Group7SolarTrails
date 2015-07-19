@@ -58,13 +58,13 @@ public class ChooseCrewMemberMenuView extends View{
                     break;
                 default:
                     try {
-                this.console.println("\n*** Invalid selection *** "
-                                   + "\nPrease enter to try again");
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
+                        this.console.println("\n*** Invalid selection *** "
+                                             + "\nPrease enter to try again");
+                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                            String s = br.readLine();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     break;
             } return false;
         } catch (GeneralViewExceptions ex) {
