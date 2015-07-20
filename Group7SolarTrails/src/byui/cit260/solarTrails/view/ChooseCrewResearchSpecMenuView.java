@@ -99,6 +99,11 @@ public class ChooseCrewResearchSpecMenuView {
                 System.out.println("\n---------------------------------------------"
                                   +"\n | Pick specialization for crew member " + crewMember
                                   +"\n---------------------------------------------");
+                if (i == 0) {
+                    System.out.println("\n---------------------------------------------"
+                                      +"\n | This Crew member is you"
+                                      +"\n---------------------------------------------");
+                }
                 for (int j = 0; j < 11; j++) {
                     if (crewSpecs[0][j].equals("show")) {
                         System.out.println(crewSpecs[1][j] + " - " + crewSpecs[2][j]);
@@ -117,7 +122,6 @@ public class ChooseCrewResearchSpecMenuView {
     
     public void tryAgain(int i) {
         String choice = "";
-        int numCrew = Group7SolarTrails.getShip().getNoCrew();
         System.out.println("\n---------------------------------------------"
                           +"\n | Pick specialization for crew member " + i
                           +"\n---------------------------------------------");
@@ -151,38 +155,38 @@ public class ChooseCrewResearchSpecMenuView {
             tryAgain(i);
         } else {
             switch (choice) {
-                case 'B': // choose the ship
-                    this.chooseBiology(i);
+                case 'B': // Choose Biology
+                    this.specSet(0, i);
                     break;
-                case 'T': // get and start an existing game
-                    this.chooseBioTechnology(i);
+                case 'T': // Choose BioTechnology 
+                    this.specSet(1, i);
                     break;
-                case 'C': // choose number of crew members and specializations
-                    this.chooseChemistry(i);
+                case 'C': // Choose Chemistry 
+                    this.specSet(2, i);
                     break;
-                case 'S': // choose how much food you will start with
-                    this.chooseEnvironmentalScience(i);
+                case 'S': // Choose Environmental Science 
+                    this.specSet(3, i);
                     break;
-                case 'M': // back to the main menu
-                    this.chooseMathematics(i);
+                case 'M': // Choose Mathematics 
+                    this.specSet(4, i);
                     break;                
-                case 'P': // Begin the game
-                    this.choosePysics(i);
+                case 'P': // Choose Physics 
+                    this.specSet(5, i);
                     break;
-                case 'E': // choose the ship
-                    this.chooseEngineering(i);
+                case 'E': // Choose Engineering
+                    this.specSet(6, i);
                     break;
-                case 'A': // get and start an existing game
-                    this.chooseAstrophysics(i);
+                case 'A': // Choose Astrophysics 
+                    this.specSet(7, i);
                     break;
-                case 'L': // choose number of crew members and specializations
-                    this.choosePlanetaryScience(i);
+                case 'L': // Choose Planetary Science
+                    this.specSet(8, i);
                     break;
-                case 'O': // choose how much food you will start with
-                    this.chooseExplorationAndObservation(i);
+                case 'O': // Choose Exploration and Observational Systems 
+                    this.specSet(9, i);
                     break;
-                case 'I': // back to the main menu
-                    this.chooseComputerInfoTech(i);
+                case 'I': // Choose Computer Information Technology 
+                    this.specSet(10, i);
                     break;
                 default:
                     System.out.println("\n*** Invalid selection *** Try again");
@@ -191,49 +195,5 @@ public class ChooseCrewResearchSpecMenuView {
             }
         } 
         return false;
-    }
-
-    private void chooseBiology(int i) {
-        specSet(0, i);
-    }
-
-    private void chooseBioTechnology(int i) {
-        specSet(1, i);
-    }
-
-    private void chooseChemistry(int i) {
-        specSet(2, i);
-    }
-
-    private void chooseEnvironmentalScience(int i) {
-        specSet(3, i);
-    }
-
-    private void chooseMathematics(int i) {
-        specSet(4, i);
-    }
-
-    private void choosePysics(int i) {
-        specSet(5, i);
-    }
-
-    private void chooseEngineering(int i) {
-        specSet(6, i);
-    }
-
-    private void chooseAstrophysics(int i) {
-        specSet(7, i);
-    }
-
-    private void choosePlanetaryScience(int i) {
-        specSet(8, i);
-    }
-
-    private void chooseExplorationAndObservation(int i) {
-        specSet(9, i);
-    }
-
-    private void chooseComputerInfoTech(int i) {
-        specSet(10, i);
     }
 }
