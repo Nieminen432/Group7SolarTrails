@@ -102,62 +102,62 @@ public class ChooseCrewSizeView extends View{
         crewSize = 1;
         // Going it alone
         Group7SolarTrails.getShip().setNoCrew(1);
-        this.console.println("You have decided to go alone.");
+        this.console.println("You have decided to go with only one crew member.");
         getNextView();
     }
 
     private void crewSizeTwo() {
         crewSize = 2;
         Group7SolarTrails.getShip().setNoCrew(2);
-        this.console.println("You and one other will take this trip.");
+        this.console.println("You have decided to go with two crew members.");
         getNextView();
     }
 
     private void crewSizeThree() {
         crewSize = 3;
         Group7SolarTrails.getShip().setNoCrew(3);
-        this.console.println("You and two others will take this trip.");
+        this.console.println("You have decided to go with three crew members.");
         getNextView();
     }
 
     private void crewSizeFour() {
         crewSize = 4;
         Group7SolarTrails.getShip().setNoCrew(4);
-        this.console.println("You and three others will take this trip.");
+        this.console.println("You have decided to go with four crew members.");
         getNextView();
     }
 
     private void crewSizeFive() {
         crewSize = 5;
         Group7SolarTrails.getShip().setNoCrew(5);
-        this.console.println("You and four others will take this trip.");
+        this.console.println("You have decided to go with five crew members.");
         getNextView();
     }
 
     private void crewSizeSix() {
         crewSize = 6;
         Group7SolarTrails.getShip().setNoCrew(6);
-        this.console.println("You and five others will take this trip.");
+        this.console.println("You have decided to go with six crew members.");
     }
 
     private void crewSizeSeven() {
         crewSize = 7;
         Group7SolarTrails.getShip().setNoCrew(7);
-        this.console.println("You and six others will take this trip.");
+        this.console.println("You have decided to go with seven crew members.");
         getNextView();
     }
 
     private void crewSizeEight() {
         crewSize = 8;
         Group7SolarTrails.getShip().setNoCrew(8);
-        this.console.println("You and seven others will take this trip.");
+        this.console.println("You have decided to go with eight crew members.");
         getNextView();
     }
 
     private void crewSizeNine() {
         crewSize = 9;
         Group7SolarTrails.getShip().setNoCrew(9);
-        this.console.println("You and eight others will take this trip.");
+        this.console.println("You have decided to go with nine crew members.");
         getNextView();
     }
 

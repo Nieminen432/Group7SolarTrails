@@ -15,36 +15,30 @@ import java.util.Objects;
 public class Crew implements Serializable {
     private String name;
     private int spec;
-    private String description;
     private double health;
-    private String researchSpec;
+    private String specName;
     
     public Crew() {
         this.name = "aaa";
         this.spec = 999;
-        this.health = health;
-    }
-    
-    public Crew(String name, int s, String description, double health) {
-        this.name = name;
-        this.spec = s;
-        this.health = health;
-    }
-    
-    public String getDescription() {
-        return description;
+        this.health = 0.0;
+        this.specName = "";
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getSpecName() {
+        return specName;
+    }
+
+    public void setSpecName(String specName) {
+        this.specName = specName;
     }
 
     public String getResearchSpec() {
-        return researchSpec;
+        return specName;
     }
 
     public void setResearchSpec(String researchSpec) {
-        this.researchSpec = researchSpec;
+        this.specName = researchSpec;
     }
     
     public String getName() {
@@ -71,20 +65,22 @@ public class Crew implements Serializable {
         this.health = health;
     }
 
+    @Override
     public String toString() {
-        return "Crew{" + "name=" + name + ", spec=" + spec + ", description=" + description + ", health=" + health + ", researchSpec=" + researchSpec + '}';
+        return "Crew{" + "name=" + name + ", spec=" + spec + ", health=" + health + ", researchSpec=" + specName + '}';
     }
 
+    @Override
     public int hashCode() {
         int hash = 3;
         hash = 89 * hash + Objects.hashCode(this.name);
         hash = 89 * hash + this.spec;
-        hash = 89 * hash + Objects.hashCode(this.description);
         hash = 89 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.researchSpec);
+        hash = 89 * hash + Objects.hashCode(this.specName);
         return hash;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -99,15 +95,9 @@ public class Crew implements Serializable {
         if (this.spec != other.spec) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
         if (Double.doubleToLongBits(this.health) != Double.doubleToLongBits(other.health)) {
             return false;
         }
-        if (!Objects.equals(this.researchSpec, other.researchSpec)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.specName, other.specName);
     }
 }

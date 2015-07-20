@@ -80,6 +80,7 @@ public class ChooseCrewResearchSpecMenuView {
         crewSpecs[0][spec] = "DontShow";
         Crew member = new Crew();
         member.setSpec(spec);
+        member.setSpecName(crewSpecs[2][spec]);
         crewList.add(member);
     }
     
@@ -99,11 +100,6 @@ public class ChooseCrewResearchSpecMenuView {
                 System.out.println("\n---------------------------------------------"
                                   +"\n | Pick specialization for crew member " + crewMember
                                   +"\n---------------------------------------------");
-                if (i == 0) {
-                    System.out.println("\n---------------------------------------------"
-                                      +"\n | This Crew member is you"
-                                      +"\n---------------------------------------------");
-                }
                 for (int j = 0; j < 11; j++) {
                     if (crewSpecs[0][j].equals("show")) {
                         System.out.println(crewSpecs[1][j] + " - " + crewSpecs[2][j]);

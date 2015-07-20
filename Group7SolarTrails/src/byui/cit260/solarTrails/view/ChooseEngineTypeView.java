@@ -61,13 +61,13 @@ public class ChooseEngineTypeView extends View{
                 break;
             default:
                 try {
-                this.console.println("\n*** Invalid selection *** "
-                                   + "\nPrease enter to try again");
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
+                    this.console.println("\n*** Invalid selection *** "
+                                       + "\nPrease enter to try again");
+                    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                    String s = br.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
         } return false;
     }
@@ -75,68 +75,67 @@ public class ChooseEngineTypeView extends View{
     private void chooseCombustionEngine() {
         // Select SmallShipType
         try {
-        this.console.println("You have selected the Combustion Engine.");
-        Engine engine = new Engine();
-        engine.setFuelConsumption(1);
-        engine.setMaxSpeed(5);
-        Group7SolarTrails.setEngine(engine);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        NewGameMenuView newGameMenu = new NewGameMenuView();
-        newGameMenu.display(); 
+            this.console.println("You have selected the Combustion Engine.");
+            Engine engine = new Engine();
+            engine.setFuelConsumption(1);
+            engine.setMaxSpeed(5);
+            Group7SolarTrails.setEngine(engine);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            NewGameMenuView newGameMenu = new NewGameMenuView();
+            newGameMenu.display(); 
         } catch (IOException e) {
-        e.printStackTrace();
-    }
+            e.printStackTrace();
+        }
     }
     private void chooseImpulseEngine() {
         // Select MediumShipType
         try {
-        this.console.println("You have selected the Impulse Engine.");
-        Engine engine = new Engine();
-        engine.setFuelConsumption(2);
-        engine.setMaxSpeed(10);
-        Group7SolarTrails.setEngine(engine);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        NewGameMenuView newGameMenu = new NewGameMenuView();
-        newGameMenu.display(); 
+            this.console.println("You have selected the Impulse Engine.");
+            Engine engine = new Engine();
+            engine.setFuelConsumption(2);
+            engine.setMaxSpeed(10);
+            Group7SolarTrails.setEngine(engine);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            NewGameMenuView newGameMenu = new NewGameMenuView();
+            newGameMenu.display(); 
         } catch (IOException e) {
-        e.printStackTrace();
-    }
+            e.printStackTrace();
+        }
     }
     
     private void chooseSolarSail() {
         // Select Solar Sail
         try {
-        this.console.println("You have selected the Impulse Engine.");
-        this.console.println("Press Enter to Continue.");
-        Engine engine = new Engine();
-        engine.setFuelConsumption(3);
-        engine.setMaxSpeed(15);
-        Group7SolarTrails.setEngine(engine);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        NewGameMenuView newGameMenu = new NewGameMenuView();
-        newGameMenu.display(); 
+            this.console.println("You have selected the Impulse Engine.");
+            this.console.println("Press Enter to Continue.");
+            Engine engine = new Engine();
+            engine.setFuelConsumption(3);
+            engine.setMaxSpeed(15);
+            Group7SolarTrails.setEngine(engine);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            NewGameMenuView newGameMenu = new NewGameMenuView();
+            newGameMenu.display(); 
         } catch (IOException e) {
-        e.printStackTrace();
-    }
+            e.printStackTrace();
+        }
     }
     private void resetShipOptions() {
         // reset ship type
         try {
-        this.console.println("You have reset your engine options");
-        this.console.println("Press Enter to Continue.");
-        Group7SolarTrails.engine.setFuelConsumption(0);
-        Group7SolarTrails.engine.setMaxSpeed(0);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
-        chooseEngine.display();
+            this.console.println("You have reset your engine options");
+            this.console.println("Press Enter to Continue.");
+            Group7SolarTrails.engine.setFuelConsumption(0);
+            Group7SolarTrails.engine.setMaxSpeed(0);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
+            chooseEngine.display();
         } catch (IOException e) {
-        e.printStackTrace();
-        
-    }
+            e.printStackTrace();
+        }
     }
     private void previousMenu() {
         NewGameMenuView newGameMenu = new NewGameMenuView();

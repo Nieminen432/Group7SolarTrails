@@ -21,7 +21,7 @@ public class Group7SolarTrails {
     
     private static Game currentGame = null;
     private static Player player = null;
-    private ArrayList<Crew> crewList = new ArrayList<>();
+    public static ArrayList<Crew> crewList = new ArrayList<>();
     private static Ship ship = null;
     public static Engine engine = null;
     public static ScientistSpecialization scienceSpec = null;

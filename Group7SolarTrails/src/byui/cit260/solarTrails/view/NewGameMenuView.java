@@ -10,17 +10,15 @@ package byui.cit260.solarTrails.view;
  * @author Hiatt-Adam
  */
 public class NewGameMenuView extends View{
-    
     public NewGameMenuView() {
         super("\n"
         + "\n-----------------------------------"
-        + "\n | New Game Menu                       "
+        + "\n | New Game Menu"
         + "\n | Please select an option from each menu below."
         + "\n | If you do not select an option, a random option will be assigned to you."
         + "\n-----------------------------------"
         + "\nS - Choose your ship"
-        + "\nR - Choose your Research Specialization"
-        + "\nC - Choose crew members and their specializations"
+        + "\nC - Choose your crew members, their names, and their specializations"
         + "\nI - Choose your starting inventory (food, medicine, minerals)"
         + "\nM - Return to the main menu"
         + "\nP - Select P when you are ready to play!"
@@ -35,9 +33,6 @@ public class NewGameMenuView extends View{
         switch (choice) {
             case 'S': // choose the ship
                 this.chooseYourShip();
-                break;
-            case 'R': // get and start an existing game
-                this.chooseResearchSpecialization();
                 break;
             case 'C': // choose number of crew members and specializations
                 this.chooseCrewAndSpecialty();
@@ -62,14 +57,9 @@ public class NewGameMenuView extends View{
         chooseShipSize.display();
     }
 
-    private void chooseResearchSpecialization() {
-        ChooseResearchSpecializationMenuView chooseResearchSpec = new ChooseResearchSpecializationMenuView();
-        chooseResearchSpec.display();        
-    }
-
     private void chooseCrewAndSpecialty() {
-        ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-        chooseCrew.display();
+        ChooseCrewSizeView chooseCrewSize = new ChooseCrewSizeView();
+        chooseCrewSize.display();
     }
     
     private void chooseMainMenu() {
