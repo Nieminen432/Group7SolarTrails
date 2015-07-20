@@ -32,7 +32,8 @@ public class ChooseShipSizeView extends View{
             + "\nD - Go Back to the previous menu"
             + "\n-----------------------------------");
     }
-@Override
+    
+    @Override
         public boolean doAction(Object obj) {
         String value = (String) obj;
         value = value.toUpperCase();
@@ -65,11 +66,11 @@ public class ChooseShipSizeView extends View{
                     }
                     break;
             }
-    } catch (Exception ex) {
-        ErrorView.display(this.getClass().getName(),
-        "Something went wrong selecting a ship type");
-    } return false;
-}
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(),
+            "Something went wrong selecting a ship type");
+        } return false;
+    }
 
     private void chooseSmallShipType() {
         try {
@@ -100,80 +101,81 @@ public class ChooseShipSizeView extends View{
 
     private void chooseMediumShipType() {
         try {
-        // Select MediumShipType
-        Ship ship = new Ship();
-        ship.setDescription("Medium Ship");
-        ship.setSize(2);
-        ship.setMaxInventory(20000);
-        ship.setAmountLoaded(0);
-        ship.setMaxCrew(6);
-        Group7SolarTrails.setShip(ship);
+            // Select MediumShipType
+            Ship ship = new Ship();
+            ship.setDescription("Medium Ship");
+            ship.setSize(2);
+            ship.setMaxInventory(20000);
+            ship.setAmountLoaded(0);
+            ship.setMaxCrew(6);
+            Group7SolarTrails.setShip(ship);
         } catch (Exception ex) {
-        ex.printStackTrace();
+            ex.printStackTrace();
             ErrorView.display(this.getClass().getName(),
             "Something went wrong selecting a ship type");
-    } 
+        } 
         finally {
             try {
-        this.console.println("You have selected the " + getShip().getDescription());
-        this.console.println("Press Enter to continue.");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
-        chooseEngine.display();
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
+                this.console.println("You have selected the " + getShip().getDescription());
+                this.console.println("Press Enter to continue.");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
+                ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
+                chooseEngine.display();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     
     private void chooseLargeShipType() {
         try {
-        // Select MediumShipType
-        Ship ship = new Ship();
-        ship.setDescription("Large Ship");
-        ship.setSize(3);
-        ship.setMaxInventory(30000);
-        ship.setAmountLoaded(0);
-        ship.setMaxCrew(9);
-        Group7SolarTrails.setShip(ship);
+            // Select MediumShipType
+            Ship ship = new Ship();
+            ship.setDescription("Large Ship");
+            ship.setSize(3);
+            ship.setMaxInventory(30000);
+            ship.setAmountLoaded(0);
+            ship.setMaxCrew(9);
+            Group7SolarTrails.setShip(ship);
         } catch (Exception ex) {
-        ex.printStackTrace();
+            ex.printStackTrace();
             ErrorView.display(this.getClass().getName(),
             "Something went wrong selecting a ship type");
-    } 
+        } 
         finally {
             try {
-        this.console.println("You have selected the " + getShip().getDescription());
-        this.console.println("Press Enter to continue.");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
-        chooseEngine.display();
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
+                this.console.println("You have selected the " + getShip().getDescription());
+                this.console.println("Press Enter to continue.");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
+                ChooseEngineTypeView chooseEngine = new ChooseEngineTypeView();
+                chooseEngine.display();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
+    
     private void resetShipOptions() {
         try {
-        // reset ship type
-        this.console.println("You have reset your engine options");
-        this.console.println("Press Enter to Continue.");
-        Ship ship = new Ship();
-        ship.setDescription("No Ship Selected");
-        ship.setSize(0);
-        ship.setMaxInventory(0);
-        ship.setAmountLoaded(0);
-        ship.setMaxCrew(0);
-        Group7SolarTrails.setShip(ship);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        ChooseShipSizeView chooseShip = new ChooseShipSizeView();
-        chooseShip.display();
+            // reset ship type
+            this.console.println("You have reset your engine options");
+            this.console.println("Press Enter to Continue.");
+            Ship ship = new Ship();
+            ship.setDescription("No Ship Selected");
+            ship.setSize(0);
+            ship.setMaxInventory(0);
+            ship.setAmountLoaded(0);
+            ship.setMaxCrew(0);
+            Group7SolarTrails.setShip(ship);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            ChooseShipSizeView chooseShip = new ChooseShipSizeView();
+            chooseShip.display();
         } catch (IOException e) {
-        e.printStackTrace();
-                }
+            e.printStackTrace();
+        }
     }
 
     private void previousMenu() {

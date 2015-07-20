@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Hiatt-Adam
  */
-public class Fuel implements Serializable{
+public class Fuel implements Serializable {
     
     //class instance variables
     private double total;

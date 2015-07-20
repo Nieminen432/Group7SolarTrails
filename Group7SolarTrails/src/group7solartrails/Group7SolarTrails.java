@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package group7solartrails;
 
 import byui.cit260.solarTrails.model.*;
@@ -26,10 +21,9 @@ public class Group7SolarTrails {
     
     private static Game currentGame = null;
     private static Player player = null;
-    List charList = new ArrayList<>();
+    private ArrayList<Crew> crewList = new ArrayList<>();
     private static Ship ship = null;
     public static Engine engine = null;
-    private static Crew crew = null;
     public static ScientistSpecialization scienceSpec = null;
 
     public static ScientistSpecialization getScienceSpec() {
@@ -39,13 +33,11 @@ public class Group7SolarTrails {
     public static void setScienceSpec(ScientistSpecialization scienceSpec) {
         Group7SolarTrails.scienceSpec = scienceSpec;
     }
-
-    public static Crew getCrew() {
-        return crew;
-    }
-
-    public static void setCrew(Crew crew) {
-        Group7SolarTrails.crew = crew;
+    
+    public void addCrewMember(int specType, int crewMember) {
+        Crew member = new Crew();
+        crewList.add(member);
+        crewList.get(crewMember).setSpec(specType);
     }
 
     public static Engine getEngine() {
@@ -82,12 +74,12 @@ public class Group7SolarTrails {
         return inFile;
     }
 
-    public List getCharList() {
-        return charList;
+    public List getCrewList() {
+        return crewList;
     }
 
-    public void setCharList(List charList) {
-        this.charList = charList;
+    public void setCrewList(ArrayList crewList) {
+        this.crewList = crewList;
     }
 
     public static void setInFile(BufferedReader inFile) {
@@ -141,15 +133,14 @@ public class Group7SolarTrails {
             String filePath = "log.txt";
             Group7SolarTrails.logFile = new PrintWriter(filePath);
 
-        // create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.startProgram();
-        
+            // create StartProgramView and start the program
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.startProgram();
+
         } catch (Throwable e) {
-        System.err.println("Exception: " + e.toString() +
-                            "\nCause: " + e.getCause() + 
-                            "\nMessage: " + e.getMessage());
-        e.printStackTrace();
+            System.err.println("Exception: " + e.toString() 
+                               + "\nCause: " + e.getCause()  
+                               + "\nMessage: " + e.getMessage());
     }
     finally {
             try {

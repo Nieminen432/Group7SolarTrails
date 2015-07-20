@@ -5,25 +5,32 @@
  */
 package byui.cit260.solarTrails.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Joseph
  */
-public class Crew {
-        
-    /*
-    Crew members are not static when game starts. Outside of this object, we will make an arraylist for our crew members. 
-    However, we have modified this as directions have stated for learning purposes.
-    */
-
-    public String name;
-    public int spec;
-    public String description;
-    public double health;
-    public String researchSpec;
-
+public class Crew implements Serializable {
+    private String name;
+    private int spec;
+    private String description;
+    private double health;
+    private String researchSpec;
+    
+    public Crew() {
+        this.name = "aaa";
+        this.spec = 999;
+        this.health = health;
+    }
+    
+    public Crew(String name, int s, String description, double health) {
+        this.name = name;
+        this.spec = s;
+        this.health = health;
+    }
+    
     public String getDescription() {
         return description;
     }
@@ -40,18 +47,6 @@ public class Crew {
         this.researchSpec = researchSpec;
     }
     
-    public Crew() {
-        this.name = "aaa";
-        this.spec = 999;
-        this.health = health;
-    }
-    
-    public Crew(String name, int s, String description, double health) {
-        this.name = name;
-        this.spec = s;
-        this.health = health;
-    }
-    
     public String getName() {
         return name;
     }
@@ -60,12 +55,12 @@ public class Crew {
         this.name = name;
     }
 
-    public int getSpec() {
-        return spec;
-    }
-
     public void setSpec(int spec) {
         this.spec = spec;
+    }
+
+    public int getSpec() {
+        return spec;
     }
 
     public double getHealth() {
@@ -76,21 +71,20 @@ public class Crew {
         this.health = health;
     }
 
-    @Override
     public String toString() {
-        return "Crew{" + "name=" + name + ", description=" + description + "health=" + health + '}';
+        return "Crew{" + "name=" + name + ", spec=" + spec + ", description=" + description + ", health=" + health + ", researchSpec=" + researchSpec + '}';
     }
 
-    @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + this.spec;
+        hash = 89 * hash + Objects.hashCode(this.description);
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
+        hash = 89 * hash + Objects.hashCode(this.researchSpec);
         return hash;
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -102,10 +96,16 @@ public class Crew {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (this.spec != other.spec) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (Double.doubleToLongBits(this.health) != Double.doubleToLongBits(other.health)) {
+            return false;
+        }
+        if (!Objects.equals(this.researchSpec, other.researchSpec)) {
             return false;
         }
         return true;

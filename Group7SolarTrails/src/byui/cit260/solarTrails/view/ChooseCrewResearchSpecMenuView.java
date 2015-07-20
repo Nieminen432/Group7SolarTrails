@@ -5,20 +5,29 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.model.Crew;
+import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Hiatt-Adam
  */
 public class ChooseCrewResearchSpecMenuView {
-    String[][] crewSpecs = new String[3][13];
-    private String setList() {
-        String string = "";
-        for (int i = 0; i < 13; i++) {
-            if (true) {
-                
-            }
+    protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
+    protected final PrintWriter console = Group7SolarTrails.getOutFile();
+    String[][] crewSpecs = new String[3][11];
+    ArrayList<Crew> crewList = new ArrayList<>();
+    
+    private void setList() {
+        for (int i = 0; i < 11; i++) {
             crewSpecs[0][i] = "show";
-            switch (i) { 
+            switch (i) {
                 case 0:
                     crewSpecs[1][i] = "B";
                     crewSpecs[2][i] = "Biology";
@@ -65,121 +74,166 @@ public class ChooseCrewResearchSpecMenuView {
                     break;
             }
         }
-        return string;
     }
     
-    public void begin() {
-        
+    private void specSet(int spec, int crewMember) {
+        crewSpecs[0][spec] = "DontShow";
+        Crew member = new Crew();
+        member.setSpec(spec);
+        crewList.add(member);
     }
     
-    public boolean doAction(Object obj) {
-        String value = (String) obj;
+    public void begin() {        
+        setList();
+        String choice = "";
+        int numCrew = Group7SolarTrails.getShip().getNoCrew();
+        for (int i = 0; i <= numCrew; i++) {
+            if (i == numCrew) {
+                System.out.println("\n---------------------------------------------"
+                                  +"\n | You've picked your specializations"
+                                  +"\n---------------------------------------------");
+                ChooseCrewNamesView crewNames = new ChooseCrewNamesView(crewList);
+                crewNames.begin();
+            } else {
+                int crewMember = i+1;
+                System.out.println("\n---------------------------------------------"
+                                  +"\n | Pick specialization for crew member " + crewMember
+                                  +"\n---------------------------------------------");
+                for (int j = 0; j < 11; j++) {
+                    if (crewSpecs[0][j].equals("show")) {
+                        System.out.println(crewSpecs[1][j] + " - " + crewSpecs[2][j]);
+                    }
+                }
+
+                try {
+                    choice = keyboard.readLine();
+                } catch (IOException ex) {
+                    Logger.getLogger(ChooseCrewResearchSpecMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                choose(choice, i+1);
+            }
+        }
+    }
+    
+    public void tryAgain(int i) {
+        String choice = "";
+        int numCrew = Group7SolarTrails.getShip().getNoCrew();
+        System.out.println("\n---------------------------------------------"
+                          +"\n | Pick specialization for crew member " + i
+                          +"\n---------------------------------------------");
+        for (int j = 0; j < 11; j++) {
+            if (crewSpecs[0][j].equals("show")) {
+                System.out.println(crewSpecs[1][j] + " - " + crewSpecs[2][j]);
+            }
+        }
+
+        try {
+            choice = keyboard.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(ChooseCrewResearchSpecMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        choose(choice, i);
+    }
+    
+    public boolean choose(String in, int i) {
+        String value = (String) in;
         value = value.toUpperCase();
         char choice = value.charAt(0);
-        switch (choice) {
-            case 'S': // choose the ship
-                this.chooseYourShip();
-                break;
-            case 'R': // get and start an existing game
-                this.chooseResearchSpecialization();
-                break;
-            case 'C': // choose number of crew members and specializations
-                this.chooseCrewAndSpecialty();
-                break;
-            case 'I': // choose how much food you will start with
-                this.chooseStartingInventory();
-                break;
-            case 'M': // back to the main menu
-                this.chooseMainMenu();
-                break;                
-            case 'P': // Begin the game
-                this.choosePlayGame();
-                break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
-        } return false;
+        boolean isPicked = false;
+        for (int j = 0; j < 10; j++) {
+            if (!crewSpecs[0][j].equals("show") && crewSpecs[1][j].equals(value)) {
+                isPicked = true;
+            }
+        }
+        if (isPicked) {
+            System.out.println("\n*** Invalid selection ***"
+                             + "\n*** Already Chosen *** Try again");
+            tryAgain(i);
+        } else {
+            switch (choice) {
+                case 'B': // choose the ship
+                    this.chooseBiology(i);
+                    break;
+                case 'T': // get and start an existing game
+                    this.chooseBioTechnology(i);
+                    break;
+                case 'C': // choose number of crew members and specializations
+                    this.chooseChemistry(i);
+                    break;
+                case 'S': // choose how much food you will start with
+                    this.chooseEnvironmentalScience(i);
+                    break;
+                case 'M': // back to the main menu
+                    this.chooseMathematics(i);
+                    break;                
+                case 'P': // Begin the game
+                    this.choosePysics(i);
+                    break;
+                case 'E': // choose the ship
+                    this.chooseEngineering(i);
+                    break;
+                case 'A': // get and start an existing game
+                    this.chooseAstrophysics(i);
+                    break;
+                case 'L': // choose number of crew members and specializations
+                    this.choosePlanetaryScience(i);
+                    break;
+                case 'O': // choose how much food you will start with
+                    this.chooseExplorationAndObservation(i);
+                    break;
+                case 'I': // back to the main menu
+                    this.chooseComputerInfoTech(i);
+                    break;
+                default:
+                    System.out.println("\n*** Invalid selection *** Try again");
+                    tryAgain(i);
+                    break;
+            }
+        } 
+        return false;
     }
 
-    private void chooseYourShip() {
-        ChooseShipSizeView chooseShipSize = new ChooseShipSizeView();
-        chooseShipSize.display();
+    private void chooseBiology(int i) {
+        specSet(0, i);
     }
 
-    private void chooseResearchSpecialization() {
-        ChooseResearchSpecializationMenuView chooseResearchSpec = new ChooseResearchSpecializationMenuView();
-        chooseResearchSpec.display();        
+    private void chooseBioTechnology(int i) {
+        specSet(1, i);
     }
 
-    private void chooseCrewAndSpecialty() {
-        ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-        chooseCrew.display();
-    }
-    
-    private void chooseMainMenu() {
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.display(); 
-    }
-    private void chooseStartingInventory() {
-        SelectStartInventoryView selectStartInv = new SelectStartInventoryView();
-        selectStartInv.display();
+    private void chooseChemistry(int i) {
+        specSet(2, i);
     }
 
-    private void choosePlayGame() {
-        // starts a new game
+    private void chooseEnvironmentalScience(int i) {
+        specSet(3, i);
     }
 
-    private void chooseBiology() {
-        // select Biology
+    private void chooseMathematics(int i) {
+        specSet(4, i);
     }
 
-    private void chooseBioTechnology() {
-        // select BioTechnology
+    private void choosePysics(int i) {
+        specSet(5, i);
     }
 
-    private void chooseChemistry() {
-        // select Chemistry
+    private void chooseEngineering(int i) {
+        specSet(6, i);
     }
 
-    private void chooseEnvironmentalScience() {
-        // select Environmental Science
+    private void chooseAstrophysics(int i) {
+        specSet(7, i);
     }
 
-    private void chooseMathematics() {
-        // select Mathematics
+    private void choosePlanetaryScience(int i) {
+        specSet(8, i);
     }
 
-    private void choosePysics() {
-        // select Physics
+    private void chooseExplorationAndObservation(int i) {
+        specSet(9, i);
     }
 
-    private void chooseEngineering() {
-        // select Engineering
-    }
-
-    private void chooseAstrophysics() {
-        // select Astrophysics
-    }
-
-    private void choosePlanetaryScience() {
-        // select Planetary Science
-    }
-
-    private void chooseExplorationAndObservation() {
-        // select Exploration and Observational Science
-    }
-
-    private void chooseComputerInfoTech() {
-        // select Computer Information Technology
-    }
-
-    private void resetResearchOptions() {
-        // select Reset Research Options
-    }
-
-    private void previousMenu() {
-        // return to previous menu
-        ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-        chooseCrew.display();
+    private void chooseComputerInfoTech(int i) {
+        specSet(10, i);
     }
 }

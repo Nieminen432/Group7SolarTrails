@@ -10,6 +10,7 @@ import byui.cit260.solarTrails.model.Crew;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,12 +19,13 @@ import java.io.PrintWriter;
 
 public class ChooseCrewNamesView  {
     private String promptMessage;
+    private ArrayList<Crew> crewList = null;
     
     protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
     protected final PrintWriter console = Group7SolarTrails.getOutFile();
 
-    ChooseCrewNamesView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    ChooseCrewNamesView(ArrayList<Crew> crewList) {
+        this.crewList = crewList;
     }
     
     public void begin() {
@@ -95,7 +97,7 @@ public class ChooseCrewNamesView  {
             //ChooseCrewResearchSpecMenuView[] s = ChooseCrewResearchSpecMenuView.values();
         }Crew[] crewName = null;
             return crewName;
-}
+    }
     
     public static ChooseCrewResearchSpecMenuView[] doDisplayMenu(ChooseCrewResearchSpecMenuView[] selectResearchSpec) throws GeneralViewExceptions {   
     //ChooseCrewResearchSpecMenuView[] crewResearchSpec = ChooseCrewResearchSpecMenuView.values();

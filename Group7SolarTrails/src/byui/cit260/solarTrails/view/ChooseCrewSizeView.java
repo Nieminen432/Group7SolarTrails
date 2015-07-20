@@ -44,8 +44,8 @@ public class ChooseCrewSizeView extends View{
         if (Integer.parseInt(value) > Group7SolarTrails.getShip().getMaxCrew()) {
             isTooHigh = true;
             this.console.println("\n*** Crew Selection too high *** "
-                    + "\n*** Your max crew size is " + Group7SolarTrails.getShip().getMaxCrew() + " ***"
-                    + "\nPress enter to try again");
+                                + "\n*** Your max crew size is " + Group7SolarTrails.getShip().getMaxCrew() + " ***"
+                                + "\nPress enter to try again");
             choice = 'p';
         }
         switch (choice) {
@@ -101,160 +101,82 @@ public class ChooseCrewSizeView extends View{
     private void crewSizeOne() {
         crewSize = 1;
         // Going it alone
-        try {
-            Group7SolarTrails.getShip().setNoCrew(1);
-            this.console.println("You have decided to go alone."
-                                + "\n-----------------------------"
-                                + "\n-- Press Enter to Continue --"
-                                + "\n-----------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(1);
+        this.console.println("You have decided to go alone.");
+        getNextView();
     }
 
     private void crewSizeTwo() {
         crewSize = 2;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(2);
-            this.console.println("You and one other will take this trip."
-                             + "\n--------------------------------------"
-                             + "\n------- Press Enter to Continue ------"
-                             + "\n--------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(2);
+        this.console.println("You and one other will take this trip.");
+        getNextView();
     }
 
     private void crewSizeThree() {
         crewSize = 3;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(3);
-            this.console.println("You and two others will take this trip."
-                             + "\n---------------------------------------"
-                             + "\n------- Press Enter to Continue -------"
-                             + "\n---------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(3);
+        this.console.println("You and two others will take this trip.");
+        getNextView();
     }
 
     private void crewSizeFour() {
         crewSize = 4;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(4);
-            this.console.println("You and three others will take this trip."
-                             + "\n- This is the maximum for a small ship. -"
-                             + "\n-----------------------------------------"
-                             + "\n-------- Press Enter to Continue --------"
-                             + "\n-----------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(4);
+        this.console.println("You and three others will take this trip.");
+        getNextView();
     }
 
     private void crewSizeFive() {
         crewSize = 5;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(5);
-            this.console.println("You and four others will take this trip."
-                             + "\n----------------------------------------"
-                             + "\n-------- Press Enter to Continue -------"
-                             + "\n----------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(5);
+        this.console.println("You and four others will take this trip.");
+        getNextView();
     }
 
     private void crewSizeSix() {
         crewSize = 6;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(6);
-            this.console.println("You and five others will take this trip."
-                             + "\n---------------------------------------"
-                             + "\n------- Press Enter to Continue -------"
-                             + "\n---------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(6);
+        this.console.println("You and five others will take this trip.");
     }
 
     private void crewSizeSeven() {
         crewSize = 7;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(7);
-            this.console.println("You and six others will take this trip."
-                             + "\n---------------------------------------"
-                             + "\n------- Press Enter to Continue -------"
-                             + "\n---------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-        e.printStackTrace();
-        ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-        chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(7);
+        this.console.println("You and six others will take this trip.");
+        getNextView();
     }
 
     private void crewSizeEight() {
         crewSize = 8;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(8);
-            this.console.println("You and seven others will take this trip."
-                             + "\n-----------------------------------------"
-                             + "\n-------- Press Enter to Continue --------"
-                             + "\n-----------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(8);
+        this.console.println("You and seven others will take this trip.");
+        getNextView();
     }
 
     private void crewSizeNine() {
         crewSize = 9;
-        try {
-            Group7SolarTrails.getShip().setNoCrew(9);
-            this.console.println("You and eight others will take this trip."
-                             + "\n-----------------------------------------"
-                             + "\n-------- Press Enter to Continue --------"
-                             + "\n-----------------------------------------");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ChooseCrewMemberMenuView chooseCrew = new ChooseCrewMemberMenuView();
-            chooseCrew.display();
-        }
+        Group7SolarTrails.getShip().setNoCrew(9);
+        this.console.println("You and eight others will take this trip.");
+        getNextView();
     }
 
     private void resetCrewOptions() {
         Group7SolarTrails.getShip().setNoCrew(1);
+    }
+    
+    private void getNextView() {
+        try {
+            this.console.println("\n-----------------------------------------"
+                                + "\n-------- Press Enter to Continue --------"
+                                + "\n-----------------------------------------");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+            ChooseCrewResearchSpecMenuView chooseCrewSpec = new ChooseCrewResearchSpecMenuView();
+            chooseCrewSpec.begin();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void previousMenu() {
