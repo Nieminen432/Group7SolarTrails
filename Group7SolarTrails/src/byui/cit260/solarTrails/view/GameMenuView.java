@@ -11,7 +11,6 @@ import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 
 /**
  *
@@ -134,7 +133,7 @@ public class GameMenuView extends View{
 
     private void chooseInventory() {
         InventoryMenuView inventoryMenu = new InventoryMenuView();
-                inventoryMenu.display();
+        inventoryMenu.display();
     }
     private void chooseSynthesizer() {
         // Choose Synthesizer

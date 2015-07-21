@@ -7,6 +7,9 @@ package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.model.InventoryItem;
 import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -82,6 +85,16 @@ public class SelectStartFoodView extends View{
         int quantity = (int) (percent*0.1*Group7SolarTrails.getShip().getMaxInventory());
         System.out.println(quantity);
         Group7SolarTrails.inventory.add(new InventoryItem(1, quantity, "Food"));
+        try {
+        this.console.println("You have selected " + percent*10 + "percent food.");
+        this.console.println("------------ Press enter to continue ------------");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        SelectStartInventoryView selectStartInv = new SelectStartInventoryView();
+        selectStartInv.display();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void chooseReset() {

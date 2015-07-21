@@ -84,8 +84,8 @@ public class ChooseEngineTypeView extends View{
             Group7SolarTrails.setEngine(engine);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String s = br.readLine();
-            NewGameMenuView newGameMenu = new NewGameMenuView();
-            newGameMenu.display(); 
+            ChooseCrewSizeView chooseCrewSize = new ChooseCrewSizeView();
+            chooseCrewSize.display();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,8 +102,8 @@ public class ChooseEngineTypeView extends View{
             Group7SolarTrails.setEngine(engine);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String s = br.readLine();
-            NewGameMenuView newGameMenu = new NewGameMenuView();
-            newGameMenu.display(); 
+            ChooseCrewSizeView chooseCrewSize = new ChooseCrewSizeView();
+            chooseCrewSize.display();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -121,8 +121,8 @@ public class ChooseEngineTypeView extends View{
             Group7SolarTrails.setEngine(engine);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String s = br.readLine();
-            NewGameMenuView newGameMenu = new NewGameMenuView();
-            newGameMenu.display(); 
+            ChooseCrewSizeView chooseCrewSize = new ChooseCrewSizeView();
+            chooseCrewSize.display();
         } catch (IOException e) {
             e.printStackTrace();
         }

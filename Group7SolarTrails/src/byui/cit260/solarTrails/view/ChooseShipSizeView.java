@@ -81,6 +81,8 @@ public class ChooseShipSizeView extends View{
             ship.setMaxInventory(10000);
             ship.setAmountLoaded(0);
             ship.setMaxCrew(3);
+            ship.setFuelTank(10000);
+            ship.setFuelRemaining(10000);
             Group7SolarTrails.setShip(ship);
         } catch (Exception ex) {
             ErrorView.display(this.getClass().getName(),
@@ -108,6 +110,8 @@ public class ChooseShipSizeView extends View{
             ship.setMaxInventory(20000);
             ship.setAmountLoaded(0);
             ship.setMaxCrew(6);
+            ship.setFuelTank(20000);
+            ship.setFuelRemaining(20000);
             Group7SolarTrails.setShip(ship);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -137,6 +141,8 @@ public class ChooseShipSizeView extends View{
             ship.setMaxInventory(30000);
             ship.setAmountLoaded(0);
             ship.setMaxCrew(9);
+            ship.setFuelTank(30000);
+            ship.setFuelRemaining(30000);
             Group7SolarTrails.setShip(ship);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -168,6 +174,8 @@ public class ChooseShipSizeView extends View{
             ship.setMaxInventory(0);
             ship.setAmountLoaded(0);
             ship.setMaxCrew(0);
+            ship.setFuelTank(0);
+            ship.setFuelRemaining(0);
             Group7SolarTrails.setShip(ship);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String s = br.readLine();

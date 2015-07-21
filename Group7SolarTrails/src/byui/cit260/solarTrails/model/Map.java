@@ -35,17 +35,17 @@ public class Map implements Serializable{
 
     public Map() {
         int[] distanceFromSun = new int[9];
-        //Distance is in millions of Miles
-        //need to convert to AU
-        distanceFromSun[0] = 35; //Mercery
-        distanceFromSun[1] = 67; //Venus
-        distanceFromSun[2] = 94; //Earth
-        distanceFromSun[3] = 142; //Mars
-        distanceFromSun[4] = 484; //Jupiter
-        distanceFromSun[5] = 889; //Saturn
-        distanceFromSun[6] = 1790; //Uranus
-        distanceFromSun[7] = 2800; //Neptune
-        distanceFromSun[8] = 3670; //Pluto
+        //Distance is in Meridian
+        //need to convert to Meridian.  12,429.90 miles per meridian
+        distanceFromSun[0] = (int) 2815.79; //Mercery
+        distanceFromSun[1] = (int) 5390.23; //Venus
+        distanceFromSun[2] = (int) 7481.96; //Earth
+        distanceFromSun[3] = (int) 11424.07; //Mars
+        distanceFromSun[4] = (int) 38938.37; //Jupiter
+        distanceFromSun[5] = (int) 71521.09; //Saturn
+        distanceFromSun[6] = (int) 144007.59; //Uranus
+        distanceFromSun[7] = (int) 225263.28; //Neptune
+        distanceFromSun[8] = (int) 295255.79; //Pluto
         
         visited[2] = true;
         //set all distances to own location to 0

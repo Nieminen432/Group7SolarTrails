@@ -18,17 +18,37 @@ public class Ship implements Serializable {
     private int size;
     private int maxCrew;
     private int noCrew;
+    private int fuelTank;
+    private int fuelRemaining;
     private String description;
     private Engine engine;
 
     public Ship() {
         this.description = "";
-        this.maxInventory = 10000;
+        this.maxInventory = 30000;
         this.size = 1;
         this.amountLoaded = 0;
         this.maxCrew = 3;
         engine = new Engine(1);
         this.noCrew = 0;
+        this.fuelTank = 30000;
+        this.fuelRemaining = 30000;
+    }
+    
+    public int getFuelTank() {
+        return fuelTank;
+    }
+
+    public void setFuelTank(int fuelTank) {
+        this.fuelTank = fuelTank;
+    }
+    
+    public int getFuelRemaining() {
+        return fuelRemaining;
+    }
+
+    public void setFuelRemaining(int fuelRemaining) {
+        this.fuelRemaining = fuelRemaining;
     }
 
     public int getAmountLoaded() {
@@ -89,12 +109,14 @@ public class Ship implements Serializable {
 
     @Override
     public String toString() {
-        return "Ship{" + "Max Inventory Allowed =" + maxInventory
-                    +"\nAmountLoaded =" + amountLoaded
-                    + "\nMax Crew Allowed =" + maxCrew 
-                    + "\nCurrent Number in Crew=" + noCrew
-                    + "\nDescription=" + description
-                    + "\nEngine=" + engine + '}';
+        return "Ship{" + "Max Inventory Allowed = " + maxInventory
+                    +"\nAmountLoaded = " + amountLoaded
+                    + "\nMax Crew Allowed = " + maxCrew 
+                    + "\nCurrent Number in Crew = " + noCrew
+                    + "\nDescription = " + description
+                    + "\nEngine= " + engine + '}'
+                    + "\nAmount of fuel allowed = " + fuelTank
+                    + "\nFuel Remaining = " + fuelRemaining;
     }
 
     @Override
@@ -104,6 +126,8 @@ public class Ship implements Serializable {
         hash = 17 * hash + this.amountLoaded;
         hash = 17 * hash + this.maxCrew;
         hash = 17 * hash + this.noCrew;
+        hash = 17 * hash + this.fuelTank;
+        hash = 17 * hash + this.fuelRemaining;
         hash = 17 * hash + Objects.hashCode(this.description);
         hash = 17 * hash + Objects.hashCode(this.engine);
         return hash;
@@ -128,6 +152,12 @@ public class Ship implements Serializable {
             return false;
         }
         if (this.noCrew != other.noCrew) {
+            return false;
+        }
+        if (this.fuelTank != other.fuelTank) {
+            return false;
+        }
+        if (this.fuelRemaining != other.fuelRemaining) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {

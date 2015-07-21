@@ -5,10 +5,13 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.exceptions.SceneException;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,8 +25,8 @@ public class NewGameMenuView extends View{
         + "\n | Please select an option from each menu below."
         + "\n | If you do not select an option, a random option will be assigned to you."
         + "\n-----------------------------------"
-        + "\nS - Choose your ship"
-        + "\nC - Choose your crew members, their names, and their specializations"
+        + "\nS - Choose your ship, starting crew, names, and specializations."
+        // + "\nC - Choose your crew members, their names, and their specializations"
         + "\nI - Choose your starting inventory (food, medicine, minerals)"
         + "\nH - View the Help Menu"
         + "\nD - Display your current selections"
@@ -41,9 +44,11 @@ public class NewGameMenuView extends View{
             case 'S': // choose the ship
                 this.chooseYourShip();
                 break;
+            /*
             case 'C': // choose number of crew members and specializations
                 this.chooseCrewAndSpecialty();
                 break;
+            */
             case 'I': // choose how much food you will start with
                 this.chooseStartingInventory();
                 break;
@@ -69,12 +74,12 @@ public class NewGameMenuView extends View{
         ChooseShipSizeView chooseShipSize = new ChooseShipSizeView();
         chooseShipSize.display();
     }
-
+/*
     private void chooseCrewAndSpecialty() {
         ChooseCrewSizeView chooseCrewSize = new ChooseCrewSizeView();
         chooseCrewSize.display();
     }
-    
+    */
     private void chooseMainMenu() {
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display(); 
@@ -91,11 +96,14 @@ public class NewGameMenuView extends View{
 
     private void displayStats() {
         this.console.println("\nYour current ship selections are:"
-                            + "\nShip Type: " + Group7SolarTrails.getShip().getDescription()
-                            + "\nInventory Allowed: " + Group7SolarTrails.getShip().getMaxInventory()
-                            + "\nMax Crew: " + Group7SolarTrails.getShip().getMaxCrew()
-                            + "\nCrew On Board: " + Group7SolarTrails.getShip().getNoCrew()
-                            + "\nEngine Type: " + Group7SolarTrails.getEngine().getDescription());
+                            + "\nShip Type:             " + Group7SolarTrails.getShip().getDescription()
+                            + "\nInventory Allowed:     " + Group7SolarTrails.getShip().getMaxInventory()
+                            + "\nCurrent Inventory:     " + Group7SolarTrails.getShip().getAmountLoaded()
+                            + "\nMax Crew:              " + Group7SolarTrails.getShip().getMaxCrew()
+                            + "\nCrew On Board:         " + Group7SolarTrails.getShip().getNoCrew()
+                            + "\nMaximum Fuel Allowed:  " + Group7SolarTrails.getShip().getFuelTank()
+                            + "\nFuel Remaining:        " + Group7SolarTrails.getShip().getFuelRemaining()
+                            + "\nEngine Type:           " + Group7SolarTrails.getEngine().getDescription());
         
         this.console.println("\n\nYour crew names and research specs are:");
         for (int i = 0; i < Group7SolarTrails.getShip().getNoCrew(); i++) {
@@ -118,8 +126,12 @@ public class NewGameMenuView extends View{
     
     private void choosePlayGame() {
         // starts a new game
-        BeginGame beginNewGame = new BeginGame();
-        beginNewGame.display();
+        try {
+            BeginGame beginNewGame = new BeginGame();
+            beginNewGame.display();
+        } catch (SceneException ex) {
+            Logger.getLogger(NewGameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
     }

@@ -18,7 +18,7 @@ public class SelectStartInventoryView extends View{
     public SelectStartInventoryView() {
         super("\n"
             + "\n----------------------------------------------"
-            + "\n | Select starting food"
+            + "\n | Select starting inventory"
             + "\n----------------------------------------------"
             + "\nF - Select your starting amount of food."
             + "\nM - Select your starting amount of minerals."
@@ -69,18 +69,20 @@ public class SelectStartInventoryView extends View{
 
         private void chooseStartingMinerals() {
             // SelectStartMineralsView
+            SelectStartMineralsView mineralsView = new SelectStartMineralsView();
+            mineralsView.display();
         }
 
         private void chooseStartingMedicine() {
             // SelectStartMedicineView
+            SelectStartMedicineView medicineView = new SelectStartMedicineView();
+            medicineView.display();
         }
 
         private void chooseStartingParts() {
             // SelectStartPartsView
-        }
-
-        private void chooseStartingFuel() {
-            // SelectStartPartsView
+            SelectStartPartsView partsView = new SelectStartPartsView();
+            partsView.display();
         }
 
         private void previousMenu() {

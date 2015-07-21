@@ -33,10 +33,10 @@ public class InventoryMenuView extends View{
         char choice = value.charAt(0);
         
         switch (choice) {
-            case 'R': // create and start a new game
+            case 'V': // create and start a new game
                 this.chooseViewInventory();
                 break;
-            case 'M': // get and start an existing game
+            case 'P': // get and start an existing game
                 this.choosePrintInventory();
                 break;
             case 'D': // Previous Menu
@@ -57,6 +57,7 @@ public class InventoryMenuView extends View{
     // Display current inventory
 
     private void chooseViewInventory() {
+        try {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         this.console.println("\nList of Inventory Items");
         this.console.println("\nDescription" + "\t" +
@@ -65,18 +66,20 @@ public class InventoryMenuView extends View{
             this.console.println(inventoryItem.getInventoryType() + "\t   "
                   + inventoryItem.getQuantityInStock());
         }
+    } catch (Exception ex) {
+        ErrorView.display("InventoryMenuView", ex.getMessage());
     }
-
+    }
     private void choosePrintInventory() {
         this.console.println("\n\nEnter the file path for file where the game "
                             + "is to be saved.");
         String filePath = this.getInput();
         
         try {
-            // save the game to the specified file
+            
            // SortedInventoryView.sortItems(Group7SolarTrails.getInventory(), filePath);
         }catch (Exception ex) {
-            ErrorView.display("GameMenuView", ex.getMessage());
+            ErrorView.display("InventoryMenuView", ex.getMessage());
         }
     }
 
