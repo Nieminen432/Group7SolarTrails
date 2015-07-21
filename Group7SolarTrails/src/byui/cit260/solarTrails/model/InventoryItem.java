@@ -5,9 +5,6 @@
  */
 package byui.cit260.solarTrails.model;
 
-import group7solartrails.Group7SolarTrails;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,57 +13,56 @@ import java.util.Objects;
  * @author Hiatt-Adam
  */
 public class InventoryItem implements Serializable{
-    private String promptMessage;
-    
-    protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
-    protected final PrintWriter console = Group7SolarTrails.getOutFile();
-
-    public String getPromptMessage() {
-        return promptMessage;
-    }
-
-    public void setPromptMessage(String promptMessage) {
-        this.promptMessage = promptMessage;
-    }
-
-    public InventoryItem(String promptMessage) {
-        this.promptMessage = promptMessage;
-    }
- 
     // class instance variables
-    private String inventoryType;
-    private double quantityInStock;
-    private final String description = "";
-
+    private int inventoryType;
+    private int quantity;
+    private String description;
+    
     public InventoryItem() {
+        this.inventoryType = 0;
+        this.quantity = 0;
+        this.description = "";
+    }
+    
+    public InventoryItem(int type, int quant, String desc) {
+        this.inventoryType = type;
+        this.quantity = quant;
+        this.description = desc;
     }
 
-    public String getInventoryType() {
+    public int getInventoryType() {
         return inventoryType;
     }
 
-    public void setInventoryType(String inventoryType) {
+    public void setInventoryType(int inventoryType) {
         this.inventoryType = inventoryType;
     }
 
-    public double getQuantityInStock() {
-        return quantityInStock;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuantityInStock(double quantityInStock) {
-        this.quantityInStock = quantityInStock;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String desc) {
+        this.description = desc;
     }
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
+        return "InventoryItem{" + "inventoryType=" + inventoryType;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 23 * hash + Objects.hashCode(this.inventoryType);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.quantityInStock) ^ (Double.doubleToLongBits(this.quantityInStock) >>> 32));
         return hash;
     }
 
@@ -79,20 +75,6 @@ public class InventoryItem implements Serializable{
             return false;
         }
         final InventoryItem other = (InventoryItem) obj;
-        if (!Objects.equals(this.inventoryType, other.inventoryType)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.quantityInStock) != Double.doubleToLongBits(other.quantityInStock)) {
-            return false;
-        }
-        return true;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String Item) {
-        this.console.println("Set Desc");
+        return Objects.equals(this.inventoryType, other.inventoryType);
     }
 }

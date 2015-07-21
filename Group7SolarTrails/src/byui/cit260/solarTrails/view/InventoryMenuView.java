@@ -58,14 +58,14 @@ public class InventoryMenuView extends View{
     // Display current inventory
 
     private void chooseViewInventory() {
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        //InventoryItem[] inventory = GameControl.getSortedInventoryList();
         this.console.println("\nList of Inventory Items");
         this.console.println("\nDescription" + "\t" +
                 "In Stock");
-        for (InventoryItem inventoryItem : inventory) {
-            this.console.println(inventoryItem.getInventoryType() + "\t   "
-                    + inventoryItem.getQuantityInStock());
-        }
+        //for (InventoryItem inventoryItem : inventory) {
+        //    this.console.println(inventoryItem.getInventoryType() + "\t   "
+        //            + inventoryItem.getQuantityInStock());
+        //}
     }
 
     private void choosePrintInventory() {
@@ -75,7 +75,7 @@ public class InventoryMenuView extends View{
         
         try {
             // save the game to the specified file
-            SortedInventoryView.sortItems(Group7SolarTrails.getInventory(), filePath);
+           // SortedInventoryView.sortItems(Group7SolarTrails.getInventory(), filePath);
         }catch (Exception ex) {
             ErrorView.display("GameMenuView", ex.getMessage());
         }

@@ -7,7 +7,6 @@ package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.exceptions.GameControlException;
-import byui.cit260.solarTrails.model.Game;
 import byui.cit260.solarTrails.model.InventoryItem;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
@@ -51,13 +50,13 @@ public class SortedInventoryView {
         }
     }
     public void sortedInventoryView () {
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        //InventoryItem[] inventory = GameControl.getSortedInventoryList();
         this.console.println("\nList of Inventory Items");
         this.console.println("\nDescription" + "\t" +
                 "In Stock");
-        for (InventoryItem inventoryItem : inventory) {
-            this.console.println(inventoryItem.getInventoryType() + "\t   "
-                    + inventoryItem.getQuantityInStock());
-        }
+        //for (InventoryItem inventoryItem : inventory) {
+       //     this.console.println(inventoryItem.getInventoryType() + "\t   "
+        //            + inventoryItem.getQuantityInStock());
+       // }
 }
 }

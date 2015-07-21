@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -72,43 +73,42 @@ public class GameControl {
         
         game.setPlayer(player);
         
-        InventoryItem[] inventoryList = GameControl.createInventoryList();
-        game.setInventory(inventoryList);
+        ArrayList<InventoryItem> inventoryList = new ArrayList<>();
+        inventoryList = Group7SolarTrails.inventory;
         
         Ship ship = new Ship();
         game.setShip(ship);
         
         AlienObjects alienObject = new AlienObjects();
         game.setAlienObjects(ship);
-
     }
 
-    private static InventoryItem[] createInventoryList() {
+    /*private static InventoryItem[] createInventoryList() {
         InventoryItem[] inventory = new InventoryItem[5];
         
         InventoryItem food = new InventoryItem();
         food.setDescription("Food");
-        food.setQuantityInStock(0);
+        food.setQuantity(0);
         inventory[Item.food.ordinal()] = food;
         
         InventoryItem mineral = new InventoryItem();
         mineral.setDescription("Mineral");
-        mineral.setQuantityInStock(0);
+        food.setQuantity(0);
         inventory[Item.mineral.ordinal()] = mineral;
         
         InventoryItem parts = new InventoryItem();
         parts.setDescription("Parts");
-        parts.setQuantityInStock(0);
+        food.setQuantity(0);
         inventory[Item.parts.ordinal()] = parts;
         
         InventoryItem medicine = new InventoryItem();
         medicine.setDescription("Medicine");
-        medicine.setQuantityInStock(0);
+        food.setQuantity(0);
         inventory[Item.medicine.ordinal()] = medicine;
         
         InventoryItem fuel = new InventoryItem();
         fuel.setDescription("Fuel");
-        fuel.setQuantityInStock(0);
+        food.setQuantity(0);
         inventory[Item.fuel.ordinal()] = fuel;
         
         return inventory;
@@ -128,7 +128,7 @@ public class GameControl {
         InventoryItem temp;
         for (int i = 1; i < input.length; i++) {
             for(int j = i; j > 0; j--) {
-                if (input[j].getQuantityInStock() < input[j-1].getQuantityInStock()) {
+                if (input[j].getQuantity() < input[j-1].getQuantity()) {
                     temp = input[j];
                     input[j] = input[j-1];
                     input[j-1] = temp;
@@ -136,5 +136,5 @@ public class GameControl {
             }
         }
         return input;
-    }
+    }*/
 }
