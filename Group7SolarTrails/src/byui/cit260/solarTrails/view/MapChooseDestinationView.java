@@ -5,11 +5,35 @@
  */
 package byui.cit260.solarTrails.view;
 
+import group7solartrails.Group7SolarTrails;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+
 /**
  *
  * @author Hiatt-Adam
  */
 public class MapChooseDestinationView {
     // choose a map destination
+     private String promptMessage;
+    
+    protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
+    protected final PrintWriter console = Group7SolarTrails.getOutFile();
+
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
+
+    public MapChooseDestinationView(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
+    
+    public void display() {
+        this.console.println("Choose your next destination");
+    }
     
 }

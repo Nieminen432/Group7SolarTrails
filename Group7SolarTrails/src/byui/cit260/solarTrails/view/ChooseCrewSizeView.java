@@ -138,6 +138,7 @@ public class ChooseCrewSizeView extends View{
         crewSize = 6;
         Group7SolarTrails.getShip().setNoCrew(6);
         this.console.println("You have decided to go with six crew members.");
+        getNextView();
     }
 
     private void crewSizeSeven() {
