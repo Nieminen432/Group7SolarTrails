@@ -17,6 +17,9 @@ import java.io.PrintWriter;
  */
 public class BeginGame {
      private String promptMessage;
+
+    public BeginGame() {
+    }
     
     protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
     protected final PrintWriter console = Group7SolarTrails.getOutFile();

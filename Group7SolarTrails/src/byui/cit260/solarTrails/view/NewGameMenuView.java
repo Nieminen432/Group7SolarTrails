@@ -118,10 +118,8 @@ public class NewGameMenuView extends View{
     
     private void choosePlayGame() {
         // starts a new game
-    }
-
-    private String getCrew() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        BeginGame beginNewGame = new BeginGame();
+        beginNewGame.display();
     }
 
     
