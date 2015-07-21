@@ -117,7 +117,11 @@ catch (Exception e) {}
         String s = br.readLine();
         } catch (IOException e) {
         e.printStackTrace();
-        
-    }
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
+        }
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
 }
+    
 }

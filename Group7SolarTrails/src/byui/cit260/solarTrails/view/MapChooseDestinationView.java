@@ -20,6 +20,10 @@ public class MapChooseDestinationView {
     protected final BufferedReader keyboard = Group7SolarTrails.getInFile();
     protected final PrintWriter console = Group7SolarTrails.getOutFile();
 
+    MapChooseDestinationView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getPromptMessage() {
         return promptMessage;
     }

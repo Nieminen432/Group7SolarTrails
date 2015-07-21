@@ -11,14 +11,16 @@ import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 /**
  *
  * @author Hiatt-Adam
  */
 public class GameMenuView extends View{
+
     public GameMenuView() {
-        super("\n"
+       super("\n"
             + "\n---------------------------------------"
             + "\n | Game Menu Options"
             + "\n---------------------------------------"
@@ -36,7 +38,6 @@ public class GameMenuView extends View{
             + "\n-----------------------------------");
     }
 
-        @Override
         public boolean doAction(Object obj) {
         String value = (String) obj;
         value = value.toUpperCase();
@@ -74,7 +75,7 @@ public class GameMenuView extends View{
                 this.previousMenu();
                 break;
             case 'E': // Exit the program
-                this.exitProgram();
+                System.exit(0);
                 break;
             default:
                 try {
@@ -88,6 +89,37 @@ public class GameMenuView extends View{
                 break;
         } return false;
     }
+        
+       @Override
+        public String getInput() {
+       boolean valid = false; // indicates if the input has been retrieved
+       String value = null;
+       
+       
+       while(!valid) { // while a valid input has not been retreved
+        try{
+                      
+           // get the input from the keyboard and trim off the blanks
+           value = this.keyboard.readLine();
+           value = value.trim();
+           value = value.toUpperCase();
+           
+           // if the input is invalid (less than 3 character)
+           if (value.length() < 3) {
+               ErrorView.display(this.getClass().getName(),
+                       "Invalid path - Please try again.");
+               continue; // and repeat again
+           }
+           break; // exit repetition
+       }
+       catch (Exception e) {
+               ErrorView.display(this.getClass().getName(),
+                       "Error reading input: " + e.getMessage());
+               return null;
+               }
+       
+} return value; // return the input  
+}
 
     private void chooseStatusReport() {
         // Choose Status Report
@@ -142,8 +174,5 @@ public class GameMenuView extends View{
         // Choose Previous Menu or Go back to game
     }
 
-    private void exitProgram() {
-        // Exit the game
-    }
 }
 

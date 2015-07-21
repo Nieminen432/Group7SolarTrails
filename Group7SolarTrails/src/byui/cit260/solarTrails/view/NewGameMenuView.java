@@ -120,6 +120,8 @@ public class NewGameMenuView extends View{
         // starts a new game
         BeginGame beginNewGame = new BeginGame();
         beginNewGame.display();
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 
     
