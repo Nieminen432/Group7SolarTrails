@@ -6,8 +6,6 @@
 package byui.cit260.solarTrails.view;
 
 import group7solartrails.Group7SolarTrails;
-import static group7solartrails.Group7SolarTrails.getEngine;
-import static group7solartrails.Group7SolarTrails.getShip;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -93,15 +91,19 @@ public class NewGameMenuView extends View{
 
     private void displayStats() {
         this.console.println("\nYour current ship selections are:"
-                            + "\nShip Type: " + getShip().getDescription()
-                            + "\nInventory Allowed: " + getShip().getMaxInventory()
-                            + "\nMax Crew: " + getShip().getMaxCrew()
-                            + "\nCrew On Board: " + getShip().getNoCrew()
-                            + "\nEngine Type: " + getEngine().getDescription()
-                            
-                            //+ "\n" + getEngine()
-        );
-        this.console.println("\n\nYour crew and research specs are:");
+                            + "\nShip Type: " + Group7SolarTrails.getShip().getDescription()
+                            + "\nInventory Allowed: " + Group7SolarTrails.getShip().getMaxInventory()
+                            + "\nMax Crew: " + Group7SolarTrails.getShip().getMaxCrew()
+                            + "\nCrew On Board: " + Group7SolarTrails.getShip().getNoCrew()
+                            + "\nEngine Type: " + Group7SolarTrails.getEngine().getDescription());
+        
+        this.console.println("\n\nYour crew names and research specs are:");
+        for (int i = 0; i < Group7SolarTrails.getShip().getNoCrew(); i++) {
+            this.console.println("Crew member " + (i+1) + "'s name is " 
+                                + Group7SolarTrails.crewList.get(i).getName() 
+                                + " and their research specialization is "
+                                + Group7SolarTrails.crewList.get(i).getSpecName());
+        }
         
         try {
         this.console.println("\n------------------------"
