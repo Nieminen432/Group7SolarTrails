@@ -5,6 +5,9 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.model.InventoryItem;
+import group7solartrails.Group7SolarTrails;
+
 /**
  *
  * @author Hiatt-Adam
@@ -15,15 +18,15 @@ public class SelectStartFoodView extends View{
             + "\n-----------------------------------"
             + "\n | Select starting food"
             + "\n-----------------------------------"
-            + "\n1 - 10% of your current cargo size."
-            + "\n2 - 20% of your current cargo size."
-            + "\n3 - 30% of your current cargo size."
-            + "\n4 - 40% of your current cargo size."
-            + "\n5 - 50% of your current cargo size."
-            + "\n6 - 60% of your current cargo size."
-            + "\n7 - 70% of your current cargo size."
-            + "\n8 - 80% of your current cargo size."
-            + "\n9 - 90% of your current cargo size."
+            + "\n1 - 10% of your ship's cargo size."
+            + "\n2 - 20% of your ship's cargo size."
+            + "\n3 - 30% of your ship's cargo size."
+            + "\n4 - 40% of your ship's cargo size."
+            + "\n5 - 50% of your ship's cargo size."
+            + "\n6 - 60% of your ship's cargo size."
+            + "\n7 - 70% of your ship's cargo size."
+            + "\n8 - 80% of your ship's cargo size."
+            + "\n9 - 90% of your ship's cargo size."
             + "\nR - Reset choice."
             + "\nD - Done"
             + "\n-----------------------------------");
@@ -35,32 +38,32 @@ public class SelectStartFoodView extends View{
         char choice = value.charAt(0);
         
         switch (choice) {
-            case '1': // create and start a new game
-                this.choose10Percent();
+            case '1':
+                this.choosePercent(1);
                 break;
-            case '2': // get and start an existing game
-                this.choose20Percent();
+            case '2':
+                this.choosePercent(2);
                 break;
-            case '3': // display the help menu
-                this.choose30Percent();
+            case '3':
+                this.choosePercent(3);
                 break;
-            case '4': // create and start a new game
-                this.choose40Percent();
+            case '4':
+                this.choosePercent(4);
                 break;
-            case '5': // get and start an existing game
-                this.choose50Percent();
+            case '5':
+                this.choosePercent(5);
                 break;
-            case '6': // display the help menu
-                this.choose60Percent();
+            case '6':
+                this.choosePercent(6);
                 break;
-            case '7': // create and start a new game
-                this.choose70Percent();
+            case '7':
+                this.choosePercent(7);
                 break;
-            case '8': // get and start an existing game
-                this.choose80Percent();
+            case '8':
+                this.choosePercent(8);
                 break;
-            case '9': // display the help menu
-                this.choose90Percent();
+            case '9':
+                this.choosePercent(9);
                 break;
             case 'R': // Reset Options
                 this.chooseReset();
@@ -75,40 +78,10 @@ public class SelectStartFoodView extends View{
         } return false;
     }
 
-    private void choose10Percent() {
-        // Fill 10 Percent of current cargo hold with food.
-    }
-
-    private void choose20Percent() {
-        // Fill 20 Percent of current cargo hold with food.
-    }
-
-    private void choose30Percent() {
-        // Fill 30 Percent of current cargo hold with food.
-    }
-
-    private void choose40Percent() {
-        // Fill 40 Percent of current cargo hold with food.
-    }
-
-    private void choose50Percent() {
-        // Fill 50 Percent of current cargo hold with food.
-    }
-
-    private void choose60Percent() {
-        // Fill 60 Percent of current cargo hold with food.
-    }
-
-    private void choose70Percent() {
-        // Fill 70 Percent of current cargo hold with food.
-    }
-
-    private void choose80Percent() {
-        // Fill 80 Percent of current cargo hold with food.
-    }
-
-    private void choose90Percent() {
-        // Fill 90 Percent of current cargo hold with food.
+    private void choosePercent(double percent) {
+        int quantity = (int) (percent*0.1*Group7SolarTrails.getShip().getMaxInventory());
+        System.out.println(quantity);
+        Group7SolarTrails.inventory.add(new InventoryItem(1, quantity, "Food"));
     }
 
     private void chooseReset() {

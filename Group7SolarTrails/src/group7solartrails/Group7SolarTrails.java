@@ -22,6 +22,7 @@ public class Group7SolarTrails {
     private static Game currentGame = null;
     private static Player player = null;
     public static ArrayList<Crew> crewList = new ArrayList<>();
+    public static ArrayList<InventoryItem> inventory = new ArrayList<>();
     private static Ship ship = null;
     public static Engine engine = null;
     public static ScientistSpecialization scienceSpec = null;
@@ -47,7 +48,6 @@ public class Group7SolarTrails {
     public static void setEngine(Engine engine) {
         Group7SolarTrails.engine = engine;
     }
-    private static InventoryItem inventory = null;
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
@@ -107,14 +107,14 @@ public class Group7SolarTrails {
 
     public static void setPlayer(Player player) {
         Group7SolarTrails.player = player;
-    }    
-
-    public static InventoryItem getInventory() {
-        return inventory;
     }
 
-    public static void setInventory(InventoryItem inventory) {
+    public static void setInventory(ArrayList<InventoryItem> inventory) {
         Group7SolarTrails.inventory = inventory;
+    }
+
+    public static ArrayList<InventoryItem> getInventory() {
+        return inventory;
     }
     
     public static void setCrew(int maxCrew) {

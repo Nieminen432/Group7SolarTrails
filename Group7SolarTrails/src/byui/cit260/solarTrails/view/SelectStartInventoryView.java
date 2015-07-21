@@ -27,6 +27,7 @@ public class SelectStartInventoryView extends View{
             + "\nD - Done"
             + "\n----------------------------------------------");
     }
+    
     @Override
     public boolean doAction(Object obj) {
         try {
@@ -35,19 +36,19 @@ public class SelectStartInventoryView extends View{
             char choice = value.charAt(0);
             
             switch (choice) {
-                case 'F': // create and start a new game
+                case 'F':
                     this.chooseStartingFood();
                     break;
-                case 'M': // get and start an existing game
+                case 'M':
                     this.chooseStartingMinerals();
                     break;
-                case 'H': // display the help menu
+                case 'H':
                     this.chooseStartingMedicine();
                     break;
-                case 'P': // create and start a new game
+                case 'P':
                     this.chooseStartingParts();
                     break;
-                case 'D': // Done
+                case 'D':
                     this.previousMenu();
                     break;
                 default:
@@ -62,7 +63,8 @@ public class SelectStartInventoryView extends View{
     }
 
         private void chooseStartingFood() {
-            // SelectStartFoodView
+            SelectStartFoodView foodView = new SelectStartFoodView();
+            foodView.display();
         }
 
         private void chooseStartingMinerals() {
@@ -77,8 +79,12 @@ public class SelectStartInventoryView extends View{
             // SelectStartPartsView
         }
 
+        private void chooseStartingFuel() {
+            // SelectStartPartsView
+        }
+
         private void previousMenu() {
-        NewGameMenuView newGameMenu = new NewGameMenuView();
-        newGameMenu.display();
+            NewGameMenuView newGameMenu = new NewGameMenuView();
+            newGameMenu.display();
         }
 }
