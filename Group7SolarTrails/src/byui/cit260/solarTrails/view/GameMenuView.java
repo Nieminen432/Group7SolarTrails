@@ -105,7 +105,7 @@ public class GameMenuView extends View{
            value = value.toUpperCase();
            
            // if the input is invalid (less than 3 character)
-           if (value.length() < 3) {
+           if (value.length() < 0) {
                ErrorView.display(this.getClass().getName(),
                        "Invalid path - Please try again.");
                continue; // and repeat again

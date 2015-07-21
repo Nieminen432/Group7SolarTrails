@@ -58,6 +58,11 @@ public class GameControl {
         
         Group7SolarTrails.setCurrentGame(game);
     }
+
+    public static InventoryItem[] getSortedInventoryList() {
+        return null;
+        
+    }
     
     public enum Item {
         food,
@@ -83,58 +88,4 @@ public class GameControl {
         game.setAlienObjects(ship);
     }
 
-    /*private static InventoryItem[] createInventoryList() {
-        InventoryItem[] inventory = new InventoryItem[5];
-        
-        InventoryItem food = new InventoryItem();
-        food.setDescription("Food");
-        food.setQuantity(0);
-        inventory[Item.food.ordinal()] = food;
-        
-        InventoryItem mineral = new InventoryItem();
-        mineral.setDescription("Mineral");
-        food.setQuantity(0);
-        inventory[Item.mineral.ordinal()] = mineral;
-        
-        InventoryItem parts = new InventoryItem();
-        parts.setDescription("Parts");
-        food.setQuantity(0);
-        inventory[Item.parts.ordinal()] = parts;
-        
-        InventoryItem medicine = new InventoryItem();
-        medicine.setDescription("Medicine");
-        food.setQuantity(0);
-        inventory[Item.medicine.ordinal()] = medicine;
-        
-        InventoryItem fuel = new InventoryItem();
-        fuel.setDescription("Fuel");
-        food.setQuantity(0);
-        inventory[Item.fuel.ordinal()] = fuel;
-        
-        return inventory;
-    }
-
-    public static InventoryItem[] getSortedInventoryList() {
-        InventoryItem[] originalInventoryList = 
-                Group7SolarTrails.getCurrentGame().getInventory();
-        
-        InventoryItem[] newInventoryList = doInsertionSort(originalInventoryList);
-        
-        return newInventoryList;
-    }
-    
-    //Sorting by quantity in inventory
-    public static InventoryItem[] doInsertionSort(InventoryItem[] input) {
-        InventoryItem temp;
-        for (int i = 1; i < input.length; i++) {
-            for(int j = i; j > 0; j--) {
-                if (input[j].getQuantity() < input[j-1].getQuantity()) {
-                    temp = input[j];
-                    input[j] = input[j-1];
-                    input[j-1] = temp;
-                }
-            }
-        }
-        return input;
-    }*/
 }

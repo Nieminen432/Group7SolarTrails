@@ -21,7 +21,6 @@ public class MapChooseDestinationView {
     protected final PrintWriter console = Group7SolarTrails.getOutFile();
 
     MapChooseDestinationView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getPromptMessage() {

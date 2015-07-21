@@ -5,6 +5,8 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.control.GameControl;
+import byui.cit260.solarTrails.exceptions.SceneException;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class BeginGame {
         this.promptMessage = promptMessage;
     }
     
-    public void display() {
+    public void display() throws SceneException {
         
         this.console.println("Prepare for lift-off in T minus 10!");
         try {
@@ -113,6 +115,7 @@ catch (Exception e) {}
         this.console.println("-----------------------------------------------------------------------------"
                         + "\n-------------------------  Press Enter to Continue  --------------------------"
                         + "\n------------------------------------------------------------------------------");
+        GameControl.createNewGame(null);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
         } catch (IOException e) {

@@ -77,4 +77,8 @@ public class InventoryItem implements Serializable{
         final InventoryItem other = (InventoryItem) obj;
         return Objects.equals(this.inventoryType, other.inventoryType);
     }
+
+    public String getQuantityInStock() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

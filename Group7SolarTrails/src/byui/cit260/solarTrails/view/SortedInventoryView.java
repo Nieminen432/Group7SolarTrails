@@ -5,7 +5,6 @@
  */
 package byui.cit260.solarTrails.view;
 
-import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.exceptions.GameControlException;
 import byui.cit260.solarTrails.model.InventoryItem;
 import group7solartrails.Group7SolarTrails;

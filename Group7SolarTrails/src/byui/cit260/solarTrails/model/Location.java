@@ -7,7 +7,6 @@ package byui.cit260.solarTrails.model;
 
 import java.io.Serializable;
 import byui.cit260.solarTrails.control.*;
-import java.util.Arrays;
 
 /**
  *

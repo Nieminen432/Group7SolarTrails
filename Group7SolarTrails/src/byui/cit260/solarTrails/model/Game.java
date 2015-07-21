@@ -7,7 +7,6 @@ package byui.cit260.solarTrails.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import byui.cit260.solarTrails.model.Location;
 
 /**
  *

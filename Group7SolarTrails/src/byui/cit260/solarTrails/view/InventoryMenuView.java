@@ -5,6 +5,8 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.control.GameControl;
+import byui.cit260.solarTrails.model.InventoryItem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -55,14 +57,14 @@ public class InventoryMenuView extends View{
     // Display current inventory
 
     private void chooseViewInventory() {
-        //InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
         this.console.println("\nList of Inventory Items");
         this.console.println("\nDescription" + "\t" +
                 "In Stock");
-        //for (InventoryItem inventoryItem : inventory) {
-        //    this.console.println(inventoryItem.getInventoryType() + "\t   "
-        //            + inventoryItem.getQuantityInStock());
-        //}
+        for (InventoryItem inventoryItem : inventory) {
+            this.console.println(inventoryItem.getInventoryType() + "\t   "
+                  + inventoryItem.getQuantityInStock());
+        }
     }
 
     private void choosePrintInventory() {
