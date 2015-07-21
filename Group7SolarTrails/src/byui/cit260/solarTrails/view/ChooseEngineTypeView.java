@@ -76,7 +76,9 @@ public class ChooseEngineTypeView extends View{
         // Select SmallShipType
         try {
             this.console.println("You have selected the Combustion Engine.");
+            this.console.println("Press Enter to Continue.");
             Engine engine = new Engine();
+            engine.setDescription("Combustion Engine");
             engine.setFuelConsumption(1);
             engine.setMaxSpeed(5);
             Group7SolarTrails.setEngine(engine);
@@ -92,7 +94,9 @@ public class ChooseEngineTypeView extends View{
         // Select MediumShipType
         try {
             this.console.println("You have selected the Impulse Engine.");
+            this.console.println("Press Enter to Continue.");
             Engine engine = new Engine();
+            engine.setDescription("Impulse Engine");
             engine.setFuelConsumption(2);
             engine.setMaxSpeed(10);
             Group7SolarTrails.setEngine(engine);
@@ -108,9 +112,10 @@ public class ChooseEngineTypeView extends View{
     private void chooseSolarSail() {
         // Select Solar Sail
         try {
-            this.console.println("You have selected the Impulse Engine.");
+            this.console.println("You have selected the Solar Sails.");
             this.console.println("Press Enter to Continue.");
             Engine engine = new Engine();
+            engine.setDescription("Solar Sail");
             engine.setFuelConsumption(3);
             engine.setMaxSpeed(15);
             Group7SolarTrails.setEngine(engine);

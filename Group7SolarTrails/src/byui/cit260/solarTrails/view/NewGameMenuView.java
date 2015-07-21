@@ -5,6 +5,13 @@
  */
 package byui.cit260.solarTrails.view;
 
+import group7solartrails.Group7SolarTrails;
+import static group7solartrails.Group7SolarTrails.getEngine;
+import static group7solartrails.Group7SolarTrails.getShip;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author Hiatt-Adam
@@ -20,6 +27,8 @@ public class NewGameMenuView extends View{
         + "\nS - Choose your ship"
         + "\nC - Choose your crew members, their names, and their specializations"
         + "\nI - Choose your starting inventory (food, medicine, minerals)"
+        + "\nH - View the Help Menu"
+        + "\nD - Display your current selections"
         + "\nM - Return to the main menu"
         + "\nP - Select P when you are ready to play!"
         + "\n-----------------------------------");
@@ -40,11 +49,17 @@ public class NewGameMenuView extends View{
             case 'I': // choose how much food you will start with
                 this.chooseStartingInventory();
                 break;
-            case 'M': // back to the main menu
+            case 'M': // Back to the Main Menu
                 this.chooseMainMenu();
                 break;                
             case 'P': // Begin the game
                 this.choosePlayGame();
+                break;
+            case 'H': // Display Help Menu
+                this.chooseHelpMenu();
+                break;
+            case 'D': // Display current selections
+                this.displayStats();
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
@@ -70,10 +85,45 @@ public class NewGameMenuView extends View{
         SelectStartInventoryView selectStartInv = new SelectStartInventoryView();
         selectStartInv.display();
     }
+    
+    private void chooseHelpMenu() {
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.display();
+    }
 
+    private void displayStats() {
+        this.console.println("\nYour current ship selections are:"
+                            + "\nShip Type: " + getShip().getDescription()
+                            + "\nInventory Allowed: " + getShip().getMaxInventory()
+                            + "\nMax Crew: " + getShip().getMaxCrew()
+                            + "\nCrew On Board: " + getShip().getNoCrew()
+                            + "\nEngine Type: " + getEngine().getDescription()
+                            
+                            //+ "\n" + getEngine()
+        );
+        this.console.println("\n\nYour crew and research specs are:");
+        
+        try {
+        this.console.println("\n------------------------"
+                           + "\nPress Enter to continue.");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
+                
+        } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+    
     private void choosePlayGame() {
         // starts a new game
     }
-}
+
+    private String getCrew() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
+} 
     
 

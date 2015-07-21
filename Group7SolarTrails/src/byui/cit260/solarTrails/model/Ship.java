@@ -31,14 +31,6 @@ public class Ship implements Serializable {
         this.noCrew = 0;
     }
 
-    public int getMaxWeight() {
-        return maxInventory;
-    }
-
-    public void setMaxWeight(int maxWeight) {
-        this.maxInventory = maxWeight;
-    }
-
     public int getAmountLoaded() {
         return amountLoaded;
     }

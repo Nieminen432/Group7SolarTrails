@@ -12,6 +12,15 @@ import java.io.Serializable;
  * @author Joseph
  */
 public class Engine implements Serializable {
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     private int maxSpeed;
     private int fuelConsumption;
 
@@ -51,7 +60,7 @@ public class Engine implements Serializable {
 
     @Override
     public String toString() {
-        return "Engine{" + "maxSpeed=" + maxSpeed + ", fuelConsumption=" + fuelConsumption + '}';
+        return "Engine{" + "description" + description + "maxSpeed=" + maxSpeed + ", fuelConsumption=" + fuelConsumption + '}';
     }
 
     @Override

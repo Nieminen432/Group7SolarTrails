@@ -7,7 +7,6 @@ package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.model.Game;
-import byui.cit260.solarTrails.model.InventoryItem;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.IOException;
