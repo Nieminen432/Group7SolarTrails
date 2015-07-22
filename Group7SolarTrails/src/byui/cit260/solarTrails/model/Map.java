@@ -29,7 +29,22 @@ public class Map implements Serializable{
         Uranus,
         Neptune,
         Pluto;
+        
     }
+    
+    public class PlanetDist {
+        public static final double Mercury = 2815.79;
+        public static final double Venus = 5390.23;
+        public static final double Earth = 7481.96;
+        public static final double Mars = 11424.07;
+        public static final double Jupiter = 38938.37;
+        public static final double Saturn = 71521.09;
+        public static final double Uranus = 14407.59;
+        public static final double Neptune = 255263.28;
+        public static final double Pluto = 295255.70;
+    }
+    
+    
     private boolean[] visited = new boolean[9];
     private int[][] distances = new int[9][9];
 

@@ -26,7 +26,17 @@ public class Group7SolarTrails {
     private static Ship ship = null;
     public static Engine engine = null;
     public static ScientistSpecialization scienceSpec = null;
+    public static Location location = null;
 
+    public static Location getLocation() {
+        return location;
+    }
+
+    public static void setLocation(Location location) {
+        Group7SolarTrails.location = location;
+    }
+
+    
     public static ScientistSpecialization getScienceSpec() {
         return scienceSpec;
     }

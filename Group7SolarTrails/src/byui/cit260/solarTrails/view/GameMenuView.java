@@ -125,10 +125,14 @@ public class GameMenuView extends View{
     }
 
     private void chooseMap() {
-        Game game = Group7SolarTrails.getCurrentGame();
+        MapChooseDestinationView mapView = new MapChooseDestinationView();
+        mapView.display();
+        
+        /* Game game = Group7SolarTrails.getCurrentGame();
         
         int location = game.getLocation();
         this.console.println(location);
+                */
     }
 
     private void chooseInventory() {

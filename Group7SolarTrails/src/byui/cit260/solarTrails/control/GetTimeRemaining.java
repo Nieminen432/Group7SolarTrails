@@ -6,12 +6,14 @@
 package byui.cit260.solarTrails.control;
 
 import byui.cit260.solarTrails.exceptions.GetTimeRemainingException;
+import byui.cit260.solarTrails.model.Map;
 
 /**
  *
  * @author Hiatt-Adam
  */
 public class GetTimeRemaining {
+    
     
     public double timeToUranus(double speed, double distance) 
             throws GetTimeRemainingException {

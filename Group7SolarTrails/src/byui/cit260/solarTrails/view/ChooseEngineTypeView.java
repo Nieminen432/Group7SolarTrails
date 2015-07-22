@@ -80,7 +80,7 @@ public class ChooseEngineTypeView extends View{
             Engine engine = new Engine();
             engine.setDescription("Combustion Engine");
             engine.setFuelConsumption(1);
-            engine.setMaxSpeed(5);
+            engine.setMaxSpeed(8);
             Group7SolarTrails.setEngine(engine);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String s = br.readLine();

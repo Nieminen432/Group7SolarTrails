@@ -7,6 +7,7 @@ package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.exceptions.SceneException;
+import byui.cit260.solarTrails.model.Location;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +39,13 @@ public class BeginGame {
         this.promptMessage = promptMessage;
     }
     
+    
+    
     public void display() throws SceneException {
+        Location location = new Location();
+        location.setCurrentLocation(2);
+        location.setCurrentLoc("Earth");
+        Group7SolarTrails.setLocation(location);
         
         this.console.println("Prepare for lift-off in T minus 10!");
         try {
@@ -110,7 +117,7 @@ catch (Exception e) {}
             Thread.sleep(5000L);    // one second
 }
 catch (Exception e) {}
-        try {
+            try {
         this.console.println("Your spaceship blasts off and in short order, you have left the Earth behind.");
         this.console.println("-----------------------------------------------------------------------------"
                         + "\n-------------------------  Press Enter to Continue  --------------------------"
@@ -118,7 +125,7 @@ catch (Exception e) {}
         GameControl.createNewGame(null);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
-        } catch (IOException e) {
+            } catch (IOException e) {
         e.printStackTrace();
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
