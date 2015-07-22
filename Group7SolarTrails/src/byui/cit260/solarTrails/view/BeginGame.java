@@ -50,88 +50,83 @@ public class BeginGame {
         this.console.println("Prepare for lift-off in T minus 10!");
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("9...");
-    try {
+        try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("8...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("7...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("6...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("5...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("4...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("3...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("2...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("1...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("0...");
         
         try {
             Thread.sleep(1000L);    // one second
-}
-catch (Exception e) {}
+        }
+        catch (Exception e) {}
         this.console.println("And we have lift-off!!");
         
         try {
-            Thread.sleep(5000L);    // one second
-}
-catch (Exception e) {}
-            try {
-        this.console.println("Your spaceship blasts off and in short order, you have left the Earth behind.");
-        this.console.println("-----------------------------------------------------------------------------"
-                        + "\n-------------------------  Press Enter to Continue  --------------------------"
-                        + "\n------------------------------------------------------------------------------");
-        GameControl.createNewGame(null);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-            } catch (IOException e) {
-        e.printStackTrace();
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+            Thread.sleep(1000L);    // one second
         }
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
-}
-    
+        catch (Exception e) {}
+        try {
+            this.console.println("Your spaceship blasts off and in short order, you have left the Earth behind.");
+            this.console.println("-----------------------------------------------------------------------------"
+                            + "\n-------------------------  Press Enter to Continue  --------------------------"
+                            + "\n------------------------------------------------------------------------------");
+            GameControl.createNewGame(null);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

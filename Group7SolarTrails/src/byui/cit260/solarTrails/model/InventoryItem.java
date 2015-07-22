@@ -56,7 +56,7 @@ public class InventoryItem implements Serializable{
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "inventoryType=" + inventoryType;
+        return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantity=" + quantity + ", description=" + description + '}';
     }
 
     @Override

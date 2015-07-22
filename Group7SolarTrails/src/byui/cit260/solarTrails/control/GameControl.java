@@ -7,6 +7,7 @@ package byui.cit260.solarTrails.control;
 
 import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.exceptions.*;
+import byui.cit260.solarTrails.view.GameMenuView;
 import group7solartrails.Group7SolarTrails;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -87,5 +89,31 @@ public class GameControl {
         AlienObjects alienObject = new AlienObjects();
         game.setAlienObjects(ship);
     }
-
+    
+    
+    
+    public static void startNewGame(Group7SolarTrails game) {
+        boolean playing = true;
+        int days = 0;
+        Random rand = new Random();
+        while (playing) {
+            try {
+                Thread.sleep(300L);    // one second
+            }
+            catch (Exception e) {}
+            System.out.println("Day " + days);
+            
+            int chance = rand.nextInt(30);
+            if (chance % 9 == 0) {
+                System.out.println("You have exploded!!!!!!"
+                                + "\nHave a nice day");
+                System.exit(0);
+            }
+            
+            days++;
+            if (days == 365) {
+                playing = false;
+            }
+        }
+    }
 }

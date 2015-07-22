@@ -5,6 +5,7 @@
  */
 package byui.cit260.solarTrails.view;
 
+import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.exceptions.SceneException;
 import group7solartrails.Group7SolarTrails;
 import java.io.BufferedReader;
@@ -55,8 +56,13 @@ public class NewGameMenuView extends View{
             case 'M': // Back to the Main Menu
                 this.chooseMainMenu();
                 break;                
-            case 'P': // Begin the game
-                this.choosePlayGame();
+            case 'P': 
+                try {
+                    // Begin the game
+                    this.choosePlayGame();
+                } catch (SceneException ex) {
+                    Logger.getLogger(NewGameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             case 'H': // Display Help Menu
                 this.chooseHelpMenu();
@@ -116,15 +122,15 @@ public class NewGameMenuView extends View{
         try {
         this.console.println("\n------------------------"
                            + "\nPress Enter to continue.");
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                String s = br.readLine();
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String s = br.readLine();
                 
         } catch (IOException e) {
                 e.printStackTrace();
             }
     }
     
-    private void choosePlayGame() {
+    private void choosePlayGame() throws SceneException {
         // starts a new game
         try {
             BeginGame beginNewGame = new BeginGame();
@@ -132,8 +138,11 @@ public class NewGameMenuView extends View{
         } catch (SceneException ex) {
             Logger.getLogger(NewGameMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+        Group7SolarTrails obj = new Group7SolarTrails();
+        GameControl gControl = new GameControl();
+        gControl.startNewGame(obj);
+        //GameMenuView gameMenuView = new GameMenuView();
+        //gameMenuView.display();
     }
 
     
