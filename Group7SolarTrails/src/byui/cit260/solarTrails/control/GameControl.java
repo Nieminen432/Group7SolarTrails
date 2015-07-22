@@ -9,14 +9,19 @@ import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.exceptions.*;
 import byui.cit260.solarTrails.view.GameMenuView;
 import group7solartrails.Group7SolarTrails;
+import java.awt.event.KeyListener;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -96,18 +101,52 @@ public class GameControl {
         boolean playing = true;
         int days = 0;
         Random rand = new Random();
+        int foodIndex = 0;
+        int medsIndex = 0;
+        int minIndex = 0;
+        int partsIndex = 0;
         while (playing) {
             try {
                 Thread.sleep(300L);    // one second
             }
             catch (Exception e) {}
-            System.out.println("Day " + days);
+            for (int i = 0; i < game.inventory.size(); i++) {
+                if (game.inventory.get(i).getInventoryType() == 1) {
+                    foodIndex = i;
+                } else if (game.inventory.get(i).getInventoryType() == 2) {
+                    medsIndex = i;
+                } else if (game.inventory.get(i).getInventoryType() == 3) {
+                    minIndex = i;
+                } else if (game.inventory.get(i).getInventoryType() == 4) {
+                    partsIndex = i;
+                }
+            }
+            int currentFuel = game.getShip().getFuelRemaining();
+            int currentFood = game.inventory.get(foodIndex).getQuantity();
+            
+            System.out.println("\n\nDay " + days);
+            System.out.println("food left " + currentFood);
+            System.out.println("Fuel left " + currentFuel);
+            
+            currentFuel -= (9 * game.getShip().getSize());
+            game.getShip().setFuelRemaining(currentFuel);
+            
+            currentFood -= (9 * game.getShip().getNoCrew());
+            game.inventory.get(foodIndex).setQuantity(currentFood);
+            
+            if (days % 10 == 0) {
+                System.out.println("Do you want to open the game menu? (Y or N)");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                try {
+                    String s = br.readLine();
+                } catch (IOException ex) {
+                    Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
             
             int chance = rand.nextInt(30);
             if (chance % 9 == 0) {
-                System.out.println("You have exploded!!!!!!"
-                                + "\nHave a nice day");
-                System.exit(0);
+                System.out.println("A random thing happened!");
             }
             
             days++;
