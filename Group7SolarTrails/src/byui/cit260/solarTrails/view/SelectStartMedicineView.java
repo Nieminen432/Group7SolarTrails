@@ -86,25 +86,38 @@ public class SelectStartMedicineView extends View{
         double amountLoaded = Group7SolarTrails.getShip().getAmountLoaded();
         double maxInventory = Group7SolarTrails.getShip().getMaxInventory();
         double storageRemaining = maxInventory - amountLoaded;
+        boolean isInitiated = false;
+        int index = 40;
         int currentAmount = 0;
-        //if this item is already in stock, get that quantity.
-        for (InventoryItem inventory : Group7SolarTrails.inventory) {
-            if (inventory.getInventoryType() == 2) {
-                currentAmount = inventory.getQuantity();
-                break;
-            }
-        }
+        int newAmountLoaded = 0;
         //if there's room
         if (storageRemaining >= quantity) {
-            //add inventory item, initialize type, quantity, and name.
-            Group7SolarTrails.inventory.add(new InventoryItem(2, quantity, "Medicine"));
-            //set amount loaded
-            int newAmountLoaded = (int) (quantity + amountLoaded - currentAmount);
-            Group7SolarTrails.getShip().setAmountLoaded(newAmountLoaded);
-            amountLoaded = newAmountLoaded;
+            //if this item is already in stock, get that quantity.
+            for (int i = 0; i < Group7SolarTrails.inventory.size(); i++) {
+                if (Group7SolarTrails.inventory.get(i).getInventoryType() == 2) {
+                    currentAmount = Group7SolarTrails.inventory.get(i).getQuantity();
+                    isInitiated = true;
+                    index = i;
+                    break;
+                }
+            }
+            if (!isInitiated) {
+                //add inventory item, initialize type, quantity, and name.
+                Group7SolarTrails.inventory.add(new InventoryItem(2, quantity, "Medicine"));
+                //set amount loaded
+                newAmountLoaded = (int) (quantity + amountLoaded);
+                Group7SolarTrails.getShip().setAmountLoaded(newAmountLoaded);
+                amountLoaded = newAmountLoaded;
+            } else {
+                Group7SolarTrails.inventory.get(index).setQuantity(quantity);
+                //set amount loaded
+                newAmountLoaded = (int) ((quantity - currentAmount) + amountLoaded);
+                Group7SolarTrails.getShip().setAmountLoaded(newAmountLoaded);
+                amountLoaded = newAmountLoaded;
+            }
             try {
                 this.console.println("You have selected " + (int) (percent*10) + " percent Medicine.");
-                this.console.println((int) (100 - amountLoaded / maxInventory * 100) + "% remaining.");
+                this.console.println((int) (100 - (amountLoaded / maxInventory * 100)) + "% remaining.");
                 this.console.println("------------ Press enter to continue ------------");
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 String s = br.readLine();
