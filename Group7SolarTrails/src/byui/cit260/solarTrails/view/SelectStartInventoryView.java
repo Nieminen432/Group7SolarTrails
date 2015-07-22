@@ -62,31 +62,31 @@ public class SelectStartInventoryView extends View{
         return false;
     }
 
-        private void chooseStartingFood() {
-            SelectStartFoodView foodView = new SelectStartFoodView();
-            foodView.display();
-        }
+    private void chooseStartingFood() {
+        SelectStartFoodView foodView = new SelectStartFoodView();
+        foodView.display();
+    }
 
-        private void chooseStartingMinerals() {
-            // SelectStartMineralsView
-            SelectStartMineralsView mineralsView = new SelectStartMineralsView();
-            mineralsView.display();
-        }
+    private void chooseStartingMinerals() {
+        // SelectStartMineralsView
+        SelectStartMineralsView mineralsView = new SelectStartMineralsView();
+        mineralsView.display();
+    }
 
-        private void chooseStartingMedicine() {
-            // SelectStartMedicineView
-            SelectStartMedicineView medicineView = new SelectStartMedicineView();
-            medicineView.display();
-        }
+    private void chooseStartingMedicine() {
+        // SelectStartMedicineView
+        SelectStartMedicineView medicineView = new SelectStartMedicineView();
+        medicineView.display();
+    }
 
-        private void chooseStartingParts() {
-            // SelectStartPartsView
-            SelectStartPartsView partsView = new SelectStartPartsView();
-            partsView.display();
-        }
+    private void chooseStartingParts() {
+        // SelectStartPartsView
+        SelectStartPartsView partsView = new SelectStartPartsView();
+        partsView.display();
+    }
 
-        private void previousMenu() {
-            NewGameMenuView newGameMenu = new NewGameMenuView();
-            newGameMenu.display();
-        }
+    private void previousMenu() {
+        NewGameMenuView newGameMenu = new NewGameMenuView();
+        newGameMenu.display();
+    }
 }

@@ -21,15 +21,15 @@ public class SelectStartMedicineView extends View{
             + "\n-----------------------------------"
             + "\n | Select starting medicine"
             + "\n-----------------------------------"
-            + "\n1 - 10% of your current cargo size."
-            + "\n2 - 20% of your current cargo size."
-            + "\n3 - 30% of your current cargo size."
-            + "\n4 - 40% of your current cargo size."
-            + "\n5 - 50% of your current cargo size."
-            + "\n6 - 60% of your current cargo size."
-            + "\n7 - 70% of your current cargo size."
-            + "\n8 - 80% of your current cargo size."
-            + "\n9 - 90% of your current cargo size."
+            + "\n1 - 10% of your ship's cargo size."
+            + "\n2 - 20% of your ship's cargo size."
+            + "\n3 - 30% of your ship's cargo size."
+            + "\n4 - 40% of your ship's cargo size."
+            + "\n5 - 50% of your ship's cargo size."
+            + "\n6 - 60% of your ship's cargo size."
+            + "\n7 - 70% of your ship's cargo size."
+            + "\n8 - 80% of your ship's cargo size."
+            + "\n9 - 90% of your ship's cargo size."
             + "\nR - Reset choice."
             + "\nD - Done"
             + "\n-----------------------------------");
@@ -83,17 +83,49 @@ public class SelectStartMedicineView extends View{
 
     private void choosePercent(double percent) {
         int quantity = (int) (percent*0.1*Group7SolarTrails.getShip().getMaxInventory());
-        System.out.println(quantity);
-        Group7SolarTrails.inventory.add(new InventoryItem(2, quantity, "Medicine"));
-        try {
-        this.console.println("You have selected " + percent*10 + "percent medicine.");
-        this.console.println("------------- Press enter to continue ------------");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
-        SelectStartInventoryView selectStartInv = new SelectStartInventoryView();
-        selectStartInv.display();
-        } catch (IOException e) {
-            e.printStackTrace();
+        double amountLoaded = Group7SolarTrails.getShip().getAmountLoaded();
+        double maxInventory = Group7SolarTrails.getShip().getMaxInventory();
+        double storageRemaining = maxInventory - amountLoaded;
+        int currentAmount = 0;
+        //if this item is already in stock, get that quantity.
+        for (InventoryItem inventory : Group7SolarTrails.inventory) {
+            if (inventory.getInventoryType() == 2) {
+                currentAmount = inventory.getQuantity();
+                break;
+            }
+        }
+        //if there's room
+        if (storageRemaining >= quantity) {
+            //add inventory item, initialize type, quantity, and name.
+            Group7SolarTrails.inventory.add(new InventoryItem(2, quantity, "Medicine"));
+            //set amount loaded
+            int newAmountLoaded = (int) (quantity + amountLoaded - currentAmount);
+            Group7SolarTrails.getShip().setAmountLoaded(newAmountLoaded);
+            amountLoaded = newAmountLoaded;
+            try {
+                this.console.println("You have selected " + (int) (percent*10) + " percent Medicine.");
+                this.console.println((int) (100 - amountLoaded / maxInventory * 100) + "% remaining.");
+                this.console.println("------------ Press enter to continue ------------");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
+                SelectStartInventoryView selectStartInv = new SelectStartInventoryView();
+                selectStartInv.display();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            //if theres not enough room
+            try {
+                // give error and start over
+                this.console.println("You don't have enough room to select that quantity.");
+                this.console.println("You only have " + (int) (100 - amountLoaded / maxInventory * 100) + "% remaining");
+                this.console.println("\n\nPress enter to retry");
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String s = br.readLine();
+                this.display();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
