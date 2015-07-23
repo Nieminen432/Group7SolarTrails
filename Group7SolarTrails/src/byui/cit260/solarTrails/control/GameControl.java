@@ -89,7 +89,21 @@ public class GameControl {
         inventoryList = Group7SolarTrails.inventory;
         
         Ship ship = new Ship();
-        game.setShip(ship);
+        game.getShip();
+        
+        Engine engine = new Engine();
+        game.setEngine(engine);
+
+        game.getCurrentScore();
+        game.getNoPeople();
+        game.getMap();
+        game.getEngine();
+        game.getFuel();
+        game.getCrew();
+        game.getMedicine();
+        game.getMinerals();
+        game.getParts();
+        game.getSynthesizedItems();
         
         AlienObjects alienObject = new AlienObjects();
         game.setAlienObjects(ship);
@@ -142,6 +156,7 @@ public class GameControl {
                 } catch (IOException ex) {
                     Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
             }
             
             int chance = rand.nextInt(30);

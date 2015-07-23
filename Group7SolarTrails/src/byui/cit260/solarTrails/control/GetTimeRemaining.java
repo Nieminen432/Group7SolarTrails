@@ -7,6 +7,8 @@ package byui.cit260.solarTrails.control;
 
 import byui.cit260.solarTrails.exceptions.GetTimeRemainingException;
 import byui.cit260.solarTrails.model.Map;
+import group7solartrails.Group7SolarTrails;
+import static java.lang.Math.abs;
 
 /**
  *
@@ -32,7 +34,8 @@ public class GetTimeRemaining {
             throw new GetTimeRemainingException("Cannot have negative distance.");
         }
         
-    double timeToUranus = ((distance * 12429.9)/ (speed * 12429.9))/24;
+    double timeToUranus = abs(Map.PlanetDist.Mercury - Group7SolarTrails.getLocation().getCurrentLocation());
+            
     
     return timeToUranus;
             

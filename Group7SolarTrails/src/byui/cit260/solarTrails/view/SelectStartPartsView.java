@@ -19,7 +19,7 @@ public class SelectStartPartsView extends View{
     public SelectStartPartsView() {
         super("\n"
             + "\n-----------------------------------"
-            + "\n | Select starting food"
+            + "\n | Select starting parts"
             + "\n-----------------------------------"
             + "\n1 - 10% of your ship's cargo size."
             + "\n2 - 20% of your ship's cargo size."

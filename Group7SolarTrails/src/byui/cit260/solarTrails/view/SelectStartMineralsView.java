@@ -19,7 +19,7 @@ public class SelectStartMineralsView extends View{
    public SelectStartMineralsView() {
         super("\n"
             + "\n-----------------------------------"
-            + "\n | Select starting food"
+            + "\n | Select starting minerals"
             + "\n-----------------------------------"
             + "\n1 - 10% of your ship's cargo size."
             + "\n2 - 20% of your ship's cargo size."

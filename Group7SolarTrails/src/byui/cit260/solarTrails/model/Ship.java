@@ -20,8 +20,12 @@ public class Ship implements Serializable {
     private int noCrew;
     private int fuelTank;
     private int fuelRemaining;
+    private int maxShipDurability;
+    private int currentShipDurability;
+
     private String description;
     private Engine engine;
+    
 
     public Ship() {
         this.description = "";
@@ -33,8 +37,25 @@ public class Ship implements Serializable {
         this.noCrew = 0;
         this.fuelTank = 30000;
         this.fuelRemaining = 30000;
+        this.currentShipDurability = 100;
+        this.maxShipDurability = 100;
     }
     
+    public int getMaxShipDurability() {
+        return maxShipDurability;
+    }
+
+    public void setMaxShipDurability(int maxShipDurability) {
+        this.maxShipDurability = maxShipDurability;
+    }
+
+    public int getCurrentShipDurability() {
+        return currentShipDurability;
+    }
+
+    public void setCurrentShipDurability(int currentShipDurability) {
+        this.currentShipDurability = currentShipDurability;
+    }
     public int getFuelTank() {
         return fuelTank;
     }
@@ -116,7 +137,8 @@ public class Ship implements Serializable {
                     + "\nDescription = " + description
                     + "\nEngine= " + engine + '}'
                     + "\nAmount of fuel allowed = " + fuelTank
-                    + "\nFuel Remaining = " + fuelRemaining;
+                    + "\nFuel Remaining = " + fuelRemaining
+                    + "\nShip Durability = " + currentShipDurability + " of " + maxShipDurability;
     }
 
     @Override
@@ -128,6 +150,8 @@ public class Ship implements Serializable {
         hash = 17 * hash + this.noCrew;
         hash = 17 * hash + this.fuelTank;
         hash = 17 * hash + this.fuelRemaining;
+        hash = 17 * hash + this.currentShipDurability;
+        hash = 17 * hash + this.maxShipDurability;
         hash = 17 * hash + Objects.hashCode(this.description);
         hash = 17 * hash + Objects.hashCode(this.engine);
         return hash;
@@ -158,6 +182,12 @@ public class Ship implements Serializable {
             return false;
         }
         if (this.fuelRemaining != other.fuelRemaining) {
+            return false;
+        }
+        if (this.currentShipDurability != other.currentShipDurability){
+            return false;
+        }
+        if (this.maxShipDurability != other.maxShipDurability){
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {

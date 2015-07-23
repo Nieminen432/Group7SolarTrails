@@ -25,6 +25,78 @@ public class Game implements Serializable{
     private InventoryItem[] inventory;
     private Ship ship;
     private Map map;
+    private Engine engine;
+    private Fuel fuel;
+    private Crew Crew;
+    private AlienObjects alienObejcts;
+    private Medicine medicine;
+    private Minerals minerals;
+    private Parts parts;
+    private SynthesizedItems synthesizedItems;
+
+    public Fuel getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(Fuel fuel) {
+        this.fuel = fuel;
+    }
+
+    public Crew getCrew() {
+        return Crew;
+    }
+
+    public void setCrew(Crew Crew) {
+        this.Crew = Crew;
+    }
+
+    public AlienObjects getAlienObejcts() {
+        return alienObejcts;
+    }
+
+    public void setAlienObejcts(AlienObjects alienObejcts) {
+        this.alienObejcts = alienObejcts;
+    }
+
+    public Medicine getMedicine() {
+        return medicine;
+    }
+
+    public void setMedicine(Medicine medicine) {
+        this.medicine = medicine;
+    }
+
+    public Minerals getMinerals() {
+        return minerals;
+    }
+
+    public void setMinerals(Minerals minerals) {
+        this.minerals = minerals;
+    }
+
+    public Parts getParts() {
+        return parts;
+    }
+
+    public void setParts(Parts parts) {
+        this.parts = parts;
+    }
+
+    public SynthesizedItems getSynthesizedItems() {
+        return synthesizedItems;
+    }
+
+    public void setSynthesizedItems(SynthesizedItems synthesizedItems) {
+        this.synthesizedItems = synthesizedItems;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
     private int location = 0;
 
     public Player getPlayer() {

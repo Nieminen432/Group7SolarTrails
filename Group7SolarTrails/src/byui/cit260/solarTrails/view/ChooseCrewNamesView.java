@@ -51,6 +51,8 @@ public class ChooseCrewNamesView  {
     
     private void addName(String name, int index) {
         crewList.get(index).setName(name);
+        crewList.get(index).setHealth(100);
+        Group7SolarTrails.setCrew(index);
     }
     
     public String pickName(int crewMember) {

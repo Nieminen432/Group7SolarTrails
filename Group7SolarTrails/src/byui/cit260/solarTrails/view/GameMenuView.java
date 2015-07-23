@@ -7,10 +7,13 @@ package byui.cit260.solarTrails.view;
 
 import byui.cit260.solarTrails.control.GameControl;
 import byui.cit260.solarTrails.model.Game;
+import byui.cit260.solarTrails.model.Map;
 import group7solartrails.Group7SolarTrails;
+import static group7solartrails.Group7SolarTrails.crewList;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import static java.lang.Math.abs;
 
 /**
  *
@@ -19,6 +22,7 @@ import java.io.InputStreamReader;
 public class GameMenuView extends View{
 
     public GameMenuView() {
+        
        super("\n"
             + "\n---------------------------------------"
             + "\n | Game Menu Options"
@@ -36,7 +40,9 @@ public class GameMenuView extends View{
             + "\nE - Exit the game."
             + "\n-----------------------------------");
     }
-
+    public double distance = 0;
+    public double travelTime = 0;
+    
         public boolean doAction(Object obj) {
         String value = (String) obj;
         value = value.toUpperCase();
@@ -90,7 +96,7 @@ public class GameMenuView extends View{
     }
         
        @Override
-        public String getInput() {
+       public String getInput() {
        boolean valid = false; // indicates if the input has been retrieved
        String value = null;
        
@@ -121,18 +127,21 @@ public class GameMenuView extends View{
 }
 
     private void chooseStatusReport() {
+        
         // Choose Status Report
+            distance = abs(Map.PlanetDist.Mercury - Group7SolarTrails.getLocation().getCurrentLocation());
+            travelTime = ((distance/Group7SolarTrails.getEngine().getMaxSpeed())/24);
+        this.console.println("The current status of your ship is:");
+        this.console.println("Your ship is at " + Group7SolarTrails.getShip().getCurrentShipDurability() +
+                " of " + Group7SolarTrails.getShip().getMaxShipDurability() + " durability");
+        this.console.println("You are currently " + distance + "merdian from Mercury.");
+        this.console.println("This is approximately " + travelTime + "days remaining.");
+        this.console.println("Your crews health status is " + Group7SolarTrails.crewList);
     }
 
     private void chooseMap() {
         MapChooseDestinationView mapView = new MapChooseDestinationView();
         mapView.display();
-        
-        /* Game game = Group7SolarTrails.getCurrentGame();
-        
-        int location = game.getLocation();
-        this.console.println(location);
-                */
     }
 
     private void chooseInventory() {

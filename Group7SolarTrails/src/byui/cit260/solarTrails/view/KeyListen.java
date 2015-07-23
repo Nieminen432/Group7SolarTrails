@@ -9,6 +9,6 @@ package byui.cit260.solarTrails.view;
  *
  * @author Hiatt-Adam
  */
-public class GameMapMenuView {
+public class KeyListen {
     
 }

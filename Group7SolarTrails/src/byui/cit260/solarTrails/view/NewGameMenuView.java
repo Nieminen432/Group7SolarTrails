@@ -141,8 +141,7 @@ public class NewGameMenuView extends View{
         Group7SolarTrails obj = new Group7SolarTrails();
         GameControl gControl = new GameControl();
         gControl.startNewGame(obj);
-        //GameMenuView gameMenuView = new GameMenuView();
-        //gameMenuView.display();
+
     }
 
     

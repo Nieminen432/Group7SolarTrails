@@ -84,8 +84,8 @@ public class Group7SolarTrails {
         return inFile;
     }
 
-    public List getCrewList() {
-        return crewList;
+    public List getCrewList(ArrayList crewList) {
+        return crewList = crewList;
     }
 
     public void setCrewList(ArrayList crewList) {
@@ -128,7 +128,6 @@ public class Group7SolarTrails {
     }
     
     public static void setCrew(int maxCrew) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
             
