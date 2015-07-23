@@ -14,13 +14,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import static java.lang.Math.abs;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Hiatt-Adam
  */
 public class GameMenuView extends View{
-
+        GameMenuView gameMenuView;
+        
     public GameMenuView() {
         
        super("\n"
@@ -39,6 +42,7 @@ public class GameMenuView extends View{
             + "\nD - Go Back to the previous menu"
             + "\nE - Exit the game."
             + "\n-----------------------------------");
+
     }
     public double distance = 0;
     public double travelTime = 0;
@@ -87,7 +91,7 @@ public class GameMenuView extends View{
                 this.console.println("\n*** Invalid selection *** "
                                    + "\nPrease enter to try again");
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = br.readLine();
+                String s = br.readLine();
         } catch (IOException e) {
         e.printStackTrace();
         }
@@ -193,8 +197,12 @@ public class GameMenuView extends View{
     }
 
     private void previousMenu() {
-        // Choose Previous Menu or Go back to game
-        return;
+            try {
+                // Choose Previous Menu or Go back to game
+                gameMenuView.keyboard.close();
+            } catch (IOException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
 }
