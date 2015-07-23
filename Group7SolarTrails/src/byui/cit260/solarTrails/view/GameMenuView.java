@@ -180,10 +180,21 @@ public class GameMenuView extends View{
 
     private void chooseLoad() {
         // Choose Load
+        this.console.println("\n\nEnter the file path for the file where the game "
+                            + "is to be loaded from.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.loadGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void previousMenu() {
         // Choose Previous Menu or Go back to game
+        return;
     }
 
 }

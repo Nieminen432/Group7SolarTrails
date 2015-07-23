@@ -7,6 +7,7 @@ package byui.cit260.solarTrails.control;
 
 import byui.cit260.solarTrails.model.*;
 import byui.cit260.solarTrails.exceptions.*;
+import byui.cit260.solarTrails.view.ErrorView;
 import byui.cit260.solarTrails.view.GameMenuView;
 import group7solartrails.Group7SolarTrails;
 import java.awt.event.KeyListener;
@@ -68,6 +69,15 @@ public class GameControl {
 
     public static InventoryItem[] getSortedInventoryList() {
         return null;
+        
+    }
+
+    private static void chooseYes() {
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
+    }
+
+    private static void chooseNo() {
         
     }
     
@@ -151,8 +161,25 @@ public class GameControl {
             if (days % 10 == 0) {
                 System.out.println("Do you want to open the game menu? (Y or N)");
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                
                 try {
-                    String s = br.readLine();
+                    String getChoices = br.readLine();
+                    getChoices = getChoices.toUpperCase();
+                    char choice = getChoices.charAt(0);
+                        if (getChoices.length() > 1 || getChoices.length() < 1) {
+                            System.out.println("Invalid selection - please enter a menu item.");
+               continue; // and repeat again
+                    }
+                        
+        switch (choice) {
+            case 'Y': // create and start a new game
+                GameControl.chooseYes();
+                break;
+            case 'N': // get and start an existing game
+                GameControl.chooseNo();
+                break;
+                }
+                    
                 } catch (IOException ex) {
                     Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
